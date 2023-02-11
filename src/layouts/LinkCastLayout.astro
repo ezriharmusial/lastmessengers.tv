@@ -1,22 +1,11 @@
 ---
-	import { getCollection } from "astro:content"
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
     import BaseLayout from "@layouts/BaseLayout.astro"
-    // Example: Filter entries by sub-directory in the collection
-	const linkCasts = await getCollection('linkcasts');
-    // const englishDocsEntries = await getCollection('linkcasts', ({ id }) => {
-    // return id.startsWith('en/')
-    // });
-    // Get all entries from a collection. Requires the name of the collection as an argument.
-    // const linkCasts = await Astro.glob('../content/linkcasts/**/*.md');
-// Get a single entry from a collection. Requires the name of the collection and the entry's slug as arguments.
-// const oneBlogPost = await getEntryBySlug('blog', 'enterprise');
 
     export const frontmatter = Astro.props?.frontmatter
-// console.log(linkCasts)
 ---
 
 <BaseLayout frontmatter={frontmatter}>
     <slot />
-    <Linkcasts linkcasts={linkCasts} />
+    <Linkcasts/>
 </BaseLayout>

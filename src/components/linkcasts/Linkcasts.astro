@@ -8,7 +8,10 @@ import LinkcastHeader from "./LinkcastHeader.svelte";
 
 export let length = -1
 export let start = 0
-export const linkcasts = await getCollection('linkcasts');
+async function getLinkcasts() {
+	await getCollection('linkcasts');
+}
+export const linkcasts = getLinkcasts()
 ---
 <a class="card landscape:flex landscape:flex-row glass-surface" href={"/linkcasts/" + linkcasts[0]?.slug + "#header"}>
 	<header class="bg-black max-h-screen overflow-hidden overflow-y-auto">
