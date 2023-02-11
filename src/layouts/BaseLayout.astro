@@ -25,14 +25,14 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
     <!-- Site Meta & SEO -->
 	<SEO description{description || subtitle} {title} {image} />
     <!-- Fonts -->
     <Fonts />
 </head>
-<body data-theme="gold-nouveau" class="bg-white text-black dark:text-white dark:bg-black loaded ">
+<body data-theme="gold-nouveau" class="light:bg-white light:text-black dark:text-white dark:bg-black loaded ">
 	<slot name="extendedHead" />
 
 	<!-- Page Transition -->
@@ -43,24 +43,58 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
             <svelte:fragment slot="header">
                 <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token">
                 <svelte:fragment slot="lead">
-                    <a href="/">
-                        <span class="text-base md:text-3xl font-bold uppercase">Logo</span>
-                    </a>
+                <a class="flex flex-shrink items-center text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 mt-2 lg:mt-0 mr-1 " href="/">
+					<figure class="image transition-all duration-500 m-0 p-0 w-10 xs:w-8 lg:w-14 xl:w-16 {$player.track?.alignImage == 'right'  ? 'ml-1 md:ml-2 -scale-x-100' : 'mr-1 md:mr-2'}">
+						<img class="lazy drop-shadow-2xl" src="/images/red-black-purple-gold-with-sun.svg" alt="LastMessengers Home"/>
+					</figure>
+					<h1 class="transition-colors duration-500 text-xl font-bold leading-4 md:text-2xl md:leading-5 lg:text-3xl xl:text-4xl lg:leading-7 xl:leading-9 drop-shadow-2xl text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100">
+						Last<br />
+						MessengerS
+					</h1>
+				</a>
                 </svelte:fragment>
 
                 <Search {data} client:load />
 
                 <svelte:fragment slot="trail">
-                    <div class="flex items-center space-x-6">
-                        <Header title={SITE_TITLE} />
-                        <a href="/components/app-bar">
-                            <svg class="svg-inline--fa fa-image text-xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48z"></path></svg><!-- <i class="fa-solid fa-image text-xl"></i> Font Awesome fontawesome.com -->
-                            Link
-                        </a>
-                        <a>
-                        <LightSwitch client:load />
-                        </a>
-                    </div>
+					<ul class="navbar-nav xs:flex-col md:flex pl-0 list-style-none font-semibold text-xl mr-auto" >
+                        <!-- {pageList && pageList.map(page => (
+                            <li class="nav-item p-4 md:pl-8 pr-8">
+                                <a href={"/" + page.slug} >
+                                    <span class="flex-auto">
+                                    {page.data.title}
+                                    </span>
+                                </a>
+                            </li>
+                        ))} -->
+
+						<li class="nav-item p-4 md:pl-8 pr-8">
+							<a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/unity-album-2022">Unity Album 2022</a>
+						</li>
+						<li class="nav-item p-4 pr-8">
+							<a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/newscasts">Newscasts</a>
+						</li>
+						<li class="nav-item p-4 pr-8">
+							<a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/artists">Artists</a>
+						</li>
+						<li class="nav-item p-4 pr-8">
+							<a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/about">About us</a>
+						</li>
+						<li class="nav-item p-4">
+							<a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/contact">Contact</a>
+						</li>
+
+                        <li class="nav-item p-4 md:pl-8 pr-8">
+                            <a href="/components/app-bar">
+                                <svg class="svg-inline--fa fa-image text-xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48z"></path></svg><!-- <i class="fa-solid fa-image text-xl"></i> Font Awesome fontawesome.com -->
+                                Link
+                            </a>
+                        </li>
+
+                        <li class="nav-item p-4 md:pl-8 pr-8">
+                            <LightSwitch client:load />
+                        </li>
+                    </ul>
                 </svelte:fragment>
                 </AppBar>
             </svelte:fragment>
@@ -116,3 +150,13 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
 	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" client:load></script>
 </body>
 </html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>

@@ -29,6 +29,7 @@
 		"astro-purgecss": "^2.0.0",
 		"astro-useragent": "^2.0.0",
 		"astro-webmanifest": "^0.4.3",
+		"embedgenerator": "^1.0.0",
 		"fuse.js": "^6.6.2",
 		"sass": "^1.57.1",
 		"sharp": "^0.31.3",

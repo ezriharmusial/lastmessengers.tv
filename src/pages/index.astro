@@ -1,39 +1,264 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Avatar } from '@skeletonlabs/skeleton';
+
+	const openGraph = {
+	basic: {
+		title: "LastMessengerS Project Website",
+		type: "music",
+		image: "https://picsum.photos/seed/home/1920/1080/",
+		url: "https://localhost:3000/"
+	},
+	optional: {
+		description: "Description for the homepage",
+		locale: 'en-us',
+		siteName: "LastMessengerS Music"
+	},
+	image: {
+		alt: "Alt for the homepage image"
+	}
+	}
 ---
 
-<BaseLayout>
-	  	<div class="container mx-auto p-8 space-y-8">
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+<BaseLayout {openGraph}>
+<div class="bg-gradient-to-br from-slate-900 to-slate-600 w-screen min-h-screen md:p-28 p-6 pt-24">
+
+	<h1 class="my-6">Last Messages</h1>
+
+	<div class="snap-x gap-6 flex justify-start gap-6">
+		<a class="snap-center card glass-warning overflow-hidden w-96" href="https://www.skeleton.dev/">
+			<!-- Header -->
+			<header>
+				<img src="https://source.unsplash.com/random/1280x540?launch" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+			</header>
+			<!-- Body -->
+			<div class="p-4 space-y-4">
+				<h6 class="text-primary-500">Announcements</h6>
+				<h3>CUBANA~ARTKIDS® '22 - TALENT SHOWCASE</h3>
+				<article>
+					<p>
+						Cubana Lounge and ArtKids® Holland welcome you to our very first Cubana~Artkids® Talent showcase; happening on the 17th of Dec. 2022 @Cubana Lounge Owerri.
+					</p>
+				</article>
+			</div>
+			<hr />
+			<!-- Footer -->
+			<footer class="p-4 flex justify-start items-center space-x-4">
+				<Avatar src="/images/red-black-purple-gold-with-sun.svg" />
+				<div class="flex-auto flex justify-between items-center">
+					<h6 class="font-bold">By LastMessengerS</h6>
+					<small>On {new Date().toLocaleDateString()}</small>
+				</div>
+			</footer>
+		</a>
+		<a class="snap-center card glass-warning overflow-hidden w-96" href="https://www.skeleton.dev/">
+			<!-- Header -->
+			<header>
+				<img src="https://source.unsplash.com/random/1280x540?stageperformance" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+			</header>
+			<!-- Body -->
+			<div class="p-4 space-y-4">
+				<h6 class="text-primary-500">Track Release</h6>
+				<h3>Rise 'n' Shine Track Release on all Major Platforms</h3>
+				<article>
+					<p>
+						Our debut Track Rise 'N' Shine by Africa4Africa group will release the 11th of November 2022 on all major Streaming Platforms. Keep Posted!
+					</p>
+				</article>
+			</div>
+			<hr />
+			<!-- Footer -->
+			<footer class="p-4 flex justify-start items-center space-x-4">
+				<Avatar src="/images/red-black-purple-gold-with-sun.svg" />
+				<div class="flex-auto flex justify-between items-center">
+					<h6 class="font-bold">By LastMessengerS</h6>
+					<small>On {new Date().toLocaleDateString()}</small>
+				</div>
+			</footer>
+		</a>
+		<a class="snap-center card glass-warning overflow-hidden w-96" href="https://www.skeleton.dev/">
+			<!-- Header -->
+			<header>
+				<img src="https://source.unsplash.com/random/1280x540?videoclip" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+			</header>
+			<!-- Body -->
+			<div class="p-4 space-y-4">
+				<h6 class="text-primary-500">Album Release</h6>
+				<h3>Africa4Africa - Unity Album 2022 Launch</h3>
+				<article>
+					<p>
+						Granted, so many important messages are begging to be delivered to the public but our modern artists have deviated from the main goal of music=Revelations, Prophecies and Truths.
+
+					</p>
+					<p>
+						LastMessengerS are restoring one of the ancient music values~TRUTH, by packaging messages as enjoyable songs targeting the curious ears of the general public.
+					</p>
+				</article>
+			</div>
+			<hr />
+			<!-- Footer -->
+			<footer class="p-4 flex justify-start items-center space-x-4">
+				<Avatar src="/images/red-black-purple-gold-with-sun.svg" />
+				<div class="flex-auto flex justify-between items-center">
+					<h6 class="font-bold">By LastMessengerS</h6>
+					<small>On {new Date().toLocaleDateString()}</small>
+				</div>
+			</footer>
+		</a>
+	</div>
+</div>
+
+<div class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-24 px-10 overflow-hidden relative">
+    <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+		<img src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="">
+        <div class="md:flex items-center -mx-10">
+            <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                <div class="relative">
+                    <img src="/uploads/posts/cubana-artkids-2022.jpg" class="w-full relative z-10" alt="">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 px-10">
+                <div class="mb-10">
+                    <h2 class="font-bold uppercase text-2xl mb-5">CUBANA~ARTKIDS® '22</h2>
+					<dl class="text-xl mb">
+						<b>Event:</b> Talent Showcase<br/>
+						<b>Venue:</b> Cubana Lounge Owerri<br/>
+						<b>Date:</b> 17 DEC. 2022<br />
+						<b>Time:</b> 8:00 PM<br/>
+					</dl>
+                    <p class="text-xl mb-5">Cubana Lounge and ArtKids® Holland welcome you to our very first Cubana~Artkids® Talent showcase; happening on the 17th of Dec. 2022 @Cubana Lounge Owerri.  <!--a href="#" class="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE <i class="mdi mdi-arrow-right"></i></a--></p>
+					<p class="text-xl mb-5">
+					The following Artists will perform LIVE:
+					</p>
+					<ol class="mb-5 text-lg">
+						<li>
+							01. Thinking Faculty TF - O'laga Port
+							Genre: Langwabeat
+						</li>
+
+						<li>
+							02. WhitneyZinny - Captured My Heart
+							Genre: R&B
+						</li>
+
+						<li>
+							03. Wizron - Ego
+							Genre: Afrobeat
+						</li>
+
+						<li>
+							04. Favour Lee - Sere Ft. Maya Skyler
+							Genre: Afrobeat
+						</li>
+
+						<li>
+							05. Maya Skyler - Falling for You
+							Genre: R&B
+						</li>
+
+						<li>
+							06. Chuzzykeys - Cradle
+							Genre: Afrobeat
+						</li>
+
+						<li>
+							07. Skillful Kennis SK - Anya-Anwu
+							Genre: Hip Hop
+						</li>
+
+						<li>
+							08. ZehkEzehk - LoveTonic
+							Genre: AfroR&B
+						</li>
+					</ol>
+					<p class="pt-5 text-xl">
+					<b>Be there!</b>
+					</p>
+
+                </div>
+                <!-- <div>
+                    <div class="inline-block align-bottom mr-5">
+                        <span class="text-2xl leading-none align-baseline">$</span>
+                        <span class="font-bold text-5xl leading-none align-baseline">59</span>
+                        <span class="text-2xl leading-none align-baseline">.99</span>
+                    </div>
+                    <div class="inline-block align-bottom">
+                        <button class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="relative landscape:flex landscape:flex-row-reverse">
+	<img class="lazy water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
+	<div class="relative landscape:w-1/2 portrait:min-h-full landscape:h-screen flex-col justify-end align-middle text-center mt-20">
+		<img class="lazy water absolute left-0 top-0 w-screen h-screen portrait:h-full landscape:hidden" alt="Backtround" src="/images/webp/background.webp" />
+		<figure class="h-1/4">
+			<p class="text-3xl title p-4 marker">
+				LastMessengerS Present
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
+			<img class="lazy pt-5 w-5/6 mx-auto" src="/images/webp/africa4africa.webp" alt="Africa4Africa" />
+		</figure>
+		<figure class="h-1/4">
+			<img class="lazy w-2/3 landscape:pt-20 mx-auto" src="/images/webp/rise-n-shine.webp" alt="Rise-n-Shine" />
+		<p class="p-4 font-semibold text-xl">
+			Our debut Track Rise 'N' Shine by Africa4Africa group will release the 11th of November 2022 on all major Streaming Platforms. Keep Posted!
+		</p>
+		</figure>
+		<figure class="h-1/4">
+			<img class="lazy w-11/12 mx-auto" src="/images/webp/artists.webp" alt="Artists group" />
+		</figure>
+		<!-- <img class="lazy w-max" alt="Red Soil" src="/images/red-soil.jpg" /> -->
+		<figure class="h-1/4">
+			<img class="lazy w-11/12 mx-auto" alt="Official Release 11/11/2022 on Soundcloud, Apple Music, YouTube Musuc, Spotify & Audiomack" src="/images/webp/release.webp" />
+		</figure>
+	</div>
+
+	<div class="landscape:w-1/2 landscape:h-screen landscape:p-10 landscape:mt-32 drop-shadow-md">
+		<div class="content bg-black/20 text-white text-2xl rounded">
+			<div class="aspect-w-16 aspect-h-9 mb-4">
+				<iframe class="lazy" width="100%" height="100%" loading="lazy" src="https://www.youtube.com/embed/esWgldLXXZI" title="Africa4Africa - Rise 'n' (Shine Official videoclip) YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+			</div>
+			<h3 class="title marker text-4xl p-4 mt-10">
+				Rise 'n' Shine Video Release!
+			</h3>
+			<p class="p-4">
+				Africa4Africa - Rise 'N' Shine is a wake-up call for Africans to resurrect from their age-long backwardness and dependency on foreigners.
 			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+			<p class="p-4">
+				The singers urged Africans to pay adequate attention to the deceivers who are out to fool them again.
 			</p>
 		</div>
+	</div>
+</header>
+
+
+<section class="mb-10 background-radial-gradient pt-20">
+	<div class="px-6 py-12 md:px-12 text-center lg:text-left">
+		<div class="grid lg:grid-cols-2 gap-12 flex items-center">
+			<div class="mt-12 lg:mt-0">
+				<h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12" style="color: hsl(218, 81%, 95%);">Africa4Africa <br /><span style="color: hsl(218, 81%, 75%);">Unity Album 2022</span></h1>
+				<a class="inline-block px-7 py-3 mr-2 bg-gray-200 text-gray-700 font-track text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="/unity-album-2022/rise-n-shine" role="button">Play Album</a>
+				<a class="inline-block px-7 py-3 bg-transparent text-white font-track text-sm leading-snug uppercase rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="/unity-album-2022/#more" role="button">Learn more</a>
+			</div>
+			<div class="mb-12 lg:mb-0">
+				<!-- <img src="{unityAlbum.image || '/uploads/albumcovers/happysunofyah.jpg'}" class="lazy w-full rounded-lg shadow-lg" alt="Album cover for {unityAlbum.title}" /> -->
+			</div>
+		</div>
+	</div>
+</section>
+<div class="m-10 text-3xl">
+	<p>
+		LastMessengerS Music is connecting Musical Talents, Managers, Promoters, Marketers and ICT/Media professionals together so as to reach the world with vital messages.
+	</p>
+	<p>
+		Granted, so many important messages are begging to be delivered to the public but our modern artists have deviated from the main goal of music=Revelations, Prophecies and Truths.
+	</p>
+	<p>
+		LastMessengerS are restoring one of the ancient music values~TRUTH, by packaging messages as enjoyable songs targeting the curious ears of the general public.
+	</p>
+</div>
+
 </BaseLayout>

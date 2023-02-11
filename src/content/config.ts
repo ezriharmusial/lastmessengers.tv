@@ -30,4 +30,15 @@ const pages = defineCollection({
     })
 });
 
-export const collections = {pages, blog };
+const linkcasts = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        image: z.string().optional(),
+        imageRatio: z.string().optional(),
+        date: z.date().optional(),
+        url: z.string().optional(),
+        color: z.string().optional(),
+    })
+});
+export const collections = {pages, blog, linkcasts };
