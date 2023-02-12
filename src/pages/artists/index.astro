@@ -41,7 +41,7 @@ const openGraph = {
 		{artistAndTrack.map((artist) => (
 		<div class:list={["relative overflow-hidden bg-slate-900/20 transition-transform duration-700 ease-in-out hover:scale-110 hover:z-10 rounded"]} data-mdb-ripple="true" data-mdb-ripple-color="light">
 			<div class="max-w-xs mt-5 ml-auto right-0">
-			<Image width={480} aspectRatio={2/1} src={artist.data.image} alt={"Profile Picture of " + artist.data.title} />
+			<Image width={320} aspectRatio={1/1} src={artist.data.image} alt={"Profile Picture of " + artist.data.title} />
 			</div>
 			<div class="absolute z-10 top-0 right-0 bottom-0 left-0 p-5 w-full h-full overflow-hidden bg-fixed bg-black/20 hover:bg-transparent flex flex-col justify-end font-shadow">
 				<h2 class:list={

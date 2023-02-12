@@ -20,7 +20,7 @@
 
 </script>
 
-<label class="input-label w-96">
+<label class="input-label max-w-4/5 my-4">
     <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
         <div class="input-group-shim">
             <svg class="w-4 h-4 svg-inline--fa fa-magnifying-glass" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
