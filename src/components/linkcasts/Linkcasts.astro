@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import {Avatar} from "@skeletonlabs/skeleton"
 
 import { getLinkcastType } from "@lib/embeds"
@@ -8,10 +7,8 @@ import LinkcastHeader from "./LinkcastHeader.svelte";
 
 export let length = -1
 export let start = 0
-async function getLinkcasts() {
-	await getCollection('linkcasts');
-}
-export const linkcasts = getLinkcasts()
+
+export const linkcasts = []
 ---
 <a class="card landscape:flex landscape:flex-row glass-surface" href={"/linkcasts/" + linkcasts[0]?.slug + "#header"}>
 	<header class="bg-black max-h-screen overflow-hidden overflow-y-auto">

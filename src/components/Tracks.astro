@@ -1,9 +1,10 @@
 ---
 	import { Image } from "@astrojs/image/components";
 
-	const tracks = await Astro.glob('../pages/unity-album-2022/*/index.md');
+	const tracks = await Astro.glob('../pages/unity-album-2022/*.md');
     const artists = await Astro.glob('../pages/artists/**/index.md');
-	const sortedTracks = tracks.sort((a, b) => {
+
+	const sortedTracks = tracks.filter(track => track.file != 'index.md').sort((a, b) => {
 		let aOrder = a.frontmatter.order
 		let bOrder = b.frontmatter.order
 

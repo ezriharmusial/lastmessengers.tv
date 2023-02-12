@@ -2,10 +2,10 @@
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
     import BaseLayout from "@layouts/BaseLayout.astro"
 
-    export const frontmatter = Astro.props?.frontmatter
+    export let linkcasts
 ---
 
-<BaseLayout frontmatter={frontmatter}>
+<BaseLayout>
     <slot />
-    <Linkcasts/>
+    <Linkcasts linkcasts={linkcasts}/>
 </BaseLayout>
