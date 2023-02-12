@@ -41,4 +41,40 @@ const linkcasts = defineCollection({
         color: z.string().optional(),
     })
 });
-export const collections = {pages, blog, linkcasts };
+
+const artists = defineCollection({
+    schema: z.object({
+        active: z.boolean().default(true),
+        title: z.string(),
+        twitter: z.string().optional(),
+        instagram: z.string().optional(),
+        facebook: z.string().optional(),
+        audiomack: z.string().optional(),
+        meaning: z.string().optional(),
+        image: z.string().optional(),
+        name: z.string().optional(),
+        sex: z.string().optional(),
+        genres: z.array(z.string()).optional(),
+        languages: z.array(z.string()).optional(),
+        experience: z.string().optional(),
+        profession: z.array(z.string()).optional(),
+        vocal_type: z.array(z.string()).optional(),
+        vocal_skills: z.array(z.string()).optional(),
+        performance_setup: z.array(z.string()).optional(),
+        vision: z.string().optional(),
+        mission: z.string().optional(),
+        reason: z.string().optional(),
+        wishes: z.string().optional(),
+        motivation: z.string().optional(),
+        inspiration: z.string().optional(),
+        youth_influences: z.string().optional(),
+        influential_artists: z.string().optional(),
+        purpose: z.string().optional(),
+        solution: z.string().optional(),
+        success: z.string().optional(),
+        discography: z.string().optional(),
+        actions: z.string().optional(),
+    })
+});
+
+export const collections = {pages, blog, linkcasts, artists };

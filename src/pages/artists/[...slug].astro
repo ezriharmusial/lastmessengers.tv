@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEntryBySlug } from 'astro:content';
+import ArtistInfo from "../../components/artists/ArtistInfo.astro";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const artists = await getCollection('artists');
+	return artists.map(artist => ({
+		params: { slug: artist.slug }, props: { artist },
+	}));
+}
+
+let artists = getStaticPaths();
+const { slug } = Astro.params;
+const artist = await getEntryBySlug('artists', slug);
+const { Content } = await artist?.render()
+console.log('slug', slug, artist)
+---
+
+<BaseLayout >
+	<article class="flex align-items-stretch landscape:h-full landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right pt-28">
+		<ArtistInfo artist={artist} />
+		<Content />
+	</article>
+</BaseLayout>

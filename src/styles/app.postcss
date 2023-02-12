@@ -1,5 +1,6 @@
 /* Write your global styles here, in PostCSS syntax */
 
+html, body { @apply h-full overflow-hidden; }
 
 html,
 body {
@@ -13,11 +14,8 @@ body {
   /* height:calc(var(--vh, 1vh) * 100) */
 }
 
-h1.title,
-h2.title,
-h3.title,
-marker {
-  font-family: "Permanent Marker"
+.marker {
+  font-family: "Permanent Marker" !important;
 }
 
 .firebase-emulator-warning {

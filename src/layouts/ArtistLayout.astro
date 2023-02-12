@@ -1,0 +1,54 @@
+---
+import ArtistInfo from "../components/artists/ArtistInfo.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+export let artist
+const siteUrl = import.meta.env.SITE.substring(0, import.meta.env.SITE.length -1)
+
+// TypeScript interface of openGraph prop
+interface openGraph {
+	basic: {
+		title: string;
+		type: string;
+		image: string;
+		url: string;
+	},
+	optional?: {
+		audio?: string;
+		description?: string;
+		determiner?: string;
+		locale?: string;
+		localeAlternate?: Array<string>;
+		siteName?: string;
+		video?: string;
+	},
+	image?: {
+		alt?: string;
+	}
+}
+
+// const openGraph:openGraph = {
+// 	basic: {
+// 		title: frontmatter.title + "'s Artist Profile",
+// 		type: "music",
+// 		image: siteUrl + (frontmatter.featuredImage || frontmatter.image),
+// 		url: "https://localhost:3000/"
+// 	},
+// 	optional: {
+// 		description: frontmatter.description,
+// 		locale: 'en-us',
+// 		siteName: "LastMessengerS Music"
+// 	},
+// 	image: {
+// 		alt: frontmatter.featuredImageAlt
+// 	}
+// }
+console.log('Artistlayout', artist)
+---
+
+<BaseLayout >
+	<article class="flex align-items-stretch landscape:h-full landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right pt-28">
+		<ArtistInfo artist={artist} />
+		<slot />
+	</article>
+</BaseLayout>

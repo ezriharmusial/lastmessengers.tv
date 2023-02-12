@@ -1,20 +1,21 @@
 ---
+	import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "@astrojs/image/components";
 
 /** @type {Promise<{frontmatter: {datePublished: string; postTitle: string; seoMetaDescription: string; }file: string;}[]>} */
-const artists = await Astro.glob('./**/index.md');
+const artists = await getCollection('artists');
 const tracks = await Astro.glob('../unity-album-2022/**/index.md');
-const activeArtists = artists.filter(artist => artist.frontmatter.active)
+const activeArtists = artists.filter(artist => artist.data.active)
 const artistAndTrack = activeArtists.map(artist => mapTrack(artist))
 
 function mapTrack(artist) {
-	const track = tracks.filter(track => track.frontmatter.title == artist.frontmatter.discography)[0]
-	artist.frontmatter.track = {...track}
+	const track = tracks.filter(track => track.frontmatter.title == artist.data.discography)[0]
+	artist.data.track = {...track}
 	return artist
 }
 
-const siteUrl = import.meta.env.SITE.substring(0, import.meta.env.SITE.length -1)
+const siteUrl = import.meta.env.SITE
 
 const openGraph = {
 	basic: {
@@ -42,22 +43,22 @@ const openGraph = {
 		{artistAndTrack.map((artist) => (
 		<div class:list={["relative overflow-hidden bg-slate-900/20 transition-transform duration-700 ease-in-out hover:scale-110 hover:z-10 rounded"]} data-mdb-ripple="true" data-mdb-ripple-color="light">
 			<div class="max-w-xs mt-5 ml-auto right-0">
-			<Image width={480} aspectRatio={2/1} src={siteUrl + artist.frontmatter.image} alt={"Profile Picture of " + artist.frontmatter.title} />
+			<Image width={480} aspectRatio={2/1} src={siteUrl + artist.data.image} alt={"Profile Picture of " + artist.data.title} />
 			</div>
 			<div class="absolute z-10 top-0 right-0 bottom-0 left-0 p-5 w-full h-full overflow-hidden bg-fixed bg-black/20 hover:bg-transparent flex flex-col justify-end font-shadow">
 				<h2 class:list={
 					[
 						"title text-yellow-400 uppercase portrait:text-3xl landscape:xs:text-sm landscape:sm:text-md landscape:md:text-lg landscape:lg:text-xl landscape:xl:text-2xl text-shadow",
 					]}>
-					{artist.frontmatter.title}
+					{artist.data.title}
 				</h2>
 
 				<h3 class="subtitle uppercase portrait:text-xl landscape:xs:text-sm landscape:sm:text-md landscape:md:text-lg landscape:lg:text-xl landscape:xl:text-2xl">
-					{artist.frontmatter.name != 'unknown' && "A.K.A: " + artist.frontmatter.name}
+					{artist.data.name != 'unknown' && "A.K.A: " + artist.data.name}
 				</h3>
 			</div>
-			{artist.url &&
-			<a class="z-20 absolute top-0 left-0 w-full h-full" href={artist.url}>
+			{artist.slug &&
+			<a class="z-20 absolute top-0 left-0 w-full h-full" href={"/artists/" + artist.slug}>
 			</a>}
 		</div>
 		))}

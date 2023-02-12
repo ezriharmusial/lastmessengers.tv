@@ -28,7 +28,7 @@ import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'http://localhost:5173',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
   }), mdx(), sitemap(), svelte(), tailwind(), critters(), deadLinks(),webmanifest(

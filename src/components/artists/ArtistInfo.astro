@@ -1,0 +1,250 @@
+---
+import { Icon } from 'astro-icon'
+// import { player } from "$lib/mediaplayer";
+// import { media } from "$lib/stores/data";
+import Artist from "./Artist.astro";
+// import Share from "./sharing/Share.svelte";
+
+const artist = await Astro.props?.artist
+
+let media = {media: []}
+let player = {track: ""}
+function sentenceArray(array:[], word:string = 'and'){
+    let sentence
+
+    if (!array || !array.length)
+    return
+
+    if (array.length == 1)
+    return array[0]
+
+    for (let index = 0; index < array.length; index++) {
+        if (index + 1 == array.length)
+        sentence = sentence ? sentence + ' ' + word + ' ' + array[index] : array[index];
+        else
+        sentence = sentence ? sentence + ', ' + array[index] : array[index]
+
+    }
+    return sentence
+}
+
+---
+
+<article class="flex align-items-stretch landscape:h-full landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right"></article>
+    <div class={"landscape:w-72 shrink-0 portrait:h-1/2" + player.track?.bgColor + "text-left h-screen overflow-y-auto pt-28"}>
+        <header>
+            <Artist artist={artist} />
+        </header>
+        <blockquote class="text-2xl italic bold p-4" cite={"https://lastmessengers.artkidsfoundation.org/artists/" + artist?.slug}>
+            {media.media.find(track =>  track.artist == artist?.data.title)?.quote || ""}
+        </blockquote>
+        <footer class="light:bg-white/60 dark:bg-black/60 text-xl font-bold">
+            <h3 class="p-4">Follow {artist?.data.title} on:</h3>
+            <div class="flex flex-col">
+                {artist?.data.twitter &&
+                    <a class="button has-text-twitter px-3 py-1 m-0 w-11/12" href={"https://twitter.com/" + artist?.data.twitter} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Twitter page"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                <Icon pack="fa" name="twitter" />
+                            </span>
+                            @{artist?.data.twitter}
+                        </div>
+                    </a>
+                }
+                {artist?.data.instagram &&
+                    <a class="button has-text-instagram px-3 py-1 m-0 w-11/12" href={"https://www.instagram.com/" + artist?.data.instagram} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Instagram page"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                <Icon pack="fa" name="instagram" />
+                            </span>
+                            @{artist?.data.instagram}
+                        </div>
+                    </a>
+                }
+                {artist?.data.tiktok &&
+                    <a class="button has-text-tiktok px-3 py-1 m-0 w-11/12" href={"https://www.tiktok.com/" + artist?.data.tiktok} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s TikTok Handle"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                    <Icon pack="fa" name="tiktok" />
+                            </span>
+                            @{artist?.data.tiktok}
+                        </div>
+                    </a>
+                }
+                {artist?.data.vskit &&
+                    <a class="button has-text-vskit px-3 py-1 m-0 w-11/12" href={"https://www.vskit.tv/" + artist?.data.vskit} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s VSKit Handle"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                <Icon pack="fa" name="vskit" />
+
+                            </span>
+                            @{artist?.data.vskit}
+                        </div>
+                    </a>
+                }
+                {artist?.data.youtube &&
+                    <a class="button has-text-youtube px-3 py-1 m-0 w-11/12" href={"https://www.youtube.com/channel/" + artist?.data.youtube} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Youtube page"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                    <Icon pack="fa" name="youtube" />
+                            </span>
+                            {artist?.data.title} on Youtube
+                        </div>
+                    </a>
+                }
+                {artist?.data.facebook &&
+                    <a class="button has-text-facebook px-3 py-1 m-0 w-11/12" href={"https://www.facebook.com/" + artist?.data.facebook} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Facebook page"}>
+                        <div class="flex align-items-center">
+                            <span class="mr-4">
+                                    <Icon pack="fa" name="facebook-official" />
+                            </span>
+                            Facebook.com/{artist?.data.facebook}
+                        </div>
+                    </a>
+                }
+                {artist?.data.audiomack &&
+                    <a class="button has-text- px-3 py-1 m-0 w-11/12" href={"https://audiomack.com/" + artist?.data.audiomack} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Facebook page"}>
+                        <div class="flex align-middle">
+                            <span class="h-4 w-5 mr-4 translate-y-1 flex align-middle">
+                                <img src="/images/custom-icons/mark-orange-large.png" alt="Audiomack Logk" />
+                            </span>
+                            Audiomack.com/{artist?.data.audiomack}
+                        </div>
+                    </a>
+                }
+            </div>
+        </footer>
+    </div>
+
+    <div class="media-content grow-1 h-screen overflow-y-auto p-10 portrait:px-6 portrait:py-7 landscape:xs:pt-[60px] landscape:sm:pt-[80px] landscape:md:pt-[100px] landscape:lg:pt-[110px] landscape:xl:pt-[200px]">
+        <div class="content text-2xl landscape:lg:columns-2 landscape:xl:columns-3">
+            {artist?.data.title && artist?.data.meaning || artist?.data.active_region || artist?.data.genres && artist?.data.languages || artist?.data.experience &&
+                <h3 class="marker text-3xl">The Artist</h3>
+                <p>
+                    {artist?.data.name} is a music artist that records and performs under the name {artist?.data.title}.
+                    {artist?.data.meaning &&
+                        <span>{artist?.data.sex == "male" ? 'His' : 'Her'} artist name means {artist?.data.meaning}.</span>
+                    }
+                </p>
+                <p>
+                    {artist?.data.genres && artist?.data.languages &&
+                        <span>{artist?.data.title} makes music in {sentenceArray(artist?.data.genres)} in the languages {sentenceArray(artist?.data.languages)}.</span>
+                    }
+                </p>
+                <p>
+                    {artist?.data.experience &&
+                        <span>{artist?.data.sex == "male" ? 'His' : 'Her'} audience can expect {artist?.data.experience}.</span>
+                    }
+                </p>
+            }
+
+            {artist?.data.profession || artist?.data.vocal_type || artist?.data.vocal_skills || artist?.data.performance_setup &&
+                <h3 class="marker text-3xl">The Music</h3>
+                <p>
+                    {artist?.data.title} is active as {sentenceArray(artist?.data.profession)} of {artist?.data.sex == "male" ? 'his': 'her'} own songs
+                    {artist?.data.profession == 'featured artist' &&
+                    <span> and features in songs of other artists as well.</span>
+                }
+                {artist?.data.vocal_type &&
+                    <span>{artist?.data.sex == "male" ? 'His' : 'Her'} {artist?.data.vocal_type?.length > 1 ? 'voices are' : 'voice is'} {sentenceArray(artist?.data.vocal_type)}.</span>
+                }
+                which {artist?.data.sex == "male" ? 'he' : 'she'} performs
+                {artist?.data.vocal_skills &&
+                    <span> {sentenceArray(artist?.data.vocal_skills)}</span>
+                } with {sentenceArray(artist?.data.performance_setup, 'or')}.
+            </p>
+        }
+
+        {artist?.data.vision || artist?.data.mission &&
+            <h3 class="marker text-3xl">Vision & Mission</h3>
+            <p>
+                {artist?.data.vision &&
+                    <span>{artist?.data.sex == "male" ? 'His' : 'Her'} vision is {artist?.data.vision}.</span>
+                }
+                {artist?.data.mission &&
+                    <span>{artist?.data.sex == "male" ? 'His' : 'Her'} mission is {artist?.data.mission}.</span>
+                }
+            </p>
+        }
+
+        {artist?.data.wishes || artist?.data.reason &&
+            <h3 class="marker text-3xl">Motivations & Influences</h3>
+            <p>
+                {artist?.data.reason &&
+                    <span>{artist?.data.title} makes music {artist?.data.reason}.</span>
+                }
+                {artist?.data.wishes &&
+                    <span>{artist?.data.sex == "male" ? 'He' : 'She'} wishes everyone {artist?.data.wishes}.</span>
+                }
+            </p>
+        }
+
+        {artist?.data.motivation || artist?.data.inspiration &&
+            <p>
+                {artist?.data.motivation &&
+                    <span>What motivates {artist?.data.sex == "male" ? 'him' : 'her'} to create {artist?.data.sex == "male" ? 'his' : 'her'} music {artist?.data.motivation}.</span>
+                }
+                {artist?.data.inspiration &&
+                    <span>{artist?.data.sex == "male" ? 'He' : 'She'} finds inspiration {artist?.data.inspiration}.</span>
+                }
+            </p>
+        }
+
+        {artist?.data.youth_influences || artist?.data.influential_artists &&
+            <h3 class="marker text-3xl">Music & Life</h3>
+            <p>
+                {artist?.data.youth_influences &&
+                    <span>Growing up {artist?.data.sex == "male" ? 'his' : 'her'} main musical influences came from {artist?.data.youth_influences}.</span>
+                }
+                {artist?.data.influential_artists &&
+                    <span>{artist?.data.title} is influenced by popular artists like {artist?.data.influential_artists}.</span>
+                </p>
+            }
+        }
+
+        {artist?.data.purpose || artist?.data.society  &&
+            <h3 class="marker text-3xl">Society & Success</h3>
+            <p>
+                {artist?.data.purpose &&
+                    <span>The purpose of {artist?.data.sex == "male" ? 'his' : 'her'} work is to {artist?.data.purpose}</span>
+                }
+                {artist?.data.solution &&
+                    <span> and {artist?.data.sex == "male" ? 'he' : 'she'} is convinced {artist?.data.sex == "male" ? 'his' : 'her'} music affects societal issues {artist?.data.solution}.</span>
+                }
+            </p>
+        }
+
+        {artist?.data.success || artist?.data.actions || artist?.data.feedback &&
+            <p>
+                {artist?.data.success &&
+                    <span>{artist?.data.title} defines success by {artist?.data.success}.</span>
+                }
+                {artist?.data.actions &&
+                    <span>{artist?.data.sex == "male" ? 'He' : 'She'} develops {artist?.data.sex == "male" ? 'his' : 'her'} skills by {artist?.data.actions}.</span>
+                }
+                {artist?.data.feedback &&
+                    <span>{artist?.data.sex == "male" ? 'He' : 'She'} embraces feedback from critics and music lovers because {artist?.data.feedback}.</span>
+                }
+            </p>
+        }
+
+        <h3 class="marker text-3xl">{artist?.data.sex == "male" ? 'His-' : 'Her-s'}tory</h3>
+        <p>
+            <slot />
+        </p>
+    </div>
+</div>
+</article>
+
+<style>
+    p {
+        padding-bottom: 1rem;
+    }
+
+    @media (orientation: landscape) {
+        .media-content {
+            mask-image: linear-gradient(175deg, transparent 5%, black 15%, black 85%, transparent 95%);
+        }
+    }
+
+</style>
