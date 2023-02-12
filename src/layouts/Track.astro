@@ -4,8 +4,6 @@ import Track from './track.svelte'
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from '@astrojs/image/components';
 
-const siteUrl = "https://localhost:3000"
-
 const { frontmatter } = Astro.props;
 
 const artists = await getCollection('artists')
@@ -40,7 +38,7 @@ const openGraph:openGraph = {
 	basic: {
 		title: "Listen to " + frontmatter.artist + " - " + frontmatter.title,
 		type: "music",
-		image: siteUrl + (frontmatter.featuredImage || frontmatter.image),
+		image: Astro.site + (frontmatter.featuredImage || frontmatter.image),
 		url: "https://localhost:3000/"
 	},
 	optional: {

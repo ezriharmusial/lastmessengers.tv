@@ -3,7 +3,6 @@ import ArtistInfo from "../components/artists/ArtistInfo.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 export let artist
-const siteUrl = import.meta.env.SITE.substring(0, import.meta.env.SITE.length -1)
 
 // TypeScript interface of openGraph prop
 interface openGraph {
@@ -31,7 +30,7 @@ interface openGraph {
 // 	basic: {
 // 		title: frontmatter.title + "'s Artist Profile",
 // 		type: "music",
-// 		image: siteUrl + (frontmatter.featuredImage || frontmatter.image),
+// 		image: Astro.site + (frontmatter.featuredImage || frontmatter.image),
 // 		url: "https://localhost:3000/"
 // 	},
 // 	optional: {
