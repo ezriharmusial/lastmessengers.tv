@@ -88,7 +88,7 @@ console.log('Artist:', artist, 'Featured', featuredArtists )
 			<div class="fixed bottom-0 left-0 portait:w-3/4 flex flex-row w-full">
 				featuredArtists.map(featuredArtist => {
 					<div class="portrait:w-3/4 sm:-ml-20 landscape:sm:w-1/4 lg:-ml-50" style="width: calc(100vw / {(featuredArtists.length * 0.5) + 1});" >
-						<Image width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of" + featuredartist?.data.title} src={featuredartist?.data.image} />
+						<Image width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist?.data.title} src={featuredartist?.data.image} />
 					</div>
 				})
 			</div>

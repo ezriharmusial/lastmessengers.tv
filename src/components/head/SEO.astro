@@ -25,7 +25,7 @@
 <meta property="og:description" content={description || "Welkom to EZ-ICT Soluition"}>
 <meta property="og:url" content={Astro.url.origin}>
 <meta property="og:type" content="website">
-<meta property="og:image" content={}>
+<meta property="og:image" content={Astro.url.origin + image}>
 <meta property="og:locale" content="en_EN">
 <meta property="og:site_name" content="EZ-ICT Soluition">
 <link rel="canonical" href={canonicalURL}>
@@ -40,7 +40,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="shortcut icon" type="image/png" href="/images/manifest/favicon-32x32.png" sizes="32x32" />
 
-<!-- <meta name="Description" content="{{ bloginfo('description') }}"> -->
+<!-- <meta name="Description" content={description}> -->
 <meta name="author" content="Stichting ArtKids Foundation">
 <!-- Viewport (iPhone 5 friendly) -->
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
