@@ -2,10 +2,9 @@
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
     import BaseLayout from "@layouts/BaseLayout.astro"
 
-    export let linkcasts
 ---
 
 <BaseLayout>
     <slot />
-    <Linkcasts linkcasts={linkcasts}/>
+    <Linkcasts />
 </BaseLayout>

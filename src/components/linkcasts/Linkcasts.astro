@@ -1,18 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
 import {Avatar} from "@skeletonlabs/skeleton"
 
 import { getLinkcastType } from "@lib/embeds"
 
 import LinkcastHeader from "./LinkcastHeader.svelte";
 
+async function getLinkcasts() {
+	return await getCollection('linkcasts')
+}
+
 export let length = -1
 export let start = 0
 
-export const linkcasts = []
+const linkcasts = await getLinkcasts()
 ---
-<a class="card landscape:flex landscape:flex-row glass-surface" href={"/linkcasts/" + linkcasts[0]?.slug + "#header"}>
+<a class="card landscape:flex landscape:flex-row glass-surface" href={"/newscasts/" + linkcasts[0]?.slug + "#header"}>
 	<header class="bg-black max-h-screen overflow-hidden overflow-y-auto">
-		<LinkcastHeader linkcast={linkcasts[0]} client:load/>
+		<LinkcastHeader linkcast={linkcasts[0]} client:load />
 	</header>
 	<!-- Body -->
 	<div class="flex-col">
@@ -22,7 +27,14 @@ export const linkcasts = []
 
 			<h3 class="font-black text-xl">{linkcasts[0]?.data.title}</h3>
 
-			<h4 class="font-medium">{linkcasts[0]?.data.subtitle && <span>{linkcasts[0]?.data.subtitle}</span>}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcasts[0]?.data.url)}</span></h4>
+			<h4 class="font-medium">
+				{linkcasts[0]?.data.subtitle &&
+					<span>{linkcasts[0]?.data.subtitle}</span>
+				}
+				<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">
+					{getLinkcastType(linkcasts[0]?.data.url)}
+				</span>
+			</h4>
 
 			<article class="unstyled text-2xl ">
 				{linkcasts[0]?.body}
@@ -51,42 +63,46 @@ export const linkcasts = []
 
 	<div class="landscape:grid landscape:grid-cols-2 landscape:sm:grid-cols-2 landscape:md:grid-cols-3 landscape:xl:grid-cols-4 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-6">
 
-		{linkcasts.map(linkcast =>
-			<a class="card glass-surface sm:max-w-sm portrait:mb-6" href={"/newscasts/" + linkcast.slug + "#header"}>
-				<header>
-					<LinkcastHeader {linkcast} client:load />
-				</header>
-				<!-- Body -->
-				<main class="p-4 space-y-4">
-					<h5 class="text-primary-500 font-semibold">{linkcast.data.category || 'News & Announcments'}</h5>
+		{linkcasts.map(linkcast => (
+		<a class="card glass-surface sm:max-w-sm portrait:mb-6" href={"/newscasts/" + linkcast.slug + "#header"}>
+			<header>
+				<LinkcastHeader linkcast={linkcast} client:load />
+			</header>
+			<main class="p-4 space-y-4">
+				<h5 class="text-primary-500 font-semibold">{linkcast.data.category || 'News & Announcments'}</h5>
 
-					<h3 class="font-black text-xl">{linkcast.data.title}</h3>
+				<h3 class="font-black text-xl">{linkcast.data.title}</h3>
 
-					<h4 class="font-medium">{linkcast.data.subtitle && <span>{linkcast.data.subtitle}</span> }<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span></h4>
+				<h4 class="font-medium">
+					{linkcast.data.subtitle &&
+						<span>{linkcast.data.subtitle}</span>
+					}
+					<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span>
+				</h4>
 
-					<article class="unstyled text-2xl ">
-						{linkcast.body}
-					</article>
-					<div class="grid grid-rows-1 gap-4">
-						{linkcast.data.url &&
-							<a class="btn btn-filled-primary" href={linkcast.data.url} target="_blank" rel="noreferrer">{linkcast.data.url}</a>
-						}
-						<div class="btn btn-filled-secondary">Read more...</div>
-					</div>
-				</main>
-				<hr />
-				<!-- Footer -->
-				<footer class="p-4 flex justify-start items-center space-x-4">
-					<Avatar src={linkcast.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
-					<div class="flex-auto flex justify-between items-center">
-						<h6 class="font-bold">By {linkcast.data.author || 'LMS Parrot'}</h6>
-						<small>On {new Date(linkcast.data.date).toLocaleDateString()}</small>
-					</div>
-				</footer>
-			</a>
-			)}
-			{(length < linkcasts.length) &&
-				<a href="/linkcasts" class="btn btn-filled-primary w-full">View all linkcasts...</a>
-			}
-		</div>
+				<article class="unstyled text-2xl ">
+					{linkcast.body}
+				</article>
+				<div class="grid grid-rows-1 gap-4">
+					{linkcast.data.url &&
+						<a class="btn btn-filled-primary" href={linkcast.data.url} target="_blank" rel="noreferrer">{linkcast.data.url}</a>
+					}
+					<div class="btn btn-filled-secondary">Read more...</div>
+				</div>
+			</main>
+			<hr />
+			<footer class="p-4 flex justify-start items-center space-x-4">
+				<Avatar src={linkcast.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
+				<div class="flex-auto flex justify-between items-center">
+					<h6 class="font-bold">By {linkcast.data.author || 'LMS Parrot'}</h6>
+					<small>On {new Date(linkcast.data.date).toLocaleDateString()}</small>
+				</div>
+			</footer>
+		</a>
+		))}
+
+{(length < linkcasts.length) &&
+			<a href="/linkcasts" class="btn btn-filled-primary w-full">View all linkcasts...</a>
+		}
 	</div>
+</div>

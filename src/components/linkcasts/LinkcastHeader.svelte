@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { getLinkcastType, getMixcloudID, getYouTubeID } from "../../lib/embeds";
+	import { getMixcloudID, getYouTubeID, getLinkcastType } from "@lib/embeds";
 	import { YoutubeGenerator, DeezerGenerator, SpotifyGenerator } from "embedgenerator"
 
 	export let linkcast
+
 	let type = getLinkcastType(linkcast?.data.url)
 </script>
 
