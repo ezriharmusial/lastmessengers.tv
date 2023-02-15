@@ -30,7 +30,7 @@ interface openGraph {
 // 	basic: {
 // 		title: frontmatter.title + "'s Artist Profile",
 // 		type: "music",
-// 		image: Astro.site + (frontmatter.featuredImage || frontmatter.image),
+// 		image: Astro.site + (frontmatter.image || frontmatter.image),
 // 		url: "https://localhost:3000/"
 // 	},
 // 	optional: {
@@ -39,7 +39,7 @@ interface openGraph {
 // 		siteName: "LastMessengerS Music"
 // 	},
 // 	image: {
-// 		alt: frontmatter.featuredImageAlt
+// 		alt: frontmatter.imageAlt
 // 	}
 // }
 console.log('Artistlayout', artist)

@@ -17,45 +17,139 @@ collections:
       - {label: "Pagina Titel", name: "title", widget: "string"}
       - {label: "Pagina SubTitle", name: "subtitle", widget: "string"}
       - {label: "Pagina Kleur", name: "color", widget: "select", options: [ "is-primary", "is-success", "is-info", "is-link", "is-danger", "is-warning", "is-light", "is-dark"], default: "primary"}
-      - {label: "Foto", name: "image", widget: "image", media_folder: '/public/uploads/pages', public_folder: '/uploads/pages', default: /pwa-192x192.png }
+      - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /pwa-192x192.png }
       - {label: "Foto Bescrijfing (SEO)", name: "imageAlt", required: false }
       - {label: "Pagina Text", name: "body", widget: "markdown"}
       - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
       - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
 
-  - name: "blog"
-    label: "Posts"
-    label_singular: "Post"
-    folder: "src/content/blog/"
-    preview_path: "{{title}}"
+  - label: "Linkcasts"
+    name: "linkcasts"
+    folder: src/content/linkcasts
+    path: "{{slug}}/+page"
+    preview_path: "linkcasts/{{title}}"
     create: true
     fields:
-      - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
-      - {label: "Menu volgorde", name: "index", widget: "number"}
-      - {label: "Pagina Kop Grootte", name: "size", widget: "select", options: [ "is-small", "is-medium", "is-large", "is-halfheight", "is-fullheight" ], required: true, default: "is-fullheight"}
-      - {label: "Pagina Titel", name: "title", widget: "string"}
-      - {label: "Pagina SubTitle", name: "subtitle", widget: "string"}
-      - {label: "Pagina Kleur", name: "color", widget: "select", options: [ "is-primary", "is-success", "is-info", "is-link", "is-danger", "is-warning", "is-light", "is-dark"], default: "primary"}
-      - {label: "Foto", name: "image", widget: "image", media_folder: '/public/uploads/pages', public_folder: '/uploads/pages', default: /pwa-192x192.png }
-      - {label: "Foto Bescrijfing (SEO)", name: "imageAlt", required: false }
-      - {label: "Pagina Text", name: "body", widget: "markdown"}
-      - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
-      - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Describing Subtitle", name: "subtitle", widget: "string", required: false}
+      - {label: "Post Category", name: "category", widget: "select", multiple: false, options: ["Launches & New Releases", "LastMessengerS Events", "Social Media & Promotions", "News & Announcements", "Sponsering & Advertisement"], required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/static/uploads/linkcasts/featured", public_folder: "/uploads/linkcasts/featured"}
+      - {label: "Featured: Image Ratio", name: imageRatio, widget: "select", multiple: false, options: ["aspect-square", "aspect-[16/9]", "aspect-[9/16]", "aspect-[21/9]", "aspect-[4/3]", "aspect-[3/4]"], default: "aspect-square", required: false}
+      - {label: "Linkcast URL", name: "url", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "SEO: Excerpt 155 Characters", name: metadescription,  required: false}
+      - {label: "SEO: Image used in twitter", name: twitterImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/twitter", public_folder: "/uploads/linkcasts/twitter"}
+      - {label: "SEO: Image used in facebook open graph", name: ogImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/og", public_folder: "/uploads/linkcasts/og"}
+      - {label: "SEO: Squared Image used in facebook open graph", name: ogSquareImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/og-squared", public_folder: "/uploads/linkcasts/og-squared"}
+      - {label: "SEO: Description when image loads", name: featuredImageAlt,  required: false}
+
+
+  # - name: "blog"
+  #   label: "Posts"
+  #   label_singular: "Post"
+  #   folder: "src/content/blog/"
+  #   preview_path: "{{title}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
+  #     - {label: "Menu volgorde", name: "index", widget: "number"}
+  #     - {label: "Pagina Kop Grootte", name: "size", widget: "select", options: [ "is-small", "is-medium", "is-large", "is-halfheight", "is-fullheight" ], required: true, default: "is-fullheight"}
+  #     - {label: "Pagina Titel", name: "title", widget: "string"}
+  #     - {label: "Pagina SubTitle", name: "subtitle", widget: "string"}
+  #     - {label: "Pagina Kleur", name: "color", widget: "select", options: [ "is-primary", "is-success", "is-info", "is-link", "is-danger", "is-warning", "is-light", "is-dark"], default: "primary"}
+  #     - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /pwa-192x192.png }
+  #     - {label: "Foto Bescrijfing (SEO)", name: "imageAlt", required: false }
+  #     - {label: "Pagina Text", name: "body", widget: "markdown"}
+  #     - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
+  #     - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
+
+  - name: "artists"
+    label: "Artists"
+    label_singular: "Artist"
+    folder: "src/content/artists"
+    preview_path: "artists/{{title}}"
+    create: true
+    fields:
+      - {"name": "nav_label", "required": false }
+      - {"name": "image", "label": "Artist Foto", "widget": "image", "required": false, "media_folder": "public/uploads/artists", "public_folder": "/uploads/artists" }
+      - {"name": "imageAlt", "label": "SEO: Description when image loads", "required": false}
+      - {"name": "title", "label": "Album Title" }
+      - {"name": "release_year", "label": "Release Year", "format": "yyyy", "widget": "date", "required": false }
+      - {"name": "tracklist", "label": "Album Tracklist", "widget": "relation", "collection": "media", "value_field": "title", "search_fields": ["title", "artist", "featuring_artist", "producer", "body"], "multiple": true }
+      - {"name": "genres", "label": "Music Genres", "widget": "list", "default": "Afrobeat" }
+      - {"name": "credits", "required": false }
+      - {"name": "body", "label": "Album Info", "widge": "markdown", "required": false }
+      - {"name": "description", "label": "SEO: Description 155 Characters", "required": false }
+
+  - name: tracks
+    label: Album Tracks
+    label_singular: Track
+    folder: src/content/tracks
+    preview_path: unity-album-2022/{{title}}
+    sortable_fields:
+    - order
+    - title
+    create: true
+    fields:
+      - {"name": "nav_label", "label": "SITE: URL Slug", "required": false }
+      - {"name": "media_file", "label": "Audio File location", "widget": "file", "media_folder": "public/uploads/media", "public_folder": "/uploads/media" }
+      - {"name": "image", "label": "Track Coverimage", "widget": "image", "required": false, "media_folder": "public/uploads/coverimages", "public_folder": "/uploads/coverimages" }
+      - {"name": "imageAlt", "label": "SEO: Description when image loads", "required": false}
+      - {"name": "title", "label": "Track Title" }
+      - {"name": "artist", "label": "Track Artist", "widget": "relation", "collection": "artists", "value_field": "title", "search_fields": ["title", "name"]}
+      - {"name": "featuring", "label": "Featuring Artists", "widget": "relation", "collection": "artists", "value_field": "title", "search_fields": ["title", "name"], "multiple": true, "required": false }
+      - {"name": "producer", "label": "Producer", "widget": "relation", "collection": "artists", "value_field": "title", "search_fields": ["title", "name"], "multiple": true, "required": false }
+      - {"name": "release_album", "label": "Release Album", "widget": "relation", "collection": "albums", "value_field": "title", "search_fields": ["title", "description"], "multiple": true, "required": false }
+      - {"name": "order", "label": "Track Number", "widget": "number", "value": "int", "min": 1, "required": true }
+      - {"name": "release_year", "label": "Release Year", "widget": "date", "format": "yyyy", "required": false }
+      - {"name": "genres", "label": "Music Genres", "widget": "list", "default": "Afrobeat" }
+      - {"name": "quote", "required": false }
+      - {"name": "body", "label": "Lyrics", "required": false, "widget": "markdown" }
+      - {"name": "aditional_credits", "widget": "markdown", "required": false }
+      - {"name": "theme", "widget": "select", "options": ["dark", "light"], "default": "dark", "label": "VFX: Dark or Light Theme", "required": false }
+      - {"name": "alignImage", "widget": "select", "options": ["left", "center", "right"], "label": "VFX: Align Artist Image VS Text", "required": false }
+      - {"name": "bgColor", "label": "VFX: Tailwind Background Class", "required": false }
+      - {"name": "color", "label": "VFX: Tailwind Text Color Class", "required": false }
+      - {"name": "bg", "label": "VFX: Giphy Image name", "required": false }
+      - {"name": "bgBlend", "label": "VFX: Tailwind Background Blend Class", "widget": "select", "options": ["bg-blend-normal", "bg-blend-multiply", "bg-blend-screen", "bg-blend-overlay", "bg-blend-darken", "bg-blend-lighten", "bg-blend-color-dodge", "bg-blend-color-burn", "bg-blend-hard-light", "bg-blend-soft-light", "bg-blend-difference", "bg-blend-exclusion", "bg-blend-hue", "bg-blend-saturation", "bg-blend-color", "bg-blend-luminosity"], "required": false }
+      - {"name": "bgSize", "widget": "select", "options": ["bg-cover", "bg-contain", "bg-auto"], "label": "VFX: Background Size", "required": false }
+      - {"name": "bgPosition", "widget": "select", "options": ["bg-bottom", "bg-center", "bg-left", "bg-left-bottom", "bg-left-top", "bg-right", "bg-right-bottom", "bg-right-top", "bg-top"], "label": "VFX: Align background image", "required": false }
+      - {"name": "description", "label": "SEO: Description 155 Characters", "required": false }
+      - {"name": "twitterImage", "label": "SEO: Image used in twitter", "widget": "image", "required": false, "media_folder": "public/uploads/coverimages/twitter", "public_folder": "/uploads/coverimages/twitter" }
+
+  - name: albums
+    label: Unity Albums
+    label_singular: Album
+    folder: src/content/albums
+    preview_path: "{slug}"
+    create: true
+    fields:
+      - {"name": "nav_label", "required": false }
+      - {"name": "image", "label": "Album Cover", "widget": "image", "required": false, "media_folder": "public/uploads/albumcovers", "public_folder": "/uploads/albumcovers" }
+      - {"name": "imageAlt", "label": "SEO: Description when image loads", "required": false}
+      - {"name": "title", "label": "Album Title" }
+      - {"name": "release_year", "label": "Release Year", "format": "yyyy", "widget": "date", "required": false }
+      - {"name": "tracklist", "label": "Album Tracklist", "widget": "relation", "collection": "media", "value_field": "title", "search_fields": ["title", "artist", "featuring_artist", "producer", "lyrics"], "multiple": true }
+      - {"name": "genres", "label": "Music Genres", "widget": "list", "default": "Afrobeat" }
+      - {"name": "credits", "required": false }
+      - {"name": "body", "label": "Album Info", "widge": "markdown", "required": false }
+      - {"name": "description", "label": "SEO: Description 155 Characters", "required": false }
 
     # adding a meta object with a path property allows editing the path of entries
     # moving an existing entry will move the entire sub tree of the entry to the new location
-    # meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+    # meta: { path: { widget: string, label: "Path", index_file: "index" } }
 
-media_folder: 'public/uploads'
-public_folder: '/uploads'
-search: false
+media_folder: "public/uploads"
+public_folder: "/uploads"
+search: true
 slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: ""
 show_preview_links: false
+publish_mode: editorial_workflow
 
-locale: 'nl'
-site_url: https://ez-ictsoulutions.io
-display_url: https://ez-ictsoulutions.io
-logo_url: /pwa-192x192.png
+site_url: https://lastmessengers.tv
+display_url: https://lastmessengers.tv
+logo_url: /images/LMS_web-logo_small_light.png

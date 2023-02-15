@@ -1,12 +1,4 @@
 ---
-
-import { Icon } from 'astro-icon'
-import { PageTransition } from 'astro-page-transition';
-import { AppShell, AppBar, AppRail, AppRailTile, Avatar, LightSwitch } from '@skeletonlabs/skeleton'
-
-export let frontmatter
-
-const { index, title, subtitle, image, description, bold, color } = frontmatter || Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,8 +9,6 @@ const { index, title, subtitle, image, description, bold, color } = frontmatter 
 	<meta name="generator" content={Astro.generator} />
 </head>
 <body data-theme="crimson" class="dark dark:text-white light:text-black">
-	<!-- Page Transition -->
-	<PageTransition speed={500} color="hsl(44deg, 100%, 77%)" zIndex={99} />
 
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js" client:load></script>

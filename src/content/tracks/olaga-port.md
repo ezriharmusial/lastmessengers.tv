@@ -1,5 +1,4 @@
 ---
-nav_label: ""
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1664797988/02._Thinking_Faculty_TF_-_O_laga_Port_hgdnkv.mp3
 image: /uploads/albumcovers/thinking-faculty-tf-o-laga-port.jpg
 alignImage: right

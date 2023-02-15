@@ -47,7 +47,7 @@ interface openGraph {
 		basic: {
 			title: "Listen to " + track.data.artist + " - " + track.data.title,
 			type: "music",
-			image: Astro.site + (track.data.featuredImage || track.data.image),
+			image: Astro.site + (track.data.image || track.data.image),
 			url: "https://localhost:3000/"
 		},
 		optional: {
@@ -56,7 +56,7 @@ interface openGraph {
 			siteName: "LastMessengerS Music"
 		},
 		image: {
-			alt: track.data.featuredImageAlt || ""
+			alt: track.data.imageAlt || ""
 		}
 	}
 

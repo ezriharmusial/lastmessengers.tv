@@ -1,5 +1,4 @@
 ---
-nav_label: ""
 image: /uploads/artists/LastMessengerS.png
 active: true
 title: Africa4Africa
