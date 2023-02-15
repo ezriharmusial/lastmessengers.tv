@@ -24,9 +24,22 @@ const pages = defineCollection({
         title: z.string(),
         subtitle: z.string(),
         image: z.string().optional(),
-        description: z.string(),
+        description: z.string().optional(),
         tags: z.array(z.string()).optional(),
         color: z.string().optional(),
+    })
+});
+
+
+const albums = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        image: z.string(),
+        imageAlt: z.string().optional(),
+        tracklist: z.array(z.string()),
+        genres: z.array(z.string()),
+        credits: z.string().optional(),
     })
 });
 
@@ -77,4 +90,4 @@ const artists = defineCollection({
     })
 });
 
-export const collections = {pages, blog, linkcasts, artists };
+export const collections = {pages, blog, linkcasts, artists, albums };

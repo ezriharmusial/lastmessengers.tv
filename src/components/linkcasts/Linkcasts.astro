@@ -14,57 +14,26 @@ async function getLinkcasts() {
 export let length = -1
 export let start = 0
 
-const linkcasts = await getLinkcasts()
+let linkcasts = await getLinkcasts()
+
+linkcasts = linkcasts.sort((a, b) => {
+		let aOrder = a.data.order
+		let bOrder = b.data.order
+
+		if ( aOrder < bOrder )
+			return -1
+		if ( bOrder < aOrder )
+			return 1
+		return 0
+	})
+
 const { slug } = await Astro.params
 const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 ---
-<div class="card landscape:flex landscape:flex-row portrait:flex-col glass-surface" href={"/newscasts/" + linkcast?.slug + "#header"}>
-	<header class="bg-black w-full ">
-		<LinkcastHeader linkcast={linkcast} client:load />
-	</header>
-	<!-- Body -->
-	<div class="flex-col w-full landscape:w-1/4">
-
-		<main class="p-4 space-y-4">
-			<h5 class="text-primary-500 font-semibold">{linkcast?.data.category || 'News & Announcments'}</h5>
-
-			<h3 class="font-black text-xl">{linkcast?.data.title}</h3>
-
-			<h4 class="font-medium">
-				{linkcast?.data.subtitle &&
-					<span>{linkcast?.data.subtitle}</span>
-				}
-				<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">
-					{getLinkcastType(linkcast?.data.url)}
-				</span>
-			</h4>
-
-			<article class="unstyled text-2xl ">
-				{linkcast?.body}
-			</article>
-			<div class="grid grid-rows-1 gap-4">
-				{linkcast?.data.url &&
-					<a class="btn btn-filled-primary" href={linkcast?.data.url} target="_blank" rel="noreferrer">{linkcast?.data.url}</a>
-				}
-				<div class="btn btn-filled-secondary">Read more...</div>
-			</div>
-		</main>
-		<hr />
-		<!-- Footer -->
-		<footer class="p-4 flex justify-start items-center space-x-4">
-			<Avatar src={linkcast?.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
-			<div class="flex-auto flex justify-between items-center">
-				<h6 class="font-bold">By {linkcast?.data.author || 'LMS Parrot'}</h6>
-				<small>On {new Date(linkcast?.data.date).toLocaleDateString()}</small>
-			</div>
-		</footer>
-	</div>
-</div>
-
 <div class="bg-gradient-to-br from-slate-700 to-black min-h-screen md:p-28 p-6 pt-24">
 	<h2 class="my-6 title marker text-3xl">Latest News</h2>
 
-	<div class="landscape:grid landscape:grid-cols-2 landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-4 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-6">
+	<div class="landscape:grid landscape:grid-cols-2 landscape:md:grid-cols-2 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-6 landscape:container landscape:mx-auto">
 
 		{linkcasts.sort((a,b) => a.data.date - b.data.date).map((linkcast) => (
 		<div class="card glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug + "#header"}>

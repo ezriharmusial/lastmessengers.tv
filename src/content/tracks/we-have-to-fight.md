@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Track.astro
 description: Message of freedom and liberation. In the society today corruption is
   taking over justice, so we are to do anything humanely possible to fight
   against it, for us to be liberated.

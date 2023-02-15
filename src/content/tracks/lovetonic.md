@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Track.astro
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1664797978/12._ZehkEzehk_-_LoveTonic_zqtizo.mp3
 image: /uploads/albumcovers/zehkezehk-love-tonic.jpg
 alignImage: right

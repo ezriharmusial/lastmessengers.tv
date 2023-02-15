@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Track.astro
 description: Song of freedom bringing the world  together as one, spreading
   love-peace Unity and harmony, say no to war, no to bad government, no to
   cultism and let love lead.

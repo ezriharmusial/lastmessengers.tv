@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Album.astro
 image: /uploads/albumcovers/Africa4Africa-Unity_Album_Cover-web.jpg
 title: Unity Album 2022
 tracklist:

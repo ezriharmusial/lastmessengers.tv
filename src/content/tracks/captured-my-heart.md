@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Track.astro
 artist: WhitneyZinny
 order: 3
 genres:
