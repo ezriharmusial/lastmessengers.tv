@@ -30,10 +30,10 @@ linkcasts = linkcasts.sort((a, b) => {
 const { slug } = await Astro.params
 const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 ---
-<div class="bg-gradient-to-br from-slate-700 to-black min-h-screen md:p-28 p-6 pt-24">
+<div class="bg-gradient-to-br from-slate-700 to-slate-900 min-h-screen md:p-28 p-6 pt-24">
 	<h2 class="my-6 title marker text-3xl">Latest News</h2>
 
-	<div class="landscape:grid landscape:grid-cols-2 landscape:md:grid-cols-2 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-8 landscape:container landscape:mx-auto">
+	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-2 landscape:md:grid-cols-1 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 gap-8 landscape:container landscape:mx-auto">
 
 		{linkcasts.map((linkcast) => (
 		<div class="card card-hover glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug + "#header"}>
