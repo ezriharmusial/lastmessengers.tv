@@ -1,0 +1,79 @@
+---
+import { getCollection, getEntryBySlug } from 'astro:content';
+import { Image } from '@astrojs/image/components'
+
+const album = await getEntryBySlug('albums', 'unity-album-2022')
+const tracks = await getCollection('tracks')
+const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => track.data.title == albumTrack))
+
+console.log(tracklist[0])
+---
+
+<div class="background-radial-gradient w-full md:p-28 p-6">
+    <div class="flex portrait:flex-col items-center justify-around relative">
+        <div class=" m-8 landscape:w-1/2">
+            <Image width={640} aspectRatio={1/1} src={album.data?.image} class="lazy portrait:scale-75 rounded-lg shadow-lg" alt={album.data?.imageAlt} />
+        </div>
+        <div class="landscape:w-1/2 portrait:items-start">
+            <div class="text-2xl">
+                <h1 class="unstyled font-bold text-5xl leading-[80%] tracking-tight" style="color: hsl(218, 81%, 95%);">Africa4Africa <br /><span style="color: hsl(218, 81%, 75%);">Unity Album 2022</span></h1>
+                <p class="unstyled font-light">
+                    {album.data.genres.map(genre =>
+                    <span class="chip text-lg variant-glass-primary mr-2">{genre}</span>
+                    )}
+                </p>
+                <div>
+                    <p class="unstyled my-3">
+                        LastMessengerS Music is connecting Musical Talents, Managers, Promoters, Marketers and ICT/Media professionals together so as to reach the world with vital messages.
+                    </p>
+                    <p class="unstyled my-3">
+                        Granted, so many important messages are begging to be delivered to the public but our modern artists have deviated from the main goal of music=Revelations, Prophecies and Truths.
+                    </p>
+                    <p class="unstyled my-3">
+                        LastMessengerS are restoring one of the ancient music values~TRUTH, by packaging messages as enjoyable songs targeting the curious ears of the general public.
+                    </p>
+                </div>
+            </div>
+            <div class="flex justify-between flex-col h-min relative">
+                <h2 class="title marker font-bold text-2xl mt-12 mb-4">Track List</h2>
+                {tracklist.map(track =>
+                <div class="card card-hover variant-glass-primary flex justify-between px-2 my-2 flex-row flex-grow items-center">
+                    <div class="flex items-center">
+                        <div class="mx-2">{track?.data.order < 10 ? '0' + track?.data.order : track?.data.order}</div>
+                        <Image class="object-contain rounded-md mx-5" width={50} aspectRatio={1/1} src={track?.data.image} alt={track?.data.imageAlt} />
+                        <div class="flex mx-5 flex-col w-max">
+                            <div class="text-lg font-semibold">{track?.data.artist}</div>
+                            <div class="text-xs">{track?.data.title}</div>
+                        </div>
+                    </div>
+                    <div>03:43</div>
+                    <a href={"/" + album?.slug + "/" + track?.slug} alt={"Go to track: " + track?.data.title} class="absolute top-0 left-0 w-full h-full"><span class="sr-only">Play Track: {track?.data.title}</span></a>
+                </div>
+                )}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+	.background-radial-gradient {
+		background-color: hsl(218, 41%, 15%);
+		background-image: radial-gradient(
+		650px circle at 0% 0%,
+		hsl(218, 41%, 35%) 15%,
+		hsl(218, 41%, 30%) 35%,
+		hsl(218, 41%, 20%) 75%,
+		hsl(218, 41%, 19%) 80%,
+		transparent 100%
+		),
+		radial-gradient(
+		1250px circle at 100% 100%,
+		hsl(218, 41%, 45%) 15%,
+		hsl(218, 41%, 30%) 35%,
+		hsl(218, 41%, 20%) 75%,
+		hsl(218, 41%, 19%) 80%,
+		transparent 100%
+		);
+	}
+</style>
