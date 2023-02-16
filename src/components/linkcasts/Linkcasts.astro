@@ -17,12 +17,12 @@ export let start = 0
 let linkcasts = await getLinkcasts()
 
 linkcasts = linkcasts.sort((a, b) => {
-		let aOrder = a.data.order
-		let bOrder = b.data.order
+		let aOrder = a.data.date
+		let bOrder = b.data.date
 
-		if ( aOrder < bOrder )
-			return -1
 		if ( bOrder < aOrder )
+			return -1
+		if ( aOrder < bOrder )
 			return 1
 		return 0
 	})
@@ -33,10 +33,10 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 <div class="bg-gradient-to-br from-slate-700 to-black min-h-screen md:p-28 p-6 pt-24">
 	<h2 class="my-6 title marker text-3xl">Latest News</h2>
 
-	<div class="landscape:grid landscape:grid-cols-2 landscape:md:grid-cols-2 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-6 landscape:container landscape:mx-auto">
+	<div class="landscape:grid landscape:grid-cols-2 landscape:md:grid-cols-2 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:flex portrait:flex-col gap-8 landscape:container landscape:mx-auto">
 
-		{linkcasts.sort((a,b) => a.data.date - b.data.date).map((linkcast) => (
-		<div class="card glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug + "#header"}>
+		{linkcasts.map((linkcast) => (
+		<div class="card card-hover glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug + "#header"}>
 			<header>
 				<LinkcastHeader linkcast={linkcast} client:load />
 			</header>
