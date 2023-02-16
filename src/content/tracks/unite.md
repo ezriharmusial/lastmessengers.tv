@@ -8,7 +8,7 @@ bgPosition: bg-left-top
 bg: stop-war
 artist: Uc Banton
 theme: dark
-bgColor: bg-sky-400
+bgColor: "!bg-sky-400"
 image: /uploads/albumcovers/uc-banton-unite.jpg
 title: Unite
 order: 11

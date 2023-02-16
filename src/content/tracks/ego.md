@@ -10,7 +10,7 @@ bgPosition: bg-center
 bg: dot-cromwell
 artist: Wizron
 theme: dark
-bgColor: bg-sky-800
+bgColor: "!bg-sky-800"
 image: /uploads/albumcovers/wizron-ego-1.jpg
 release_album:
   - Unity Album 2022

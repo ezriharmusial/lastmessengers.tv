@@ -31,7 +31,7 @@ bg: Website-Cover-Rise-N-Shine
 align_text: right
 artist: Africa4Africa
 theme: dark
-bgColor: bg-black/90
+bgColor: "!bg-black/70"
 image: /uploads/coverimages/track-cover-rise-n-shine-website.jpg
 title: Rise ‘n’ Shine
 order: 1

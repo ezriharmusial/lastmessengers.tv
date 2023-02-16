@@ -11,7 +11,7 @@ bgPosition: bg-center bg-repeat
 bg: respect-your-mother
 artist: Chuzzykeys
 theme: dark
-bgColor: bg-sky-800
+bgColor: "!bg-sky-800"
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1664797977/07._Chuzzykeys_-_Cradle_cupvin.mp3
 image: /uploads/albumcovers/chuzzy-keys-cradle.jpg
 title: Cradle

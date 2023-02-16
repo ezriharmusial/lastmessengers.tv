@@ -5,7 +5,7 @@ genres:
   - Afrobeat
 theme: dark
 alignImage: right
-bgColor: bg-red-700
+bgColor: "!bg-red-700"
 color: text-red-200
 bg: simple-jack-love
 bgPosition: bg-left

@@ -4,7 +4,7 @@ image: /uploads/albumcovers/zehkezehk-love-tonic.jpg
 alignImage: right
 theme: dark
 bg: sun-and-moon
-bgColor: bg-purple-800
+bgColor: "!bg-purple-800"
 bgBlend: bg-blend-lighten
 bgOpacity: 75
 bgPosition: bg-bottom

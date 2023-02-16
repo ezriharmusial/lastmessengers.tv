@@ -14,7 +14,7 @@ bgPosition: bg-left
 bg: sun-lines
 artist: Skillful Kennis SK
 theme: light
-bgColor: bg-yellow-400
+bgColor: "!bg-yellow-400"
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1665779485/10._Skillful_Kennis_SK_-_Anya-Anwu_b1a5d2.mp3
 release_album:
   - Unity Album 2022

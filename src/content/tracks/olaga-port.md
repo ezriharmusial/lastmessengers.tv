@@ -4,7 +4,7 @@ image: /uploads/albumcovers/thinking-faculty-tf-o-laga-port.jpg
 alignImage: right
 theme: light
 bg: triangle-wave
-bgColor: bg-neutral-100
+bgColor: "!bg-neutral-100"
 bgBlend: bg-blend-darken
 bgPosition: bg-right bg-no-repeat opacity-25
 bgSize: bg-contain

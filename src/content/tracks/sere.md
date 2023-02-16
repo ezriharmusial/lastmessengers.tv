@@ -7,7 +7,7 @@ bgPosition: bg-center
 bg: vinyl
 artist: Favour Lee
 theme: light
-bgColor: bg-sky-400
+bgColor: "!bg-sky-400"
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1664797983/09._Favour_Lee_-_Sere_Feat._Maya_Skyler_ugsrs0.mp3
 image: /uploads/albumcovers/favour-lee-sere-ft-maya-skyler.jpg
 title: Sere

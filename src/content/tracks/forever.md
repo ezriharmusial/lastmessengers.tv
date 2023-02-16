@@ -7,7 +7,7 @@ bg: ekg-hearts
 title: Forever
 artist: Ugochinyere
 theme: dark
-bgColor: bg-pink-700 bg-cover
+bgColor: "!bg-pink-700 bg-cover"
 media_file: https://res.cloudinary.com/artkids-foundation/video/upload/v1664797983/08._Ugochinyere_-_Forever_agfoap.mp3
 order: 8
 image: /uploads/albumcovers/ugochinyere-forever.jpg
