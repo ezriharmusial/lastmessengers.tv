@@ -25,12 +25,12 @@ const sitePages = await getCollection('pages');
 
 // 1. Get the slug from the incoming server request
 const { slug } = Astro.params;
-console.log('Slugit', slug)
+//console.log('Slugit', slug)
 // 2. Query for the entry directly using the request slug
 const entry =  await getEntryBySlug('pages', slug);
 const { Content } = await entry?.render() || false;
 
-console.log('Page entry', slug, entry)
+//console.log('Page entry', slug, entry)
 
 ---
 <BaseLayout description={entry.data?.description} title={entry.data?.title} image={entry.data?.image} imageAlt={entry.data?.imageAlt}>
