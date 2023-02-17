@@ -10,28 +10,34 @@ import { Image } from '@astrojs/image/components';
 import { useUserAgent } from "astro-useragent";
 
 import Fonts from '../components/head/Fonts.astro';
-import SEO from '../components/head/SEO.astro';
 import Footer from '../components/Footer.astro';
 import Search from '../components/ux/Search.svelte';
+import SEO from '../components/head/SEO.astro';
 
-export let frontmatter
+export interface Props {
+	title: string;
+	seoTitle?: string;
+	description: string;
+	image?: string;
+	imageAlt?: string;
+}
 
 // Conditional info
 const uaString = Astro.request.headers.get("user-agent");
 const { isMobile } = useUserAgent(uaString);
-
 const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
-const data = await response.json();
+const searchData = await response.json();
 const pageList = await getCollection('pages');
 
-const { index, title, subtitle, image, description  } = frontmatter || Astro.props.frontmatter || Astro.props;
+const { title, seoTitle, description, image, imageAlt } = Astro.props
+console.log('BaseLayout:', title)
 ---
 
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
     <!-- Site Meta & SEO -->
-    <SEO description{description || subtitle} {title} {image} />
+        <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} />
     <!-- Fonts -->
     <Fonts />
 </head>
@@ -44,7 +50,6 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
 
         <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4 portrait:hidden">
             <svelte:fragment slot="header">
-
             <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token portrait:flex-col">
 
                 <svelte:fragment slot="lead">
@@ -60,22 +65,14 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
                 </a>
             </svelte:fragment>
 
-            <Search {data} client:load />
+            <Search data={searchData} client:load />
 
             <svelte:fragment slot="trail">
 
             <!-- for toggling functionality. Should be at the same level as navbar-menu -->
             <input type="checkbox" id="menuToggler" class="menuToggler" />
             <ul class="navbar-menu navbar-nav xs:flex-col md:flex pl-0 list-style-none font-semibold text-xl mr-auto portrait:text-center" >
-                <!-- {pageList && pageList.map(page => (
-                    <li class="nav-item p-4 md:pl-8 pr-8">
-                        <a href={"/" + page.slug} >
-                            <span class="flex-auto">
-                                {page.data.title}
-                            </span>
-                        </a>
-                    </li>
-                    ))} -->
+
 
                     <li class="nav-item p-4 md:pl-8 pr-8">
                         <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/unity-album-2022">Unity Album 2022</a>
@@ -86,12 +83,22 @@ const { index, title, subtitle, image, description  } = frontmatter || Astro.pro
                     <li class="nav-item p-4 pr-8">
                         <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/artists">Artists</a>
                     </li>
-                    <li class="nav-item p-4 pr-8">
+
+                {pageList && pageList.map(page => (
+                    <li class="nav-item p-4 md:pl-8 pr-8">
+                        <a href={"/" + page.slug} >
+                            <span class="flex-auto">
+                                {page.data.title}
+                            </span>
+                        </a>
+                    </li>
+                    ))}
+                    <!-- <li class="nav-item p-4 pr-8">
                         <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/about">About us</a>
                     </li>
                     <li class="nav-item p-4">
                         <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/contact">Contact</a>
-                    </li>
+                    </li> -->
 
                    <li class="nav-item p-4 md:pl-8 pr-8">
                         <LightSwitch client:load />

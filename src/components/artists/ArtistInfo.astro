@@ -39,70 +39,70 @@ function sentenceArray(array:[], word:string = 'and'){
 ---
 
 <article class="flex align-items-stretch landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right">
-    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist?.data.track?.data.bgColor + " text-left h-screen overflow-y-auto"}>
+    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist.data?.track.data?.bgColor + " text-left h-screen overflow-y-auto"}>
         <header>
             <Artist artist={artist} />
         </header>
         <blockquote class="text-4xl text-italic text-bold p-4" cite={Astro.site + "/artists/" + artist?.slug}>
-            <span class="text-4xl">"</span> {artist?.data.track.data?.quote}<span class="text-4xl">"</span>
+            <span class="text-4xl">"</span> {artist.data?.track.data?.quote}<span class="text-4xl">"</span>
         </blockquote>
         <footer class="light:bg-white/60 dark:bg-black/60 text-2xl text-bold">
-            <h3 class="p-4">Follow {artist?.data.title} on:</h3>
+            <h3 class="p-4">Follow {artist.data?.title} on:</h3>
             <div class="flex flex-col items-start">
-                {artist?.data.twitter &&
-                    <a class="btn has-text-twitter px-3 py-1 m-0 w-11/12" href={"https://twitter.com/" + artist?.data.twitter} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Twitter page"}>
+                {artist.data?.twitter &&
+                    <a class="btn has-text-twitter px-3 py-1 m-0 w-11/12" href={"https://twitter.com/" + artist.data?.twitter} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Twitter page"}>
                         <span class="mr-4 h-4 w-4">
                             <Icon pack="fa" name="twitter" />
                         </span>
-                        @{artist?.data.twitter}
+                        @{artist.data?.twitter}
                     </a>
                 }
-                {artist?.data.instagram &&
-                    <a class="btn has-text-instagram px-3 py-1 m-0 w-11/12" href={"https://www.instagram.com/" + artist?.data.instagram} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Instagram page"}>
+                {artist.data?.instagram &&
+                    <a class="btn has-text-instagram px-3 py-1 m-0 w-11/12" href={"https://www.instagram.com/" + artist.data?.instagram} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Instagram page"}>
                         <span class="mr-4 h-4 w-4">
                             <Icon pack="fa" name="instagram" />
                         </span>
-                        @{artist?.data.instagram}
+                        @{artist.data?.instagram}
                     </a>
                 }
-                {artist?.data.tiktok &&
-                    <a class="btn has-text-tiktok px-3 py-1 m-0 w-11/12" href={"https://www.tiktok.com/" + artist?.data.tiktok} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s TikTok Handle"}>
+                {artist.data?.tiktok &&
+                    <a class="btn has-text-tiktok px-3 py-1 m-0 w-11/12" href={"https://www.tiktok.com/" + artist.data?.tiktok} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s TikTok Handle"}>
                         <span class="mr-4 h-4 w-4">
                             <Icon pack="fa" name="tiktok" />
                         </span>
-                        @{artist?.data.tiktok}
+                        @{artist.data?.tiktok}
                     </a>
                 }
-                {artist?.data.vskit &&
-                    <a class="btn has-text-vskit px-3 py-1 m-0 w-11/12" href={"https://www.vskit.tv/" + artist?.data.vskit} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s VSKit Handle"}>
+                {artist.data?.vskit &&
+                    <a class="btn has-text-vskit px-3 py-1 m-0 w-11/12" href={"https://www.vskit.tv/" + artist.data?.vskit} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s VSKit Handle"}>
                         <span class="mr-4 h-4 w-4 icon">
                             <Icon pack="fa" name="vskit" />
                         </span>
-                        @{artist?.data.vskit}
+                        @{artist.data?.vskit}
                     </a>
                 }
-                {artist?.data.youtube &&
-                    <a class="btn has-text-youtube px-3 py-1 m-0 w-11/12" href={"https://www.youtube.com/channel/" + artist?.data.youtube} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Youtube page"}>
+                {artist.data?.youtube &&
+                    <a class="btn has-text-youtube px-3 py-1 m-0 w-11/12" href={"https://www.youtube.com/channel/" + artist.data?.youtube} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Youtube page"}>
                         <span class="mr-4 h-4 w-4">
                             <Icon pack="fa" name="youtube" />
                         </span>
-                        {artist?.data.title} on Youtube
+                        {artist.data?.title} on Youtube
                     </a>
                 }
-                {artist?.data.facebook &&
-                    <a class="btn has-text-facebook px-3 py-1 m-0 w-11/12" href={"https://www.facebook.com/" + artist?.data.facebook} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Facebook page"}>
+                {artist.data?.facebook &&
+                    <a class="btn has-text-facebook px-3 py-1 m-0 w-11/12" href={"https://www.facebook.com/" + artist.data?.facebook} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Facebook page"}>
                         <span class="mr-4 h-4 w-4">
                             <Icon pack="fa" name="facebook-official" />
                         </span>
-                        Facebook.com/{artist?.data.facebook}
+                        Facebook.com/{artist.data?.facebook}
                     </a>
                 }
-                {artist?.data.audiomack &&
-                    <a class="btn has-text- px-3 py-1 m-0 w-11/12" href={"https://audiomack.com/" + artist?.data.audiomack} target="_blank" rel="nofollow noopener noreferrer" title={artist?.data.title + "'s Facebook page"}>
+                {artist.data?.audiomack &&
+                    <a class="btn has-text- px-3 py-1 m-0 w-11/12" href={"https://audiomack.com/" + artist.data?.audiomack} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Facebook page"}>
                         <span class="h-4 w-5 mr-4 translate-y-1 flex align-middle">
                             <Image width={20} height={16} src="/images/custom-icons/mark-orange-large.png" alt="Audiomack Logk" />
                         </span>
-                        Audiomack.com/{artist?.data.audiomack}
+                        Audiomack.com/{artist.data?.audiomack}
                     </a>
                 }
             </div>
@@ -114,117 +114,117 @@ function sentenceArray(array:[], word:string = 'and'){
             <h3 class="marker text-3xl">The Artist</h3>
 
             <p class="unstyled">
-            {(artist?.data.title && artist?.data.meaning || artist?.data.genres && artist?.data.languages || artist?.data.experience) &&
+            {(artist.data?.title && artist.data?.meaning || artist.data?.genres && artist.data?.languages || artist.data?.experience) &&
             <span>
-                {artist?.data.name} is a music artist that records and performs under the name {artist?.data.title}.
+                {artist.data?.name} is a music artist that records and performs under the name {artist.data?.title}.
 
-                {artist?.data.meaning &&
-                <span>{artist?.data.sex == "male" ? 'His' : 'Her'} artist name means {artist?.data.meaning}.</span>
+                {artist.data?.meaning &&
+                <span>{artist.data?.sex == "male" ? 'His' : 'Her'} artist name means {artist.data?.meaning}.</span>
                 }
             </span>
             }
 
-            {artist?.data.genres && artist?.data.languages &&
-            <span>{artist?.data.title} makes music in {sentenceArray(artist?.data.genres)} in the languages {sentenceArray(artist?.data.languages)}.</span>
+            {artist.data?.genres && artist.data?.languages &&
+            <span>{artist.data?.title} makes music in {sentenceArray(artist.data?.genres)} in the languages {sentenceArray(artist.data?.languages)}.</span>
             }
 
-            {artist?.data.experience &&
-            <span>{artist?.data.sex == "male" ? 'His' : 'Her'} audience can expect {artist?.data.experience}.</span>
+            {artist.data?.experience &&
+            <span>{artist.data?.sex == "male" ? 'His' : 'Her'} audience can expect {artist.data?.experience}.</span>
             }
             </p>
 
-            {(artist?.data.profession || artist?.data.vocal_type || artist?.data.vocal_skills || artist?.data.performance_setup) &&
+            {(artist.data?.profession || artist.data?.vocal_type || artist.data?.vocal_skills || artist.data?.performance_setup) &&
             <h3 class="marker text-3xl">The Music</h3>
             <p class="unstyled">
-                {artist?.data.title} is active as {sentenceArray(artist?.data.profession)} of {artist?.data.sex == "male" ? 'his': 'her'} own songs
-                {artist?.data.profession == 'featured artist' &&
+                {artist.data?.title} is active as {sentenceArray(artist.data?.profession)} of {artist.data?.sex == "male" ? 'his': 'her'} own songs
+                {artist.data?.profession == 'featured artist' &&
                 <span> and features in songs of other artists as well.</span>
             }
-            {artist?.data.vocal_type &&
-                <span>{artist?.data.sex == "male" ? 'His' : 'Her'} {artist?.data.vocal_type?.length > 1 ? 'voices are' : 'voice is'} {sentenceArray(artist?.data.vocal_type)}.</span>
+            {artist.data?.vocal_type &&
+                <span>{artist.data?.sex == "male" ? 'His' : 'Her'} {artist.data?.vocal_type?.length > 1 ? 'voices are' : 'voice is'} {sentenceArray(artist.data?.vocal_type)}.</span>
             }
-            which {artist?.data.sex == "male" ? 'he' : 'she'} performs
-            {artist?.data.vocal_skills &&
-                <span> {sentenceArray(artist?.data.vocal_skills)}</span>
+            which {artist.data?.sex == "male" ? 'he' : 'she'} performs
+            {artist.data?.vocal_skills &&
+                <span> {sentenceArray(artist.data?.vocal_skills)}</span>
             }
-            with {sentenceArray(artist?.data.performance_setup, 'or')}.
+            with {sentenceArray(artist.data?.performance_setup, 'or')}.
             </p>
             }
 
-            {(artist?.data.vision || artist?.data.mission) &&
+            {(artist.data?.vision || artist.data?.mission) &&
             <h3 class="marker text-3xl">Vision & Mission</h3>
             <p class="unstyled">
-                {artist?.data.vision &&
-                    <span>{artist?.data.sex == "male" ? 'His' : 'Her'} vision is {artist?.data.vision}.</span>
+                {artist.data?.vision &&
+                    <span>{artist.data?.sex == "male" ? 'His' : 'Her'} vision is {artist.data?.vision}.</span>
                 }
-                {artist?.data.mission &&
-                    <span>{artist?.data.sex == "male" ? 'His' : 'Her'} mission is {artist?.data.mission}.</span>
+                {artist.data?.mission &&
+                    <span>{artist.data?.sex == "male" ? 'His' : 'Her'} mission is {artist.data?.mission}.</span>
                 }
             </p>
             }
 
-            {(artist?.data.wishes || artist?.data.reason) &&
+            {(artist.data?.wishes || artist.data?.reason) &&
             <h3 class="marker text-3xl">Motivations & Influences</h3>
             <p class="unstyled">
-            {artist?.data.reason &&
-                <span>{artist?.data.title} makes music {artist?.data.reason}.</span>
+            {artist.data?.reason &&
+                <span>{artist.data?.title} makes music {artist.data?.reason}.</span>
             }
-            {artist?.data.wishes &&
-                <span>{artist?.data.sex == "male" ? 'He' : 'She'} wishes everyone {artist?.data.wishes}.</span>
+            {artist.data?.wishes &&
+                <span>{artist.data?.sex == "male" ? 'He' : 'She'} wishes everyone {artist.data?.wishes}.</span>
             }
             </p>
             }
 
-            {(artist?.data.motivation || artist?.data.inspiration) &&
+            {(artist.data?.motivation || artist.data?.inspiration) &&
             <p class="unstyled">
-            {artist?.data.motivation &&
-                <span>What motivates {artist?.data.sex == "male" ? 'him' : 'her'} to create {artist?.data.sex == "male" ? 'his' : 'her'} music {artist?.data.motivation}.</span>
+            {artist.data?.motivation &&
+                <span>What motivates {artist.data?.sex == "male" ? 'him' : 'her'} to create {artist.data?.sex == "male" ? 'his' : 'her'} music {artist.data?.motivation}.</span>
             }
-            {artist?.data.inspiration &&
-                <span>{artist?.data.sex == "male" ? 'He' : 'She'} finds inspiration {artist?.data.inspiration}.</span>
+            {artist.data?.inspiration &&
+                <span>{artist.data?.sex == "male" ? 'He' : 'She'} finds inspiration {artist.data?.inspiration}.</span>
             }
             </p>
             }
 
-            {(artist?.data.youth_influences || artist?.data.influential_artists) &&
+            {(artist.data?.youth_influences || artist.data?.influential_artists) &&
             <h3 class="marker text-3xl">Music & Life</h3>
             <p class="unstyled">
-            {artist?.data.youth_influences &&
-                <span>Growing up {artist?.data.sex == "male" ? 'his' : 'her'} main musical influences came from {artist?.data.youth_influences}.</span>
+            {artist.data?.youth_influences &&
+                <span>Growing up {artist.data?.sex == "male" ? 'his' : 'her'} main musical influences came from {artist.data?.youth_influences}.</span>
             }
-            {artist?.data.influential_artists &&
-                <span>{artist?.data.title} is influenced by popular artists like {artist?.data.influential_artists}.</span>
+            {artist.data?.influential_artists &&
+                <span>{artist.data?.title} is influenced by popular artists like {artist.data?.influential_artists}.</span>
             }
             </p>
             }
 
-            {(artist?.data.purpose || artist?.data.society)  &&
+            {(artist.data?.purpose || artist.data?.society)  &&
             <h3 class="marker text-3xl">Society & Success</h3>
             <p class="unstyled">
-            {artist?.data.purpose &&
-                <span>The purpose of {artist?.data.sex == "male" ? 'his' : 'her'} work is to {artist?.data.purpose}</span>
+            {artist.data?.purpose &&
+                <span>The purpose of {artist.data?.sex == "male" ? 'his' : 'her'} work is to {artist.data?.purpose}</span>
             }
-            {artist?.data.solution &&
-                <span> and {artist?.data.sex == "male" ? 'he' : 'she'} is convinced {artist?.data.sex == "male" ? 'his' : 'her'} music affects societal issues {artist?.data.solution}.</span>
+            {artist.data?.solution &&
+                <span> and {artist.data?.sex == "male" ? 'he' : 'she'} is convinced {artist.data?.sex == "male" ? 'his' : 'her'} music affects societal issues {artist.data?.solution}.</span>
             }
             </p>
             }
 
-            {(artist?.data.success || artist?.data.actions || artist?.data.feedback) &&
+            {(artist.data?.success || artist.data?.actions || artist.data?.feedback) &&
             <p class="unstyled">
-            {artist?.data.success &&
-                <span>{artist?.data.title} defines success by {artist?.data.success}.</span>
+            {artist.data?.success &&
+                <span>{artist.data?.title} defines success by {artist.data?.success}.</span>
             }
-            {artist?.data.actions &&
-                <span>{artist?.data.sex == "male" ? 'He' : 'She'} develops {artist?.data.sex == "male" ? 'his' : 'her'} skills by {artist?.data.actions}.</span>
+            {artist.data?.actions &&
+                <span>{artist.data?.sex == "male" ? 'He' : 'She'} develops {artist.data?.sex == "male" ? 'his' : 'her'} skills by {artist.data?.actions}.</span>
             }
-            {artist?.data.feedback &&
-                <span>{artist?.data.sex == "male" ? 'He' : 'She'} embraces feedback from critics and music lovers because {artist?.data.feedback}.</span>
+            {artist.data?.feedback &&
+                <span>{artist.data?.sex == "male" ? 'He' : 'She'} embraces feedback from critics and music lovers because {artist.data?.feedback}.</span>
             }
             </p>
             }
 
-		<h3 class="marker text-3xl">{artist?.data.sex == "male" ? 'His-' : 'Her-s'}tory</h3>
+		<h3 class="marker text-3xl">{artist.data?.sex == "male" ? 'His-' : 'Her-s'}tory</h3>
 	  	{artist?.body}
         </div>
     </div>

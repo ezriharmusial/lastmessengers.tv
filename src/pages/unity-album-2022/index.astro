@@ -1,33 +1,11 @@
 ---
-import { getEntryBySlug } from 'astro:content';
-
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Album from "@components/music/Album.astro";
 import Artists from "@components/artists/Artists.astro";
 
-const album = await getEntryBySlug('albums', 'unity-album-2022');
-const { title, image, imageAlt, description } = album.data
-
-const openGraph = {
-  basic: {
-	title: title,
-    type: "music",
-    image: image,
-    url: "https://localhost:3000/"
-  },
-  optional: {
-	description: description,
-    locale: 'en-us',
-    siteName: "LastMessengerS Music"
-  },
-  image: {
-	alt: imageAlt
-  }
-}
-
 ---
 
-<BaseLayout {openGraph} >
+<BaseLayout >
 <Album />
 <section>
   <h2 class="unstyled title marker text-white text-5xl my-8">Album Artists</h2>

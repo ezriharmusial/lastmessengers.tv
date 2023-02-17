@@ -7,7 +7,7 @@ import { Image } from '@astrojs/image/components';
 export async function getStaticPaths() {
 	const tracks = await getCollection('tracks');
 	return tracks.map( track => ({
-		params: { slug: track.slug }, props: { track },
+		params: { slug: track.slug, collection: track.collection }, props: { track },
 	}));
 }
 
@@ -16,10 +16,10 @@ const track = await getEntryBySlug('tracks', slug);
 
 
 const artists = await getCollection('artists')
-const artist = artists.find(artist => artist?.data.title == track.data.artist)
+const artist = artists.find(artist => artist.data?.title == track.data.artist)
 
 const featuredArtists = !track.data.featuredArtists ? false : !Array.isArray(track.data.featuredArtists) ? [track.data.featuredArtists] : track.data.featuredArtists.forEach(featuredArtist => {
-	return artists.find(artist => artist?.data.title == featuredArtist)
+	return artists.find(artist => artist.data?.title == featuredArtist)
 })
 // TypeScript interface of openGraph prop
 interface openGraph {
@@ -62,9 +62,8 @@ interface openGraph {
 
 	const player = { playing: true}
 	const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
-	console.log('Artist:', artist, 'Featured', featuredArtists )
 	---
-	<BaseLayout {openGraph}>
+	<BaseLayout data={track.data}>
 		<article class:list={['transition-colors duration-1000 fixed w-full h-full top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
 			<header class:list={['transition-colors duration-700 absolute w-full h-full top-0 left-0 transition-opacity duration-700 delay-0', track.data.color, track.data.bgColor, track.data.bgSize, track.data.bgBlend, track.data.bgOpacity, track.data.bgPosition]}>
 			</header>
@@ -89,7 +88,7 @@ interface openGraph {
 							"-right-30 landscape:-right-12 landscape:sm:-right-20 landscape:xl:right-0 portrait:-right-16": track.data.alignImage == 'right',
 							"bottom-50 left-50 translate-x-1/2": track.data.alignImage == 'center'
 						}]}>
-						<Image width={640} aspectRatio={1/1} data-amplitude-song-info="cover_art_url" alt={"Picture of " + artist?.data.title} src={artist?.data.image}/>
+						<Image width={640} aspectRatio={1/1} data-amplitude-song-info="cover_art_url" alt={"Picture of " + artist.data?.title} src={artist.data?.image}/>
 					</div>
 				}
 
@@ -97,7 +96,7 @@ interface openGraph {
 					<div class="fixed bottom-0 left-0 portait:w-3/4 flex flex-row w-full">
 						featuredArtists.map(featuredArtist => {
 							<div class="portrait:w-3/4 sm:-ml-20 landscape:sm:w-1/4 lg:-ml-50" style="width: calc(100vw / {(featuredArtists.length * 0.5) + 1});" >
-								<Image width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist?.data.title} src={featuredartist?.data.image} />
+								<Image width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist.data?.title} src={featuredartist.data?.image} />
 							</div>
 						})
 					</div>

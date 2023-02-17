@@ -1,40 +1,23 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from '@astrojs/image/components';
 
+import BaseLayout from "@layouts/BaseLayout.astro";
 import Linkcasts from "@components/linkcasts/Linkcasts.astro"
-import Album from '~components/music/Album.astro';
-
-
-const openGraph = {
-	basic: {
-		title: "LastMessengerS Project Website",
-		type: "music",
-		image: "https://picsum.photos/seed/home/1920/1080/",
-		url: "https://localhost:3000/"
-	},
-	optional: {
-		description: "Description for the homepage",
-		locale: 'en-us',
-		siteName: "LastMessengerS Music"
-	},
-	image: {
-		alt: "Alt for the homepage image"
-	}
-}
+import Album from "@components/music/Album.astro";
 ---
 
-<BaseLayout {openGraph}>
+<BaseLayout>
 	<Album />
 
 	<Linkcasts />
 
 	<div class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-24 px-10 overflow-hidden relative">
 		<div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
-			<img loading="lazy" aspectRatio={2/1} loading="lazy" src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="">
-			<div class="md:flex items-center -mx-10">
+			<Image loading="lazy" aspectRatio={19/3} width={1280} loading="lazy" src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="Cubana ArtKids Title Image" />
+			<div class="md:flex items-center portrait:flex-col -mx-10">
 				<div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
 					<div class="relative">
-						<img loading="lazy" src="/uploads/posts/cubana-artkids-2022.jpg" class="w-full relative z-10" alt="">
+						<Image loading="lazy" aspectRatio={11/16} width={640} src="/uploads/posts/cubana-artkids-2022.jpg" class="w-full relative z-10" alt="Cubana ArtKids Poster" />
 					</div>
 				</div>
 				<div class="w-full md:w-1/2 px-10">
@@ -112,7 +95,7 @@ const openGraph = {
 	</div>
 
 	<header class="relative landscape:flex landscape:flex-row-reverse">
-		<img loading="lazy" class="lazy water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
+		<Image loading="lazy" aspectRatio={1/1} width={1920} class="lazy water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
 		<div class="relative landscape:w-1/2 portrait:min-h-full landscape:h-screen flex-col justify-end align-middle text-center mt-20">
 			<img loading="lazy" class="lazy water absolute left-0 top-0 w-screen h-screen portrait:h-full landscape:hidden" alt="Backtround" src="/images/webp/background.webp" />
 			<figure class="h-1/4">

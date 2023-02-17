@@ -6,22 +6,23 @@
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
     import BaseLayout from "@layouts/BaseLayout.astro"
 	import LinkcastHeader from '@components/linkcasts/LinkcastHeader.svelte';
+import SEO from '~components/head/SEO.astro';
 
 	// 1. Generate a new path for every collection linkcast
 	export async function getStaticPaths() {
 		const linkCasts = await getCollection('linkcasts');
 		return linkCasts.map(linkcast => ({
-			params: { slug: linkcast.slug }, props: { linkcast },
+			params: { slug: linkcast.slug, collection: track.collection }, props: { linkcast },
 		}));
 	}
 
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
-
+	console.log('linkcast',slug, linkcast)
 ---
 
-<BaseLayout>
-	<div class="card card-hover landscape:flex landscape:flex-row portrait:flex-col glass-surface" href={"/newscasts/" + linkcast?.slug + "#header"}>
+<BaseLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
+	<div class="card card-hover flex landscape:flex-row portrait:flex-col glass-surface" href={"/newscasts/" + linkcast?.slug + "#header"}>
 		<header class="bg-black w-full ">
 			<LinkcastHeader linkcast={linkcast} client:load />
 		</header>
@@ -29,16 +30,16 @@
 		<div class="flex-col w-full landscape:w-1/4">
 
 			<main class="p-4 space-y-4">
-				<h5 class="text-primary-500 font-semibold">{linkcast?.data.category || 'News & Announcments'}</h5>
+				<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>
 
-				<h3 class="font-black text-xl">{linkcast?.data.title}</h3>
+				<h3 class="font-black text-xl">{linkcast.data?.title}</h3>
 
 				<h4 class="font-medium">
-					{linkcast?.data.subtitle &&
-						<span>{linkcast?.data.subtitle}</span>
+					{linkcast.data?.subtitle &&
+						<span>{linkcast.data?.subtitle}</span>
 					}
 					<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">
-						{getLinkcastType(linkcast?.data.url)}
+						{getLinkcastType(linkcast.data?.url)}
 					</span>
 				</h4>
 
@@ -46,8 +47,8 @@
 					{linkcast?.body}
 				</article>
 				<div class="grid grid-rows-1 gap-4">
-					{linkcast?.data.url &&
-						<a class="btn btn-filled-primary" href={linkcast?.data.url} target="_blank" rel="noreferrer">{linkcast?.data.url}</a>
+					{linkcast.data?.url &&
+						<a class="btn btn-filled-primary" href={linkcast.data?.url} target="_blank" rel="noreferrer">{linkcast.data?.url}</a>
 					}
 					<div class="btn btn-filled-secondary">Read more...</div>
 				</div>
@@ -55,10 +56,10 @@
 			<hr />
 			<!-- Footer -->
 			<footer class="p-4 flex justify-start items-center space-x-4">
-				<Avatar src={linkcast?.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
+				<Avatar src={linkcast.data?.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
 				<div class="flex-auto flex justify-between items-center">
-					<h6 class="font-bold">By {linkcast?.data.author || 'LMS Parrot'}</h6>
-					<small>On {new Date(linkcast?.data.date).toLocaleDateString()}</small>
+					<h6 class="font-bold">By {linkcast.data?.author || 'LMS Parrot'}</h6>
+					<small>On {new Date(linkcast.data?.date).toLocaleDateString()}</small>
 				</div>
 			</footer>
 		</div>

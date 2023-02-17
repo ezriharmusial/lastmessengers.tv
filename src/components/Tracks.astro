@@ -19,7 +19,7 @@
 	const trackAndArtists = sortedTracks.map(track => mapArtist(track))
 
 	function mapArtist(track) {
-		const artist = artists.find(artist => artist?.data.discography == track.data.title)
+		const artist = artists.find(artist => artist.data?.discography == track.data.title)
 
 		track.data.artist = {...artist?.data}
 		return track

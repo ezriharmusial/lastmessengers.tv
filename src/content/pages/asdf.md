@@ -6,7 +6,7 @@ title: asdf
 subtitle: asdfasdf
 bold: false
 color: primary
-image: /pwa-192x192.png
+image: //images/manifest/pwa-192x192.png
 imageAlt: asdfasdf
 description: asdfasdf
 ---

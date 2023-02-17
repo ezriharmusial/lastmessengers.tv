@@ -17,7 +17,7 @@ collections:
       - {label: "Pagina Titel", name: "title", widget: "string"}
       - {label: "Pagina SubTitle", name: "subtitle", widget: "string"}
       - {label: "Pagina Kleur", name: "color", widget: "select", options: [ "is-primary", "is-success", "is-info", "is-link", "is-danger", "is-warning", "is-light", "is-dark"], default: "primary"}
-      - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /pwa-192x192.png }
+      - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: //images/manifest/pwa-192x192.png }
       - {label: "Foto Bescrijfing (SEO)", name: "imageAlt", required: false }
       - {label: "Pagina Text", name: "body", widget: "markdown"}
       - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
@@ -58,7 +58,7 @@ collections:
   #     - {label: "Pagina Titel", name: "title", widget: "string"}
   #     - {label: "Pagina SubTitle", name: "subtitle", widget: "string"}
   #     - {label: "Pagina Kleur", name: "color", widget: "select", options: [ "is-primary", "is-success", "is-info", "is-link", "is-danger", "is-warning", "is-light", "is-dark"], default: "primary"}
-  #     - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /pwa-192x192.png }
+  #     - {label: "Foto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: //images/manifest/pwa-192x192.png }
   #     - {label: "Foto Bescrijfing (SEO)", name: "imageAlt", required: false }
   #     - {label: "Pagina Text", name: "body", widget: "markdown"}
   #     - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}

@@ -1,27 +1,9 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Artists from "@components/artists/Artists.astro";
-
-const openGraph = {
-	basic: {
-		title: "LastMessengerS Artist page",
-		type: "music",
-		image: "https://picsum.photos/seed/picsum/1920/1080/",
-		url: "https://localhost:3000/"
-	},
-	optional: {
-		description: "LastMessengerS Artist",
-		locale: 'en-us',
-		siteName: "LastMessengerS Music"
-	},
-	image: {
-		alt: 'LastMessengerS Artist image description'
-	}
-}
-
-
 ---
-<BaseLayout {openGraph}>
+
+<BaseLayout title="LastMessengerS Artist page" description="Discover all LastMessengerS and their Truth Unveiling Music">
 	<h1 class="bg-black text-white text-5xl p-4 m-auto">LastMessengerS Artists</h1>
 
 	<Artists />

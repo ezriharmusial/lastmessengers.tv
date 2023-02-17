@@ -1,15 +1,22 @@
 ---
-	export interface Props {
-		title: string;
-		description: string;
-		image?: string;
-	}
+export interface Props {
+	title: string;
+	seoTitle?: string;
+	description: string;
+	image?: string;
+	imageAlt?: string;
+}
 
-    export let image = "/favicon.svg", description = "Describing the Website", title = "Homepage"
+const { title, seoTitle, description, image, imageAlt } = Astro.props
 
- const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+function imageUrl(image:string = "/images/manifest/pwa-512x512.png") {
+	const url = image.startsWith('/') ? Astro.site + image  : image
+	return url
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
-
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -17,24 +24,24 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<title>{Astro.site + ' - ' + title}</title>
+<title>{Astro.site + ' - ' + title || "Welkom to LastMessengerS.TV"}</title>
 <meta name="robots" content="index,follow">
-<meta name="description" content={description || "Welkom to EZ-ICT Soluition"}>
+<meta name="description" content={description || "LastMessengerS - Bringing back Truth in Music. "}>
 <!-- Facebook OpenGraph -->
-<meta property="og:title" content={title}>
-<meta property="og:description" content={description || "Welkom to EZ-ICT Soluition"}>
+<meta property="og:title" content={title || "Welkom to LastMessengerS.TV"}>
+<meta property="og:description" content={description || "LastMessengerS - Bringing back Truth in Music. "}>
 <meta property="og:url" content={Astro.url.origin}>
 <meta property="og:type" content="website">
-<meta property="og:image" content={Astro.url.origin + image}>
+<meta property="og:image" content={imageUrl(image)}>
 <meta property="og:locale" content="en_EN">
-<meta property="og:site_name" content="EZ-ICT Soluition">
+<meta property="og:site_name" content="LastMessengerS.TV">
 <link rel="canonical" href={canonicalURL}>
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content={title}>
-<meta property="twitter:description" content={description || "Welkom to EZ-ICT Soluition"}>
-<meta property="twitter:image" content={Astro.url.origin + image }>
-<meta property="og:image" content={Astro.url.origin + image}>
+<meta property="twitter:title" content={title || "Welkom to LastMessengerS.TV"}>
+<meta property="twitter:description" content={description || "Welkom to LastMessengerS.TV"}>
+<meta property="twitter:image" content={imageUrl(image)}>
+<meta property="og:image" content={imageUrl(image)}>
 
 <!-- Manifest Files -->
 <link rel="manifest" href="/manifest.webmanifest">
@@ -96,8 +103,8 @@
 
 <span slot="ExtendedHeader">
     <!-- SEO section -->
-	<link itemprop="thumbnailUrl" href={Astro.url.origin + image}>
+	<link itemprop="thumbnailUrl" href={Astro.url.origin + (image || "/images/manifest/pwa-512x512.png")}>
 	<span class="hidden" itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
-		<link itemprop="url" href={Astro.url.origin + image}>
+		<link itemprop="url" href={Astro.url.origin + (image || "/images/manifest/pwa-512x512.png")}>
 	</span>
 </span>

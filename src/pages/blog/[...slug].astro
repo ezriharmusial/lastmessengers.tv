@@ -17,7 +17,7 @@ const post = await getEntryBySlug('blog', slug)
 const { Content } = await post?.render();
 ---
 
-<BlogPost {...post.data}>
+<BlogPost description={post.data?.description} title={post.data?.title} image={post.data?.image} imageAlt={post.data?.imageAlt} >
 	<h1>{post.data.title}</h1>
 	<Content />
 </BlogPost>

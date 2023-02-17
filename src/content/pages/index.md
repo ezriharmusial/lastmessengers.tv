@@ -6,7 +6,7 @@ title: index
 subtitle: Welcome Home
 bold: false
 color: primary
-image: /pwa-192x192.png
+image: //images/manifest/pwa-192x192.png
 imageAlt: PWA Logo, aint it cool!?
 description: Cant Believe it
 ---

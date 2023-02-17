@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
 
+import Share from '~components/ux/Share.astro';
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import Images from "../components/cards/Images.astro";
 import Videos from "../components/cards/Videos.astro";
 import HeroFormLight from "../components/headers/HeroFormLight.astro";
@@ -23,16 +23,17 @@ export async function getStaticPaths() {
 
 const sitePages = await getCollection('pages');
 
-
-import { getEntryBySlug } from 'astro:content';
-import Share from '~components/ux/Share.astro';
 // 1. Get the slug from the incoming server request
 const { slug } = Astro.params;
+console.log('Slugit', slug)
 // 2. Query for the entry directly using the request slug
-const entry = await getEntryBySlug('pages', slug);
+const entry =  await getEntryBySlug('pages', slug);
 const { Content } = await entry?.render() || false;
+
+console.log('Page entry', slug, entry)
+
 ---
-<BaseLayout>
+<BaseLayout description={entry.data?.description} title={entry.data?.title} image={entry.data?.image} imageAlt={entry.data?.imageAlt}>
 
 	<div slot="sidebarLeftNavList">
 		{sitePages && sitePages.map((page) => (
