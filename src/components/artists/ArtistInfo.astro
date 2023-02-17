@@ -12,7 +12,6 @@ const artist = await Astro.props?.artist
 const tracks = await getCollection('tracks')
 
 if (artist && tracks) {
-    console.log(artist.data, tracks[0].data.title)
     artist.data.track = {...tracks.find(track => track.data.title == artist.data.discography)}
 }
 
@@ -39,8 +38,8 @@ function sentenceArray(array:[], word:string = 'and'){
 
 ---
 
-<article class="flex align-items-stretch landscape:h-full landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right">
-    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist?.data.track?.data.bgColor + " text-left h-screen overflow-y-auto pt-28"}>
+<article class="flex align-items-stretch landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right">
+    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist?.data.track?.data.bgColor + " text-left h-screen overflow-y-auto"}>
         <header>
             <Artist artist={artist} />
         </header>
@@ -110,7 +109,7 @@ function sentenceArray(array:[], word:string = 'and'){
         </footer>
     </div>
 
-    <div class="media-content grow-1 h-screen overflow-y-auto p-10 portrait:px-6 portrait:py-7 landscape:xs:pt-[60px] landscape:sm:pt-[80px] landscape:md:pt-[100px] landscape:lg:pt-[110px] landscape:xl:pt-[200px]">
+    <div class="media-content grow-1 h-screen overflow-y-auto p-10 portrait:px-6 portrait:py-7">
         <div class="content text-2xl landscape:lg:columns-2 landscape:xl:columns-3">
             <h3 class="marker text-3xl">The Artist</h3>
 
@@ -227,8 +226,9 @@ function sentenceArray(array:[], word:string = 'and'){
 
 		<h3 class="marker text-3xl">{artist?.data.sex == "male" ? 'His-' : 'Her-s'}tory</h3>
 	  	{artist?.body}
+        </div>
     </div>
-
+</article>
 
 <style>
     p {

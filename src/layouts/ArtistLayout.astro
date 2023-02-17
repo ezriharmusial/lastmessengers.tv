@@ -1,8 +1,6 @@
 ---
-import ArtistInfo from "../components/artists/ArtistInfo.astro";
 import BaseLayout from "./BaseLayout.astro";
-
-export let artist
+import Artists from "@components/artists/Artists.astro";
 
 // TypeScript interface of openGraph prop
 interface openGraph {
@@ -42,12 +40,9 @@ interface openGraph {
 // 		alt: frontmatter.imageAlt
 // 	}
 // }
-console.log('Artistlayout', artist)
 ---
 
 <BaseLayout >
-	<article class="flex align-items-stretch landscape:h-full landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right pt-28">
-		<ArtistInfo artist={artist} />
-		<slot />
-	</article>
+	<slot />
+	<Artists />
 </BaseLayout>

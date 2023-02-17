@@ -6,7 +6,6 @@ const album = await getEntryBySlug('albums', 'unity-album-2022')
 const tracks = await getCollection('tracks')
 const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => track.data.title == albumTrack))
 
-console.log(tracklist[0])
 ---
 
 <div class="background-radial-gradient w-full md:p-28 p-6">

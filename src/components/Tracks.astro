@@ -21,7 +21,6 @@
 	function mapArtist(track) {
 		const artist = artists.find(artist => artist?.data.discography == track.data.title)
 
-		console.log('mapArtists:',artist)
 		track.data.artist = {...artist?.data}
 		return track
 	}

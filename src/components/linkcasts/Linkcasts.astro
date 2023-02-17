@@ -56,12 +56,12 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 					{linkcast.body}
 				</article>
 				<div class="grid grid-rows-1 gap-4">
-					{linkcast.data.url &&
-						<a class="btn variant-filled-primary" href={linkcast.data.url} target="_blank" rel="noreferrer">Visit {getLinkcastType(linkcast.data.url)} link <span class="ml-3 h-4 w-4"><Icon pack="fa" name="external-link" /></span></a>
-					}
-					<a class="btn variant-filled-secondary" alt={"Read more on " + linkcast.data.title} href={"/newscasts/" + linkcast.slug + "#header"}>
+					<a class="btn variant-filled-primary" title={"Read more on " + linkcast.data.title} href={"/newscasts/" + linkcast.slug + "#header"}>
 						Read more...
 					</a>
+					{linkcast.data.url &&
+						<a class="btn variant-filled-secondary" href={linkcast.data.url} target="_blank" rel="noreferrer">Visit {getLinkcastType(linkcast.data.url)} link <span class="ml-3 h-4 w-4"><Icon pack="fa" name="external-link" /></span></a>
+					}
 				</div>
 			</main>
 			<hr />

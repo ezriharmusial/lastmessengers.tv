@@ -3,6 +3,7 @@ import { getEntryBySlug } from 'astro:content';
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Album from "@components/music/Album.astro";
+import Artists from "@components/artists/Artists.astro";
 
 const album = await getEntryBySlug('albums', 'unity-album-2022');
 const { title, image, imageAlt, description } = album.data
@@ -28,4 +29,9 @@ const openGraph = {
 
 <BaseLayout {openGraph} >
 <Album />
+<section>
+  <h2 class="unstyled title marker text-white text-5xl my-8">Album Artists</h2>
+  <Artists />
+</section>
+
 </BaseLayout>

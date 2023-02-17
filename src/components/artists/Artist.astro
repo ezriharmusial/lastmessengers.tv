@@ -6,7 +6,6 @@ const artist = await Astro.props?.artist
 const tracks = await getCollection('tracks')
 
 if (artist && tracks) {
-    console.log(artist.data, tracks[0].data.title)
     artist.data.track = {...tracks.find(track => track.data.title == artist.data.discography)}
 }
 ---
