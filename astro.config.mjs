@@ -28,7 +28,7 @@ import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://localhost:5173',
+  site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
   }), mdx(), sitemap(), svelte(), tailwind(), critters(), deadLinks(),webmanifest(
