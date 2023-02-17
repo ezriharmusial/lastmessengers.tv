@@ -103,8 +103,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <span slot="ExtendedHeader">
     <!-- SEO section -->
-	<link itemprop="thumbnailUrl" href={Astro.url.origin + (image || "/images/manifest/pwa-512x512.png")}>
+	<link itemprop="thumbnailUrl" href=imageUrl(image)}>
 	<span class="hidden" itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
-		<link itemprop="url" href={Astro.url.origin + (image || "/images/manifest/pwa-512x512.png")}>
+		<link itemprop="url" href=imageUrl(image)}>
 	</span>
 </span>
