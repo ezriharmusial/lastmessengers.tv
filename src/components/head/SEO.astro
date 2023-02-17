@@ -24,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<title>{Astro.site + ' - ' + title || "Welkom to LastMessengerS.TV"}</title>
+<title>{Astro.baseTitle + title || "Welkom to LastMessengerS.TV"}</title>
 <meta name="robots" content="index,follow">
 <meta name="description" content={description || "LastMessengerS - Bringing back Truth in Music. "}>
 <!-- Facebook OpenGraph -->
@@ -103,8 +103,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <span slot="ExtendedHeader">
     <!-- SEO section -->
-	<link itemprop="thumbnailUrl" href=imageUrl(image)}>
+	<link itemprop="thumbnailUrl" href={imageUrl(image)}>
 	<span class="hidden" itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
-		<link itemprop="url" href=imageUrl(image)}>
+		<link itemprop="url" href={imageUrl(image)}>
 	</span>
 </span>

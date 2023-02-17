@@ -28,6 +28,7 @@ import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
 export default defineConfig({
+  baseTitle: 'LastMessengerS.TV - ',
   site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
