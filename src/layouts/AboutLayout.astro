@@ -1,25 +1,7 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-const openGraph = {
-	basic: {
-		title: "LastMessengerS Contact page",
-		type: "music",
-		image: "https://picsum.photos/seed/picsum/1920/1080/",
-		url: Astro.site
-	},
-	optional: {
-		description: "LastMessengerS Contact",
-		locale: 'en-us',
-		siteName: "LastMessengerS Music"
-	},
-	image: {
-		alt: 'LastMessengerS Contact image description'
-	}
-}
 ---
 
-<BaseLayout {openGraph}>
-	<div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/146.webp');height: 500px;">
+	<div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%; background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/146.webp'); height: 500px;">
 		<div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed" style="background-color: rgba(0, 0, 0, 0.75)">
 			<div class="flex justify-center items-center h-full">
 				<div class="text-center text-white px-6 md:px-12">
@@ -33,4 +15,9 @@ const openGraph = {
 			</div>
 		</div>
 	</div>
-</BaseLayout>
+	Recusandae quasi ducimus assumenda tempore. Vel eum animi vel. Dolor excepturi numquam quis.
+
+	Hic molestias doloribus quidem adipisci et similique. Iusto quia impedit libero. Illo quas voluptatibus consequatur sed accusamus. Ratione accusamus deleniti eum enim et ad odio impedit.
+
+	Iusto sed commodi cum quia. Quod omnis repellendus qui earum in et. Illum et voluptatem sapiente alias. Eaque aut accusamus praesentium et excepturi. Dolores omnis dolores magni maiores vitae molestias pariatur enim.
+	<slot />

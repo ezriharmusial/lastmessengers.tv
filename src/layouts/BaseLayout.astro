@@ -4,30 +4,31 @@ import '@styles/theme.postcss';
 import '@skeletonlabs/skeleton/styles/all.css'
 import '@styles/app.postcss';
 
-import { getCollection } from 'astro:content';
 import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton'
 import { Image } from '@astrojs/image/components';
 import { useUserAgent } from "astro-useragent";
 
 import Fonts from '../components/head/Fonts.astro';
 import Footer from '../components/Footer.astro';
-import Search from '../components/ux/Search.svelte';
 import SEO from '../components/head/SEO.astro';
+import PageNavList from '~components/ux/PageNavList.astro';
+import Search from '@components/ux/Search.svelte';
+import { Icon } from 'astro-icon';
+
+const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
+const searchData = await response.json();
 
 export interface Props {
-	title: string;
-	seoTitle?: string;
-	description: string;
-	image?: string;
-	imageAlt?: string;
+    title: string;
+    seoTitle?: string;
+    description: string;
+    image?: string;
+    imageAlt?: string;
 }
 
 // Conditional info
 const uaString = Astro.request.headers.get("user-agent");
 const { isMobile } = useUserAgent(uaString);
-const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
-const searchData = await response.json();
-const pageList = await getCollection('pages');
 
 const { title, seoTitle, description, image, imageAlt } = Astro.props
 //console.log('BaseLayout:', title)
@@ -37,7 +38,7 @@ const { title, seoTitle, description, image, imageAlt } = Astro.props
 <html class="dark" lang="en">
 <head>
     <!-- Site Meta & SEO -->
-        <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} />
+    <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} />
     <!-- Fonts -->
     <Fonts />
 </head>
@@ -48,170 +49,96 @@ const { title, seoTitle, description, image, imageAlt } = Astro.props
     <!-- <PageTransition speed={500} color={"orange"} zIndex={99} /> -->
     <div style="display: contents" class="h-full overflow-hidden">
 
-        <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4 portrait:hidden">
+        <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
             <svelte:fragment slot="header">
-            <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token portrait:flex-col">
+                <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
 
-                <svelte:fragment slot="lead">
+                    <svelte:fragment slot="lead">
 
-                <a class="flex flex-shrink items-center text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 mt-2 lg:mt-0 mr-1 " href="/">
-                    <!-- {$player.track?.alignImage == 'right'  ? 'ml-1 md:ml-2 -scale-x-100' : '} -->
-                    <figure class="image transition-all duration-500 m-0 p-0 w-10 xs:w-8 lg:w-14 xl:w-16 mr-1 md:mr-2">
-                        <Image loading="lazy" width={64} height={68} class="lazy drop-shadow-2xl" src="/images/red-black-purple-gold-with-sun.svg" alt="LastMessengers Home"/>
-                    </figure>
-                    <h1 class="marker transition-colors duration-500 text-xl font-bold leading-4 md:text-2xl md:leading-5 lg:text-3xl xl:text-4xl lg:leading-7 xl:leading-9 drop-shadow-2xl text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100">
-                        <span>Last</span><span>MessengerS</span>
-                    </h1>
-                </a>
+                        <a class="flex flex-shrink items-center text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 mt-2 lg:mt-0 mr-1 " href="/">
+                            <!-- {$player.track?.alignImage == 'right'  ? 'ml-1 md:ml-2 -scale-x-100' : '} -->
+                            <figure class="image transition-all duration-500 m-0 p-0 w-10 xs:w-8 lg:w-14 xl:w-16 mr-1 md:mr-2">
+                                <Image loading="lazy" width={64} height={68} class="lazy drop-shadow-2xl" src="/images/red-black-purple-gold-with-sun.svg" alt="LastMessengers Home"/>
+                            </figure>
+                            <h1 class="unstyled marker transition-colors duration-500 text-xl font-bold leading-4 md:text-2xl md:leading-5 lg:text-3xl xl:text-4xl lg:leading-7 xl:leading-9 drop-shadow-2xl text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100">
+                                <span class="portrait:block">Last</span><span>MessengerS</span>
+                            </h1>
+                        </a>
+                    </svelte:fragment>
+
+                    <svelte:fragment slot="trail">
+                    </svelte:fragment>
+                </AppBar>
             </svelte:fragment>
 
-            <Search data={searchData} client:load />
+            <!-- Sidebar -->
+            <svelte:fragment slot="sidebarLeft">
+                <label for="menuToggler" class={"navbar-burger btn w-14 h-14 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
+                    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
+                </label>
+                 <!-- for toggling functionality. Should be at the same level as navbar-menu -->
+                <input type="checkbox" id="menuToggler" class="menuToggler" />
+                <div class="navbar-menu flex flex-col justify-between h-full">
+                    <PageNavList />
 
-            <svelte:fragment slot="trail">
+                    <div class="flex flex-col">
+                        <!-- Search Component -->
+                        <Search data={searchData} client:load />
 
-            <!-- for toggling functionality. Should be at the same level as navbar-menu -->
-            <input type="checkbox" id="menuToggler" class="menuToggler" />
-            <ul class="navbar-menu navbar-nav xs:flex-col md:flex pl-0 list-style-none font-semibold text-xl mr-auto portrait:text-center" >
-
-
-                    <li class="nav-item p-4 md:pl-8 pr-8">
-                        <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/unity-album-2022">Unity Album 2022</a>
-                    </li>
-                    <li class="nav-item p-4 pr-8">
-                        <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/newscasts">Newscasts</a>
-                    </li>
-                    <li class="nav-item p-4 pr-8">
-                        <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/artists">Artists</a>
-                    </li>
-
-                {pageList && pageList.map(page => (
-                    <li class="nav-item p-4 md:pl-8 pr-8">
-                        <a href={"/" + page.slug} >
-                            <span class="flex-auto">
-                                {page.data.title}
+                        <!-- Lightswitch -->
+                        <div class="btn lightswitch variant-soft-surface w-full rounded-none flex flex-col">
+                            <div class="w-10 h-10">
+                                <LightSwitch client:load />
+                            </div>
+                            <span>
+                                Mode
                             </span>
-                        </a>
-                    </li>
-                    ))}
-                    <!-- <li class="nav-item p-4 pr-8">
-                        <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/about">About us</a>
-                    </li>
-                    <li class="nav-item p-4">
-                        <a class="nav-link dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 text-black hover:text-yellow-400 focus-text-gray-900 p-0" href="/contact">Contact</a>
-                    </li> -->
-
-                   <li class="nav-item p-4 md:pl-8 pr-8">
-                        <LightSwitch client:load />
-                    </li>
-                </ul>
-                <div class="navbar-backdrop"></div>
-            </svelte:fragment>
-        </AppBar>
-    </svelte:fragment>
-    <svelte:fragment slot="sidebarLeft">
-    <nav class="list-nav">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <slot name="sidebarLeftNavList">
-                {pageList && pageList.map(page => (
-                    <li>
-                        <a href={"/" + page.slug} >
-                            <span class="flex-auto">
-                                {page.data.title}
-                            </span>
-                        </a>
-                    </li>
-                    ))}
-                </slot>
-            </ul>
-        </nav>
-    </svelte:fragment>
-
-    <slot />
-
-    <svelte:fragment slot="pageFooter">
-    <div class="flex gap-4 m-8">
-        <slot name="pageList">
-
-            <div class="card card-hover p-4 space-y-4 w-1/3">
-                <h3 class="font-bold">Pages</h3>
-                <ul class="list">
-                    {pageList && pageList.map(page => (
-                        <li class="list">
-                            <a href={"/" + page.slug}>
-                                <span class="flex-auto">
-                                    {page.data.title}
-                                </span>
-                            </a>
-                        </li>
-                        ))}
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </slot>
 
-        <Footer />
-    </svelte:fragment>
-    <svelte:fragment slot="footer">
-    {isMobile &&
-        <label for="menuToggler" class={"navbar-burger btn variant-glass-primary"} data-target="navbarMenuHeroC">
-            <svg class="svg-inline--fa fa-bars w-6 h-10 text-2xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg>
-        </label>
-    }
+           </svelte:fragment>
 
-</svelte:fragment>
-</AppShell>
-</div>
-<!-- Service Worker -->
-<script src="/src/index.ts"></script>
-<!-- Netlify Identiy widget -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
+            <!-- Default Slot -->
+            <slot />
+
+            <!-- Page Footer -->
+            <svelte:fragment slot="pageFooter">
+                <slot name="pageList">
+                    <h3 class="font-bold">Pages</h3>
+                    <div class="card card-hover p-4 space-y-4 w-1/3">
+                        <PageNavList direction="horizontal" />
+                    </div>
+                </slot>
+                <Footer />
+            </svelte:fragment>
+
+            <!-- Site Footer -->
+            <svelte:fragment slot="footer">
+            </svelte:fragment>
+        </AppShell>
+    </div>
+    <!-- Service Worker -->
+    <script src="/src/index.ts"></script>
+    <!-- Netlify Identiy widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
 </body>
 </html>
 
 <style is:global>
-    :root {
-        --accent: 124, 58, 237;
-        --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-    }
-    code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-        Bitstream Vera Sans Mono, Courier New, monospace;
-    }
-
     /* We don't need checkbox to be displayed in order for it to work */
     .menuToggler {
         display: none;
     }
+
     /*  Displays menu when menuToggler is checked only on mobile/tablet */
     @media screen and (max-width: 1023px) {
         .menuToggler:checked ~ .navbar-menu {
-            display: block;
+            display: flex !important;
         }
 
-        .menuToggler:checked ~ .navbar-backdrop {
-            position: fixed;
-            opacity: 1;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            content: "";
-            height: 100vh;
-            width: 100vw;
-            background: rgba(0, 0, 0, 0.4) !important;
-            z-index: -1;
-        }
-
-        {
-            margin-top: 1rem;
-            margin-left: 6rem;
-        }
-
-        .navbar-backdrop {
-            opacity: 0;
-            transition: background 0.5s ease-in-out,
-            opacity 0.55s ease;
+        .menuToggler:checked ~ .navbar-menu .lightswitch{
+            margin-bottom: 5rem;
         }
 
         /* We don't want menu to be displayed on mobile by default */
@@ -219,45 +146,18 @@ const { title, seoTitle, description, image, imageAlt } = Astro.props
             display: none;
         }
 
-        .navbar-menu .navbar-start {
-                margin-top: 6rem;
-                margin-left: 0 !important;
-                border-radius: 0 !important;
-
-        }
-
-        .navbar-menu .navbar-start a.navbar-item, .navbar-menu .navbar-start .navbar-link {
-            margin: 0 !important;
-        }
-
     }
-
 
     .navbar-burger {
         position: fixed;
-        left: 2rem;
-        top: unset !important;
+        left: 1rem;
         bottom: 1rem;
-        height: 4rem;
-        width: 4rem;
-        z-index: 77;
+        top: unset !important;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (min-width: 1024px) {
         .navbar-burger {
-            left: 1rem;
-            top: 1rem;
-        }
-
-        .navbar {
-            height:0px !important;
-            min-height: unset;
-        }
-    }
-
-    @media screen and (max-width: 768px) and (orientation: landscape) {
-    menuToggler:checked ~ .navbar-menu {
-            width: 60vw;
+            display: none !important;
         }
     }
 </style>

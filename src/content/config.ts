@@ -22,7 +22,9 @@ const pages = defineCollection({
     schema: z.object({
         index: z.number(),
         title: z.string(),
+        shortTitle: z.string().optional(),
         subtitle: z.string(),
+        icon: z.string().optional(),
         image: z.string().optional(),
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
