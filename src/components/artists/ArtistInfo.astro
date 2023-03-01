@@ -3,9 +3,9 @@ import { Icon } from 'astro-icon'
 // import { player } from "$lib/mediaplayer";
 // import { media } from "$lib/stores/data";
 import Artist from "./Artist.astro";
-// import Share from "./sharing/Share.svelte";
 import { Image } from '@astrojs/image/components';
 import { getCollection } from 'astro:content';
+import Share from '~components/ux/Share.astro';
 
 // Match track to artist
 const artist = await Astro.props?.artist
@@ -39,7 +39,7 @@ function sentenceArray(array:[], word:string = 'and'){
 ---
 
 <article class="flex align-items-stretch landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right">
-    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist.data?.track.data?.bgColor + " text-left h-screen overflow-y-auto"}>
+    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist.data?.track.data?.bgColor + " text-left landscape:h-screen landscape:overflow-y-auto"}>
         <header>
             <Artist artist={artist} />
         </header>
@@ -109,7 +109,7 @@ function sentenceArray(array:[], word:string = 'and'){
         </footer>
     </div>
 
-    <div class="media-content grow-1 h-screen overflow-y-auto p-10 portrait:px-6 portrait:py-7">
+    <div class="media-content grow-1 landscape:h-screen landscape:overflow-y-auto p-10 portrait:px-6 portrait:py-12">
         <div class="content text-2xl landscape:lg:columns-2 landscape:xl:columns-3">
             <h3 class="marker text-3xl">The Artist</h3>
 
@@ -227,6 +227,9 @@ function sentenceArray(array:[], word:string = 'and'){
 		<h3 class="marker text-3xl">{artist.data?.sex == "male" ? 'His-' : 'Her-s'}tory</h3>
 	  	{artist?.body}
         </div>
+        <hr />
+
+        <Share data={artist.data} />
     </div>
 </article>
 

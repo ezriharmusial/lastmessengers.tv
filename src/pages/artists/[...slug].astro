@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import { getEntryBySlug } from 'astro:content';
+
 import ArtistInfo from "@components/artists/ArtistInfo.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getEntryBySlug } from 'astro:content';
 import Artists from "@components/artists/Artists.astro";
 
 // 1. Generate a new path for every collection entry
