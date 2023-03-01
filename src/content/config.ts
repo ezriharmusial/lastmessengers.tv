@@ -24,11 +24,14 @@ const pages = defineCollection({
         title: z.string(),
         shortTitle: z.string().optional(),
         subtitle: z.string(),
+        seoTitle: z.string().optional(),
         icon: z.string().optional(),
         image: z.string().optional(),
+        imageAlt: z.string().optional(),
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
         color: z.string().optional(),
+        callToAction: z.string().optional(),
     })
 });
 
@@ -36,6 +39,7 @@ const pages = defineCollection({
 const albums = defineCollection({
     schema: z.object({
         title: z.string(),
+        seoTitle: z.string().optional(),
         description: z.string().optional(),
         image: z.string(),
         imageAlt: z.string().optional(),
@@ -49,6 +53,8 @@ const linkcasts = defineCollection({
     schema: z.object({
         title: z.string(),
         subtitle: z.string().optional(),
+        seoTitle: z.string().optional(),
+        imageAlt: z.string().optional(),
         image: z.string().optional(),
         imageRatio: z.string().optional(),
         date: z.date().optional(),
@@ -61,12 +67,14 @@ const artists = defineCollection({
     schema: z.object({
         active: z.boolean().default(true),
         title: z.string(),
+        seoTitle: z.string().optional(),
         twitter: z.string().optional(),
         instagram: z.string().optional(),
         facebook: z.string().optional(),
         audiomack: z.string().optional(),
         meaning: z.string().optional(),
         image: z.string().optional(),
+        imageAlt: z.string().optional(),
         name: z.string().optional(),
         sex: z.string().optional(),
         genres: z.array(z.string()).optional(),

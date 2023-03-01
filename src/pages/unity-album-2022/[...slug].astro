@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro"
 import { getCollection, getEntryBySlug } from 'astro:content';
-import { Image } from '@astrojs/image/components';
+
+import BaseLayout from "@layouts/BaseLayout.astro"
 
 // 1. Generate a new path for every collection track
 export async function getStaticPaths() {
@@ -13,14 +13,13 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const track = await getEntryBySlug('tracks', slug);
-
-
 const artists = await getCollection('artists')
 const artist = artists.find(artist => artist.data?.title == track.data.artist)
 
 const featuredArtists = !track.data.featuredArtists ? false : !Array.isArray(track.data.featuredArtists) ? [track.data.featuredArtists] : track.data.featuredArtists.forEach(featuredArtist => {
 	return artists.find(artist => artist.data?.title == featuredArtist)
 })
+
 // TypeScript interface of openGraph prop
 interface openGraph {
 	basic: {
@@ -35,91 +34,92 @@ interface openGraph {
 		determiner?: string;
 		locale?: string;
 		localeAlternate?: Array<string>;
-			siteName?: string;
-			video?: string;
-		},
-		image?: {
-			alt?: string;
-		}
+		siteName?: string;
+		video?: string;
+	},
+	image?: {
+		alt?: string;
 	}
+}
 
-	const openGraph:openGraph = {
-		basic: {
-			title: "Listen to " + track.data.artist + " - " + track.data.title,
-			type: "music",
-			image: Astro.site + (track.data.image || track.data.image),
-			url: Astro.site
-		},
-		optional: {
-			description: track.data.description,
-			locale: 'en-us',
-			siteName: "LastMessengerS Music"
-		},
-		image: {
-			alt: track.data.imageAlt || ""
-		}
+
+const openGraph:openGraph = {
+	basic: {
+		title: "Listen to " + track.data.artist + " - " + track.data.title,
+		type: "music",
+		image: Astro.site + (track.data.image || track.data.image),
+		url: Astro.site
+	},
+	optional: {
+		description: track.data.description,
+		locale: 'en-us',
+		siteName: "LastMessengerS Music"
+	},
+	image: {
+		alt: track.data.imageAlt || ""
 	}
+}
 
-	const player = { playing: true}
-	const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
-	---
-	<BaseLayout data={track.data}>
-		<article class:list={['transition-colors duration-1000 fixed w-full h-full top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
-			<header class:list={['transition-colors duration-700 absolute w-full h-full top-0 left-0 transition-opacity duration-700 delay-0', track.data.color, track.data.bgColor, track.data.bgSize, track.data.bgBlend, track.data.bgOpacity, track.data.bgPosition]}>
-			</header>
-			<!--  class:opacity-0={!$player.playing} class:delay-3000={$player.playing} -->
-			<main class:list={["absolute top-0 left-0 right-0 bottom-0 h-full", track.data.alignImage ]}>
-				<div id="lyricsScroller" class:list={[
-					"lyrics absolute portrait:left-0 portrait:right-0 portrait:w-full portrait:px-5 landscape:w-4/5 landscape:sm:w-2/3 landscape:md:w-2/3 landscape:lg:w-2/3 landscape:xl:w-1/2  text-bold transition-opacity duration-700 delay-0 ease-in landscape:text-4xl portrait:text-4xl landscape:xs:text-xl landscape:sm:text-5xl landscape:md:text-6xl landscape:lg:text-6xl landscape:xl:text-7xl ",
-					track.data.color,
-					track.data.alignImage == 'left' ? 'left text-right landscape:xs:left-4 landscape:sm:left-1/5 lg:left-1/3 xl:left-1/2 right-14' : 'right text-left landscape:xs:right-4 landscape:sm:right-1/5 lg:right-1/3 xl:right-1/2 left-14',
-					{ 'opacity-0' : track.data.lyrics || !player.playing },
-					{ 'delay-1000' : player.playing }]}
-					>
-					{track.body}
-				</div>
-			</main>
-			<div class="images transition-opacity duration-700 delay-0 ease-in-out"><!--class:opacity-10={!$player.playing} class:delay-1000={$player.playing}-->
-				{artist &&
-					<div  class:list={[
-						"fixed bottom-0 portait:h-3/4 landscape:xk:h-4/5 landscape:h-2/3 drop-shadow-2xl",
-						{
-							"-left-30 landscape:-left-12 landscape:sm:-left-20 landscape:xl:left-0 portrait:-left-16": track.data.alignImage == 'left',
-							"-right-30 landscape:-right-12 landscape:sm:-right-20 landscape:xl:right-0 portrait:-right-16": track.data.alignImage == 'right',
-							"bottom-50 left-50 translate-x-1/2": track.data.alignImage == 'center'
-						}]}>
-						<Image width={640} aspectRatio={1/1} data-amplitude-song-info="cover_art_url" alt={"Picture of " + artist.data?.title} src={artist.data?.image}/>
-					</div>
-				}
-
-				{Array.isArray(featuredArtists) && featuredArtists.length > 0 &&
-					<div class="fixed bottom-0 left-0 portait:w-3/4 flex flex-row w-full">
-						featuredArtists.map(featuredArtist => {
-							<div class="portrait:w-3/4 sm:-ml-20 landscape:sm:w-1/4 lg:-ml-50" style="width: calc(100vw / {(featuredArtists.length * 0.5) + 1});" >
-								<Image width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist.data?.title} src={featuredartist.data?.image} />
-							</div>
-						})
-					</div>
-				}
+const player = { playing: true}
+const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
+---
+<BaseLayout title={"☝ Listen to " + track.data?.title + " by " + artist.data?.name + "♫"} description={track.data?.description} image={track.data?.image} imageAlt={track.data?.imageAlt}>
+	<article class:list={['transition-colors duration-1000 fixed w-full h-full top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
+		<header class:list={['transition-colors duration-700 absolute w-full h-full top-0 left-0 transition-opacity duration-700 delay-0', track.data.color, track.data.bgColor, track.data.bgSize, track.data.bgBlend, track.data.bgOpacity, track.data.bgPosition]}>
+		</header>
+		<!--  class:opacity-0={!$player.playing} class:delay-3000={$player.playing} -->
+		<main class:list={["absolute top-0 left-0 right-0 bottom-0 h-full", track.data.alignImage ]}>
+			<div id="lyricsScroller" class:list={[
+				"lyrics absolute portrait:left-0 portrait:right-0 portrait:w-full portrait:px-5 landscape:w-4/5 landscape:sm:w-2/3 landscape:md:w-2/3 landscape:lg:w-2/3 landscape:xl:w-1/2  text-bold transition-opacity duration-700 delay-0 ease-in landscape:text-4xl portrait:text-4xl landscape:xs:text-xl landscape:sm:text-5xl landscape:md:text-6xl landscape:lg:text-6xl landscape:xl:text-7xl ",
+				track.data.color,
+				track.data.alignImage == 'left' ? 'left text-right landscape:xs:left-4 landscape:sm:left-1/5 lg:left-1/3 xl:left-1/2 right-14' : 'right text-left landscape:xs:right-4 landscape:sm:right-1/5 lg:right-1/3 xl:right-1/2 left-14',
+				{ 'opacity-0' : track.data.lyrics || !player.playing },
+				{ 'delay-1000' : player.playing }]}
+				>
+				{track.body}
 			</div>
-		</article>
-	</BaseLayout>
+		</main>
+		<div class="images transition-opacity duration-700 delay-0 ease-in-out"><!--class:opacity-10={!$player.playing} class:delay-1000={$player.playing}-->
+			{artist &&
+				<div  class:list={[
+					"fixed bottom-0 portait:h-3/4 landscape:xk:h-4/5 landscape:h-2/3 drop-shadow-2xl",
+					{
+						"-left-30 landscape:-left-12 landscape:sm:-left-20 landscape:xl:left-0 portrait:-left-16": track.data.alignImage == 'left',
+						"-right-30 landscape:-right-12 landscape:sm:-right-20 landscape:xl:right-0 portrait:-right-16": track.data.alignImage == 'right',
+						"bottom-50 left-50 translate-x-1/2": track.data.alignImage == 'center'
+					}]}>
+					<image loading="lazy" width={640} aspectRatio={1/1} data-amplitude-song-info="cover_art_url" alt={"Picture of " + artist.data?.title} src={artist.data?.image}/>
+				</div>
+			}
 
-	<style define:vars={{backgroundImage}}>
-		header {
-			background-image: var(--backgroundImage);
-			transition: background 3s;
-		}
+			{Array.isArray(featuredArtists) && featuredArtists.length > 0 &&
+				<div class="fixed bottom-0 left-0 portait:w-3/4 flex flex-row w-full">
+					featuredArtists.map(featuredArtist => {
+						<div class="portrait:w-3/4 sm:-ml-20 landscape:sm:w-1/4 lg:-ml-50" style="width: calc(100vw / {(featuredArtists.length * 0.5) + 1});" >
+							<image loading="lazy" width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist.data?.title} src={featuredartist.data?.image} />
+						</div>
+					})
+				</div>
+			}
+		</div>
+	</article>
+</BaseLayout>
 
-		main {
-			overflow: hidden;
-			max-height: 100vh;
-		}
+<style define:vars={{backgroundImage}}>
+	header {
+		background-image: var(--backgroundImage);
+		transition: background 3s;
+	}
 
-		main.right {
-			mask-image: linear-gradient(175deg, transparent 10%, black 20%, black 60%, transparent 80%);
-		}
-		main.left {
-			mask-image: linear-gradient(185deg, transparent 10%, black 20%, black 60%, transparent 80%);
-		}
-	</style>
+	main {
+		overflow: hidden;
+		max-height: 100vh;
+	}
+
+	main.right {
+		mask-image: linear-gradient(175deg, transparent 10%, black 20%, black 60%, transparent 80%);
+	}
+	main.left {
+		mask-image: linear-gradient(185deg, transparent 10%, black 20%, black 60%, transparent 80%);
+	}
+</style>

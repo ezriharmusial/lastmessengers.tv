@@ -1,4 +1,6 @@
 ---
+import { SITE_DESCRIPTION, SITE_TITLE } from '~consts';
+
 export interface Props {
 	title: string;
 	seoTitle?: string;
@@ -24,13 +26,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<title>{Astro.baseTitle + title || "Welkom to LastMessengerS.TV"}</title>
+<title>{SITE_TITLE + title || "Welkom to LastMessengerS.TV"}</title>
 <meta name="robots" content="index,follow">
-<meta name="description" content={description || "LastMessengerS - Bringing back Truth in Music. "}>
+<meta name="description" content={description || SITE_DESCRIPTION}>
 <!-- Facebook OpenGraph -->
 <meta property="og:title" content={title || "Welkom to LastMessengerS.TV"}>
-<meta property="og:description" content={description || "LastMessengerS - Bringing back Truth in Music. "}>
-<meta property="og:url" content={Astro.url.origin}>
+<meta property="og:description" content={description || SITE_DESCRIPTION}>
+<meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)}>
 <meta property="og:type" content="website">
 <meta property="og:image" content={imageUrl(image)}>
 <meta property="og:locale" content="en_EN">

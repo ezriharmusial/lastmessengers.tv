@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { SITE_TITLE, SITE_DESCRIPTION } from './src/consts'
 
 // https://astro.build/config
 import image from "@astrojs/image";
@@ -28,16 +29,15 @@ import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
 export default defineConfig({
-  baseTitle: 'LastMessengerS.TV - ',
   site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
   }), mdx(), sitemap(), svelte(), tailwind(), critters(), deadLinks(),webmanifest(
   {
-    "name": "Example.com",
+    "name": SITE_TITLE,
     "icon": "/favicon.svg",
     "short_name": "Example",
-    "description": "Your Site Description",
+    "description": SITE_DESCRIPTION,
     "start_url": "/",
     "theme_color": "#010101",
     "background_color": "#010101",
