@@ -5,7 +5,7 @@ import '@skeletonlabs/skeleton/styles/all.css'
 import '@styles/app.postcss';
 
 import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton'
-import { Image } from '@astrojs/image/components';
+import MediaPlayer from '@components/mediaplayer/MediaPlayer.svelte'
 import { useUserAgent } from "astro-useragent";
 
 import Fonts from '../components/head/Fonts.astro';
@@ -14,6 +14,15 @@ import SEO from '../components/head/SEO.astro';
 import PageNavList from '~components/ux/PageNavList.astro';
 import Search from '@components/ux/Search.svelte';
 import { Icon } from 'astro-icon';
+import { getCollection } from 'astro:content';
+
+const artists = await getCollection('artists')
+const albums = await getCollection('tracks')
+const tracks = await getCollection('albums')
+
+console.log('data.albums:', albums)
+console.log('data.artists:', artists)
+console.log('data.tracks:', tracks)
 
 const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
 const searchData = await response.json();
@@ -73,10 +82,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
             <!-- Sidebar -->
             <svelte:fragment slot="sidebarLeft">
-                <label for="menuToggler" class={"navbar-burger btn w-14 h-14 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
-                    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
-                </label>
-                 <!-- for toggling functionality. Should be at the same level as navbar-menu -->
+                <!-- for toggling functionality. Should be at the same level as navbar-menu -->
                 <input type="checkbox" id="menuToggler" class="menuToggler" />
                 <div class="navbar-menu flex flex-col justify-between h-full">
                     <PageNavList />
@@ -96,7 +102,9 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
                         </div>
                     </div>
                 </div>
-
+                <label for="menuToggler" class={"navbar-burger btn w-14 h-14 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
+                    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
+                </label>
            </svelte:fragment>
 
             <!-- Default Slot -->
@@ -117,6 +125,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
             <!-- Site Footer -->
             <svelte:fragment slot="footer">
+                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks}} client:load/>
             </svelte:fragment>
         </AppShell>
     </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { player } from "./mediaplayer/mediaplayer";
-	import { albums, getArtistImage } from "../lib/stores/data";
+	import { player } from "./mediaplayer";
+	import { albums, getArtistImage } from "./data";
 // albums
 </script>
 
