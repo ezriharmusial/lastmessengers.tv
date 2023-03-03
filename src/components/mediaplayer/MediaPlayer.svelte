@@ -34,9 +34,9 @@
             })
 
 			// Initialize Previous, Current, Next track.
-			$player.track = $player.playlist.find(track => track.order == $player.index) || false
-			$player.next = $player.playlist.find(track => track.order == $player.index + 1) || false
-			$player.previous = $player.playlist.find(track => track.order == $player.index - 1) || false
+			$player.track = $player.playlist?.find(track => track.order == $player.index) || false
+			$player.next = $player.playlist?.find(track => track.order == $player.index + 1) || false
+			$player.previous = $player.playlist?.find(track => track.order == $player.index - 1) || false
 		}
         }
     })

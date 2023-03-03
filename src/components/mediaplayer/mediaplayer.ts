@@ -75,7 +75,7 @@ export const player:Writable<MediaPlayer> = writable({
         let song:Media;
 
         index = typeof index === 'number' ? index : $player.index;
-        let trackToPlay = $player.playlist.find(track => track.order == index);
+        let trackToPlay = $player.playlist?.find(track => track.order == index);
 
         if (!window || !trackToPlay)
             return
@@ -148,9 +148,9 @@ export const player:Writable<MediaPlayer> = writable({
         // Keep track of the index we are currently playing.
         $player.index = index;
 
-        $player.track = $player.playlist.find(track => track.order == index) || false
-        $player.next = $player.playlist.find(track => track.order == index + 1) || false
-        $player.previous = $player.playlist.find(track => track.order == index - 1) || false
+        $player.track = $player.playlist?.find(track => track.order == index) || false
+        $player.next = $player.playlist?.find(track => track.order == index + 1) || false
+        $player.previous = $player.playlist?.find(track => track.order == index - 1) || false
         const $media = get(media)
         $media.selected = $media[index]
         // Update the track display.
@@ -179,7 +179,7 @@ export const player:Writable<MediaPlayer> = writable({
         const $player = get(player)
 
         // Get the Howl we want to manipulate.
-        const song = $player.playlist.find(track => track.order == $player.index).howl;
+        const song = $player.playlist?.find(track => track.order == $player.index).howl;
 
         if (song) {
             // If song is playing
@@ -215,7 +215,7 @@ export const player:Writable<MediaPlayer> = writable({
         if ($player.state == 'loading next' || $player.state == 'loading previous')
             return
 
-        const songCurrent:Howl = $player.playlist.find(track => track.order == $player.index)?.howl;
+        const songCurrent:Howl = $player.playlist?.find(track => track.order == $player.index)?.howl;
 
         //TODO remove hack
         // Get the next track based on the direction of the track.
@@ -228,7 +228,7 @@ export const player:Writable<MediaPlayer> = writable({
                 // get previous index
                 index = $player.index - 1;
                 if (index == 0) {
-                    index = $player.playlist.length;
+                    index = $player.playlist?.length;
                     $player.state = 'loading previous'
                 }
             } else {
@@ -244,7 +244,7 @@ export const player:Writable<MediaPlayer> = writable({
 
             // console.log('here')
             index = $player.index + 1;
-            if (index > $player.playlist.length) {
+            if (index > $player.playlist?.length) {
                 index = 1;
             }
             $player.state = 'loading next'
@@ -279,7 +279,7 @@ export const player:Writable<MediaPlayer> = writable({
     export const skipTo = function(index: number) {
         // Get Writable
         const $player = get(player)
-        const currentTrack = $player.playlist.find(track => track.order == $player.index)
+        const currentTrack = $player.playlist?.find(track => track.order == $player.index)
 
         // Stop the current track.
         if (currentTrack?.howl && currentTrack.howl.playing()) {
@@ -327,7 +327,7 @@ export const player:Writable<MediaPlayer> = writable({
             play($player.index)
 
         // Get the Howl we want to manipulate
-        const song = $player.playlist.find(track => track.order == $player.index)?.howl ;
+        const song = $player.playlist?.find(track => track.order == $player.index)?.howl ;
 
         // Convert the percent into a seek position.
         if (song) {
@@ -346,7 +346,7 @@ export const player:Writable<MediaPlayer> = writable({
         const $player = get(player)
 
         // Get the Howl we want to manipulate.
-        const song = $player.playlist.find(track => track.order == $player.index)?.howl;
+        const song = $player.playlist?.find(track => track.order == $player.index)?.howl;
 
         // Determine our current seek position.
         const seek = song?.seek() || 0;
