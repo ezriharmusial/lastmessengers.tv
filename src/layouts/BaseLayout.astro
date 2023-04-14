@@ -17,12 +17,12 @@ import { Icon } from 'astro-icon';
 import { getCollection } from 'astro:content';
 
 const artists = await getCollection('artists')
-const albums = await getCollection('tracks')
-const tracks = await getCollection('albums')
+const albums = await getCollection('albums')
+const tracks = await getCollection('tracks')
 
-console.log('data.albums:', albums)
-console.log('data.artists:', artists)
-console.log('data.tracks:', tracks)
+// console.log('data.albums:', albums)
+// console.log('data.artists:', artists)
+// console.log('data.tracks:', tracks)
 
 const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
 const searchData = await response.json();
@@ -50,6 +50,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
     <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} />
     <!-- Fonts -->
     <Fonts />
+    <script src=" https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js " is:inline></script>
 </head>
 <body data-theme="gold-nouveau" class="light:bg-white light:text-black dark:text-white dark:bg-black loaded ">
     <slot name="extendedHead" />
@@ -60,79 +61,96 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
         <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
             <svelte:fragment slot="header">
-                <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
+            <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
 
-                    <svelte:fragment slot="lead">
+                <svelte:fragment slot="lead">
 
-                        <a class="flex flex-shrink items-center text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 mt-2 lg:mt-0 mr-1 " href="/">
-                            <!-- {$player.track?.alignImage == 'right'  ? 'ml-1 md:ml-2 -scale-x-100' : '} -->
-                            <figure class="image transition-all duration-500 m-0 p-0 w-10 xs:w-8 lg:w-14 xl:w-16 mr-1 md:mr-2">
-                                <image loading="lazy" loading="lazy" width={64} height={68} class="lazy drop-shadow-2xl" src="/images/red-black-purple-gold-with-sun.svg" alt="LastMessengers Home"/>
-                            </figure>
-                            <h1 class="unstyled marker transition-colors duration-500 text-xl font-bold leading-4 md:text-2xl md:leading-5 lg:text-3xl xl:text-4xl lg:leading-7 xl:leading-9 drop-shadow-2xl text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100">
-                                <span class="portrait:block">Last</span><span>MessengerS</span>
-                            </h1>
-                        </a>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="trail">
-                    </svelte:fragment>
-                </AppBar>
+                <a class="flex flex-shrink items-center text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100 mt-2 lg:mt-0 mr-1 " href="/">
+                    <!-- {$player.track?.alignImage == 'right'  ? 'ml-1 md:ml-2 -scale-x-100' : '} -->
+                    <figure class="image transition-all duration-500 m-0 p-0 w-10 xs:w-8 lg:w-14 xl:w-16 mr-1 md:mr-2">
+                        <image loading="lazy" loading="lazy" width={64} height={68} class="lazy drop-shadow-2xl" src="/images/red-black-purple-gold-with-sun.svg" alt="LastMessengers Home"/>
+                    </figure>
+                    <h1 class="unstyled marker transition-colors duration-500 text-xl font-bold leading-4 md:text-2xl md:leading-5 lg:text-3xl xl:text-4xl lg:leading-7 xl:leading-9 drop-shadow-2xl text-black hover:text-yellow-400 focus-text-gray-900 dark:text-white dark:hover:text-yellow-400 dark:focus:text-gray-100">
+                        <span class="portrait:block">Last</span><span>MessengerS</span>
+                    </h1>
+                </a>
             </svelte:fragment>
+            {title}
+            <svelte:fragment slot="trail">
+            <div class="flex gap-2">
+                <a id="facebook" href="https://www.facebook.com/LastMessengerS" target="_blank" rel="nofollow noopener noreferrer" type="button" class="btn-icon variant-ringed-primary ring-2">
+                    <Icon pack="fa" name="facebook-official" />
+                </a>
 
-            <!-- Sidebar -->
-            <svelte:fragment slot="sidebarLeft">
-                <!-- for toggling functionality. Should be at the same level as navbar-menu -->
-                <input type="checkbox" id="menuToggler" class="menuToggler" />
-                <div class="navbar-menu flex flex-col justify-between h-full">
-                    <PageNavList />
+                <a id="twitter" href="https://twitter.com/LastMessengerZ" target="_blank" rel="nofollow noopener noreferrer" type="button" class="btn-icon variant-ringed-primary ring-2">
+                    <Icon pack="fa" name="twitter" />
+                </a>
 
-                    <div class="flex flex-col">
-                        <!-- Search Component -->
-                        <Search data={searchData} client:load />
+                <a id="youtube" href="https://www.youtube.com/channel/UC_nLmP5HYQZ0UlndjADCSdA" type="button" class="btn-icon variant-ringed-primary ring-2">
+                    <Icon pack="fa" name="youtube" />
+                </a>
 
-                        <!-- Lightswitch -->
-                        <div class="btn lightswitch variant-soft-surface w-full rounded-none flex flex-col">
-                            <div class="w-10 h-10">
-                                <LightSwitch client:load />
-                            </div>
-                            <span>
-                                Mode
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <label for="menuToggler" class={"navbar-burger btn w-14 h-14 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
-                    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
-                </label>
-           </svelte:fragment>
+                <a id="bandcamp" href="https://lastmessengers.bandcamp.com/" type="button" class="btn-icon variant-ringed-primary ring-2">
+                    <Icon pack="simple-icons" name="bandcamp" />
+                </a>
+            </div>
+        </svelte:fragment>
+    </AppBar>
+</svelte:fragment>
 
-            <!-- Default Slot -->
-            <slot />
+<!-- Sidebar -->
+<svelte:fragment slot="sidebarLeft">
+<!-- for toggling functionality. Should be at the same level as navbar-menu -->
+<input type="checkbox" id="menuToggler" class="menuToggler" />
+<div class="navbar-menu flex flex-col justify-between h-full">
+    <PageNavList />
 
-            <!-- Page Footer -->
-            <svelte:fragment slot="pageFooter">
-                <footer class="m-8">
-                <slot name="pageList">
-                    <h3 class="font-bold">Website Pages</h3>
-                    <div class="card card-hover p-4 space-y-4 w-1/3">
-                        <PageNavList direction="horizontal" />
-                    </div>
-                </slot>
-                <Footer />
-                </footer>
-            </svelte:fragment>
+    <div class="flex flex-col">
+        <!-- Search Component -->
+        <Search data={searchData} client:load />
 
-            <!-- Site Footer -->
-            <svelte:fragment slot="footer">
-                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks}} client:load/>
-            </svelte:fragment>
-        </AppShell>
+        <!-- Lightswitch -->
+        <div class="btn lightswitch variant-soft-surface w-full rounded-none flex flex-col">
+            <div class="w-10 h-10">
+                <LightSwitch client:load />
+            </div>
+            <span>
+                Mode
+            </span>
+        </div>
     </div>
-    <!-- Service Worker -->
-    <script src="/src/index.ts"></script>
-    <!-- Netlify Identiy widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
+</div>
+<label for="menuToggler" class={"navbar-burger fixed btn w-12 h-12 left-6 bottom-4 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
+    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
+</label>
+</svelte:fragment>
+
+<!-- Default Slot -->
+<slot />
+
+<!-- Page Footer -->
+<svelte:fragment slot="pageFooter">
+<footer class="m-8">
+    <slot name="pageList">
+        <h3 class="font-bold">Website Pages</h3>
+        <div class="card card-hover p-4 space-y-4 w-1/3">
+            <PageNavList direction="horizontal" />
+        </div>
+    </slot>
+    <Footer />
+</footer>
+</svelte:fragment>
+
+<!-- Site Footer -->
+<svelte:fragment slot="footer">
+<MediaPlayer data={{artists: artists, albums: albums, tracks: tracks}} client:load/>
+</svelte:fragment>
+</AppShell>
+</div>
+<!-- Service Worker -->
+<script src="/src/index.ts"></script>
+<!-- Netlify Identiy widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
 </body>
 </html>
 
@@ -161,8 +179,6 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
     .navbar-burger {
         position: fixed;
-        left: 1rem;
-        bottom: 1rem;
         top: unset !important;
     }
 
@@ -170,5 +186,9 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
         .navbar-burger {
             display: none !important;
         }
+    }
+
+    [astro-icon] {
+        min-width: 1rem;
     }
 </style>

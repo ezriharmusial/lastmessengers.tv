@@ -1718,6 +1718,11 @@ ajv@^8.6.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+amplitudejs@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/amplitudejs/-/amplitudejs-5.3.2.tgz#e51cb5507d9ce30b3881f0f89e4342add4c8fa84"
+  integrity sha512-aRZqYMzRuZQ0Ua3ZtK5CTECE958meBfwzXZcx2Hn1itu2KwIB8giwsAPW52um0teewYBXZ5aTzy/wxy3E34e0g==
+
 ansi-align@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.1.tgz#0cdf12e111ace773a86e9a1fad1225c43cb19a59"

@@ -9,7 +9,7 @@ const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => t
 ---
 
 <div class="background-radial-gradient w-full md:p-28 p-6">
-    <div class="flex portrait:flex-col items-start justify-around relative">
+    <div class="flex portrait:flex-col gap-4 items-start justify-around relative">
         <div class="landscape:w-1/2">
             <image loading="lazy" width={640} aspectRatio={1/1} src={album.data?.image} class="lazy rounded-lg shadow-lg" alt={album.data?.imageAlt} />
             <div class="flex justify-between flex-col h-min relative">
