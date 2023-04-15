@@ -2,6 +2,7 @@
 author: Bas Bijleveld
 date: 2023-04-15T17:58:36.154Z
 title: WhitneyZinny - Captured My Heart (Official Lyrics Visualizer)
+image: /uploads/linkcasts/featured/youthumb_uiierggjqmo_maxres.png
 imageRatio: aspect-square
 url: https://youtu.be/uiiErggjqmo
 ---
