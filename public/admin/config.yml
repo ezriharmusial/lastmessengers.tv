@@ -4,7 +4,7 @@ backend:
 # Local testing
 local_backend: true
 collections:
-  - name: "Authors"
+  - name: "authors"
     label: "Authors"
     label_singular: "Author"
     folder: "src/content/users/"
