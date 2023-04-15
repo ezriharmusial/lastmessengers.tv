@@ -19,7 +19,7 @@ collections:
       - {label: "Voornaam", name: "name", widget: "string"}
       - {label: "Achternaam", name: "surname", widget: "string"}
       - {label: "Profielfoto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /images/manifest/pwa-192x192.png }
-      - {label: "Profiel: Wat is je Connectie met LMS?", name: "body", widget: "markdown"}
+      - {label: "Shortbio", name: "body", widget: "markdown"}
       - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
       - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
       - name: twitter
