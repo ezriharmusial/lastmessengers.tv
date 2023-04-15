@@ -8,7 +8,7 @@ collections:
     label: "Authors"
     label_singular: "Author"
     folder: "src/content/users/"
-    preview_path: "/profiles/{{title}}"
+    preview_path: "/profiles/{{username}}"
     create: true
     fields:
       - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
