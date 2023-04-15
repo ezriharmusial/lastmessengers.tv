@@ -5,7 +5,7 @@ backend:
 local_backend: true
 collections:
   - label: "Settings"
-    name: "Settings"
+    name: "settings"
     files:
       - label: "Site Info"
         name: "info"
@@ -60,7 +60,7 @@ collections:
       - {label: "Twitter Handle", name: twitter, required: false}
       - {label: "Instagram Handle", name: instagram, required: false}
       - {label: "Tiktok Handle", name: tiktok, required: false}
-      - {label: "VSKit Handle", name: vskit, required: false}
+      - {label: "Bandcamp Address", name: bandcamp, required: false}
       - {label: "Facebook Address", name: facebook, required: false}
       - {label: "Youtube Channel Address", name: youtube, required: false}
       - {label: "Audiomack Channel", name: audiomack, required: false}
