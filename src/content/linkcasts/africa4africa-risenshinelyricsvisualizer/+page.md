@@ -3,6 +3,7 @@ author: Bas Bijleveld
 date: 2023-04-15T14:45:04.802Z
 title: Africa4Africa - Rise 'N' Shine (Lyrics Visualizer)
 category: Launches & New Releases
+image: /uploads/linkcasts/featured/youthumb_2sn2v3qzexm_maxres.png
 imageRatio: aspect-square
 url: https://youtu.be/2sn2v3qzEXM
 ---
