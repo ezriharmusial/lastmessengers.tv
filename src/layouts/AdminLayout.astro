@@ -15,8 +15,8 @@
 <body data-theme="crimson" class="dark dark:text-white light:text-black">
 
     <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js" client:load></script>
-    <script client:load>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
       function getTextColor(color) {
         let darkColor = getDarkColor(color)
         return darkColor.replace('is-', 'has-text-')
@@ -157,6 +157,6 @@
 
 
 	<!-- Netlify Identiy widget -->
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" client:load></script>
+	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>
