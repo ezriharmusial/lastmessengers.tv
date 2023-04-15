@@ -322,6 +322,6 @@ slug:
 show_preview_links: false
 publish_mode: editorial_workflow
 
-site_url: https://lastmessengers.tv
+site_url: https://lastmessengers.netlify.app
 display_url: https://lastmessengers.tv
-logo_url: /images/LMS_web-logo_small_light.png
+logo_url: /images/red-black-purple-gold-with-sun.svg
