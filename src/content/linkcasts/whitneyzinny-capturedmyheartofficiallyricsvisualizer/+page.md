@@ -3,6 +3,7 @@ author: Bas Bijleveld
 date: 2023-04-15T17:58:36.154Z
 title: WhitneyZinny - Captured My Heart (Official Lyrics Visualizer)
 imageRatio: aspect-square
+url: https://youtu.be/uiiErggjqmo
 ---
 This song shades light to the sweetness that comes with being in love and vice versa.
 
