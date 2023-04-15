@@ -96,7 +96,13 @@
 <div class="flex flex-col dark:backdrop-blur-xl">
     <div class="relative flex landscape:flex-row portrait:flex-col rounded-xl shadow-player-light bg-player-light-background border border-player-light-border dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border">
         <div class="transition-all p-4 flex portrait:flex-col justify-between flex-grow-0 landscape:lg:w-1/3 landscape:xl:w-1/4 items-center" class:translate-y-0={displayInfo} class:opacity-1={displayInfo} class:h-full={displayInfo} class:max-h-0={!displayInfo} class:opacity-0={!displayInfo} class:translate-y-full={!displayInfo}>
-            <img data-amplitude-song-info="cover_art_url" class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border"/>
+            <div class="block text-right">
+                <button class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></svg>
+                </button>
+            </div>
+
+            <img data-amplitude-song-info="cover_art_url" class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
 
             <div class="flex-grow portrait:w-80 flex justify-between items-center gap-4 portrait:p-4">
                 <div class="flex-grow flex flex-col">
@@ -134,8 +140,8 @@
                         <path d="M6 5L6 27" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button class="cursor-pointer w-16 h-16 portrait:w-12 portrait:h-12 rounded-full bg-white border border-play-pause-light-border shadow-xl flex items-center justify-center dark:bg-play-pause-dark-background dark:border-play-pause-dark-border" title="Play/Pause">
-                    <div class="amplitude-play-pause amplitude-paused">
+                <button class="cursor-pointer w-16 h-16 rounded-full portrait:w-12 portrait:h-12 bg-white border border-play-pause-light-border shadow-xl flex items-center justify-center dark:bg-play-pause-dark-background dark:border-play-pause-dark-border" title="Play/Pause">
+                    <div class="amplitude-play-pause amplitude-paused portrait:max-w-8 portrait:max-h-8">
 
                     <svg id="play-icon" class="ml-[10px]" width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M29.6901 16.6608L4.00209 0.747111C2.12875 -0.476923 0.599998 0.421814 0.599998 2.75545V33.643C0.599998 35.9728 2.12747 36.8805 4.00209 35.6514L29.6901 19.7402C29.6901 19.7402 30.6043 19.0973 30.6043 18.2012C30.6043 17.3024 29.6901 16.6608 29.6901 16.6608Z" class="fill-slate-500 dark:fill-slate-400"/>
