@@ -23,11 +23,11 @@ import SEO from '~components/head/SEO.astro';
 
 <BaseLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
 	<div class="card card-hover flex landscape:flex-row portrait:flex-col glass-surface" href={"/newscasts/" + linkcast?.slug + "#header"}>
-		<header class="bg-black w-full ">
+		<header class="bg-black landscape:w-3/5 landscape:md:w-3/4">
 			<LinkcastHeader linkcast={linkcast} client:load />
 		</header>
 		<!-- Body -->
-		<div class="flex-col w-full landscape:w-1/4">
+		<div class="flex-col landscape:w-2/4 landscape:md:w-1/4">
 
 			<main class="p-4 space-y-4">
 				<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>
