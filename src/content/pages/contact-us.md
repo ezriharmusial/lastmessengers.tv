@@ -1,16 +1,17 @@
 ---
-layout: ../../layouts/ContactLayout.astro
-date: 2023-02-06T05:36:31.025Z
-updatedDate: 2023-02-23T03:52:11.849Z
-index: 8
 size: is-fullheight
-icon: chats-circle-bold
+color: primary
+bold: false
+updatedDate: 2023-02-23T03:52:11.849Z
+layout: ../../layouts/ContactLayout.astro
+author: EzzyHarmless
+date: 2023-02-06T05:36:31.025Z
+index: 8
 title: Contact us
 subtitle: all you need to get in touch
-bold: false
-color: primary
-image: /images/manifest/pwa-192x192.png
 imageAlt: Contact Information Page
+icon: chats-circle-bold
+image: /images/manifest/pwa-192x192.png
 description: Contactinformation of
 ---
 
