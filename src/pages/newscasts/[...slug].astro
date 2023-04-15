@@ -6,7 +6,6 @@
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
     import BaseLayout from "@layouts/BaseLayout.astro"
 	import LinkcastHeader from '@components/linkcasts/LinkcastHeader.svelte';
-import SEO from '~components/head/SEO.astro';
 
 	// 1. Generate a new path for every collection linkcast
 	export async function getStaticPaths() {
@@ -18,18 +17,17 @@ import SEO from '~components/head/SEO.astro';
 
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
-	console.log('linkcast',slug, linkcast)
 ---
 
 <BaseLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
-	<div class="flex landscape:flex-row landscape:max-h-screen landscape:overflow-y-hidden landscape portrait:flex-col glass-surface" href={"/newscasts/" + linkcast?.slug + "#header"}>
+	<div class="flex landscape:flex-row landscape:h-screen landscapelandscape:overflow-y-scroll landscape portrait:flex-col glass-surface">
 		<header class="bg-black landscape:w-3/5 landscape:md:w-3/4">
 			<LinkcastHeader linkcast={linkcast} client:load />
 		</header>
 		<!-- Body -->
-		<div class="flex-col landscape:w-2/4 landscape:md:w-1/4 landscape:max-h-screen landscape:overflow-y-auto">
+		<div class="flex-col landscape:w-2/4 landscape:md:w-1/4 landscape:max-w-4/5 landscape:overflow-y-auto">
 
-			<main class="p-4 space-y-4">
+			<main class="p-4 space-y-4 landscape:pt-8">
 				<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>
 
 				<h3 class="font-black text-xl">{linkcast.data?.title}</h3>
