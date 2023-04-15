@@ -7,9 +7,10 @@ export interface Props {
 	description: string;
 	image?: string;
 	imageAlt?: string;
+	fbappid?: string;
 }
 
-const { title, seoTitle, description, image, imageAlt } = Astro.props
+const { title, seoTitle, description, image, imageAlt, fbappid } = Astro.props
 
 
 function imageUrl(image:string = "/images/manifest/pwa-512x512.png") {
@@ -30,6 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="robots" content="index,follow">
 <meta name="description" content={description || SITE_DESCRIPTION}>
 <!-- Facebook OpenGraph -->
+<meta property="fb:app_id" content={fbappid}/>
 <meta property="og:title" content={title || "Welkom to LastMessengerS.TV"}>
 <meta property="og:description" content={description || SITE_DESCRIPTION}>
 <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)}>

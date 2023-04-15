@@ -43,6 +43,7 @@
 		"workbox-window": "^6.5.4"
 	},
 	"devDependencies": {
+		"@rollup/plugin-yaml": "^4.0.1",
 		"howler": "^2.2.3",
 		"is-mobile": "^4.0.0"
 	}

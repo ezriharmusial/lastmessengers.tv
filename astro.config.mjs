@@ -11,6 +11,8 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify/functions";
 import svelte from "@astrojs/svelte";
 
+import yaml from '@rollup/plugin-yaml';
+
 // https://astro.build/config
 import { VitePWA } from 'vite-plugin-pwa';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
@@ -48,7 +50,7 @@ export default defineConfig({
   adapter: netlify(),
 
   vite: {
-    plugins: [VitePluginBrowserSync(), VitePWA({
+    plugins: [yaml(), VitePluginBrowserSync(), VitePWA({
       registerType: 'autoUpdate',
       workbox: {
         globDirectory: 'dist',

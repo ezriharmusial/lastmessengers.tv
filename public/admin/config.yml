@@ -4,6 +4,44 @@ backend:
 # Local testing
 local_backend: true
 collections:
+  - label: "Settings"
+    name: "Settings"
+    files:
+      - label: "Site Info"
+        name: "info"
+        file: "src/content/settings/info.yml"
+        fields:
+          - {label: "Site Title", name: title, widget: string}
+          - {label: "Company Name", name: name, widget: string}
+          - {label: Address, name: address, widget: string}
+          - {label: Telephone, name: telephone, widget: string}
+          - {label: "Bank Account", name: bankaccount, widget: string}
+          - {label: "KVK Nummer", name: kvk, widget: string}
+
+      - label: "Social Links"
+        name: "social"
+        file: "src/content/settings/social.yml"
+        fields:
+        - {label: "Facebook Address", name: facebook, required: false}
+        - {label: "Twitter Handle", name: twitter, required: false}
+        - {label: "Instagram Handle", name: instagram, required: false}
+        - {label: "Youtube Channel Address", name: youtube, required: false}
+        - {label: "Tiktok Handle", name: tiktok, required: false}
+        - {label: "VSKit Handle", name: vskit, required: false}
+        - {label: "Audiomack Channel", name: audiomack, required: false}
+
+      - label: "Site settings"
+        name: "settings"
+        file: "src/content/settings/settings.yml"
+        fields:
+          - {label: "Default Theme", name: theme, widget: 'select', options: ['dark', 'light'], default: 'dark'}
+
+      - label: "SEO Settings"
+        name: "seo"
+        file: "src/content/settings/seo.yml"
+        fields:
+          - {label: "Facebook App ID", name: fbappid, widget: string}
+
   - name: "authors"
     label: "Authors"
     label_singular: "Author"
@@ -12,37 +50,20 @@ collections:
     create: true
     fields:
       - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
-      - name: sex
-        widget: 'select'
-        options: ['male', 'female']
+      - {label: sex, name: sex, widget: 'select', options: ['male', 'female']}
       - {label: "Gebruikersnaam", name: "subtitle", widget: "string"}
       - {label: "Voornaam", name: "name", widget: "string"}
       - {label: "Achternaam", name: "surname", widget: "string"}
       - {label: "Profielfoto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /images/manifest/pwa-192x192.png }
       - {label: "Shortbio", name: "body", widget: "markdown"}
-      - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
-      - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
-      - name: twitter
-        label: "Twitter Handle"
-        required: false
-      - name: instagram
-        label: "Instagram Handle"
-        required: false
-      - name: tiktok
-        label: "Tiktok Handle"
-        required: false
-      - name: vskit
-        label: "VSKit Handle"
-        required: false
-      - name: facebook
-        label: "Facebook Adress"
-        required: false
-      - name: youtube
-        label: "Youtube Adress Channel"
-        required: false
-      - name: audiomack
-        label: "Audiomack Channel"
-        required: false
+      - {label: "(SEO) Korte Pagina Samenvatting", name: "description", required: false }
+      - {label: "Twitter Handle", name: twitter, required: false}
+      - {label: "Instagram Handle", name: instagram, required: false}
+      - {label: "Tiktok Handle", name: tiktok, required: false}
+      - {label: "VSKit Handle", name: vskit, required: false}
+      - {label: "Facebook Address", name: facebook, required: false}
+      - {label: "Youtube Channel Address", name: youtube, required: false}
+      - {label: "Audiomack Channel", name: audiomack, required: false}
 
   - name: "pages"
     label: "Paginas"
@@ -135,10 +156,10 @@ collections:
         label: "VSKit Handle"
         required: false
       - name: facebook
-        label: "Facebook Adress"
+        label: "Facebook Address"
         required: false
       - name: youtube
-        label: "Youtube Adress Channel"
+        label: "Youtube Address Channel"
         required: false
       - name: audiomack
         label: "Audiomack Channel"
