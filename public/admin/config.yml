@@ -4,6 +4,46 @@ backend:
 # Local testing
 local_backend: true
 collections:
+  - name: "Authors"
+    label: "Authors"
+    label_singular: "Author"
+    folder: "src/content/users/"
+    preview_path: "/profiles/{{title}}"
+    create: true
+    fields:
+      - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
+      - name: sex
+        widget: 'select'
+        options: ['male', 'female']
+      - {label: "Gebruikersnaam", name: "subtitle", widget: "string"}
+      - {label: "Voornaam", name: "name", widget: "string"}
+      - {label: "Achternaam", name: "surname", widget: "string"}
+      - {label: "Profielfoto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /images/manifest/pwa-192x192.png }
+      - {label: "Profiel: Wat is je Connectie met LMS?", name: "body", widget: "markdown"}
+      - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
+      - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
+      - name: twitter
+        label: "Twitter Handle"
+        required: false
+      - name: instagram
+        label: "Instagram Handle"
+        required: false
+      - name: tiktok
+        label: "Tiktok Handle"
+        required: false
+      - name: vskit
+        label: "VSKit Handle"
+        required: false
+      - name: facebook
+        label: "Facebook Adress"
+        required: false
+      - name: youtube
+        label: "Youtube Adress Channel"
+        required: false
+      - name: audiomack
+        label: "Audiomack Channel"
+        required: false
+
   - name: "pages"
     label: "Paginas"
     label_singular: "Pagina"
@@ -11,6 +51,7 @@ collections:
     preview_path: "{{title}}"
     create: true
     fields:
+      - {label: 'Auteur', name: author, widget: 'relation', collection: 'authors', value_field: 'username', search_fields: ['name', 'surnam', 'username' ], multiple: false}
       - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
       - {label: "Menu volgorde", name: "index", widget: "number"}
       - {label: "Pagina Kop Grootte", name: "size", widget: "select", options: [ "is-small", "is-medium", "is-large", "is-halfheight", "is-fullheight" ], required: true, default: "is-fullheight"}
@@ -30,10 +71,11 @@ collections:
     preview_path: "linkcasts/{{title}}"
     create: true
     fields:
+      - {label: 'Auteur', name: author, widget: 'relation', collection: 'authors', value_field: 'username', search_fields: ['name', 'surnam', 'username' ], multiple: false}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Describing Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Post Category", name: "category", widget: "select", multiple: false, options: ["Launches & New Releases", "LastMessengerS Events", "Social Media & Promotions", "News & Announcements", "Sponsering & Advertisement"], required: false}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/static/uploads/linkcasts/featured", public_folder: "/uploads/linkcasts/featured"}
       - {label: "Featured: Image Ratio", name: imageRatio, widget: "select", multiple: false, options: ["aspect-square", "aspect-[16/9]", "aspect-[9/16]", "aspect-[21/9]", "aspect-[4/3]", "aspect-[3/4]"], default: "aspect-square", required: false}
       - {label: "Linkcast URL", name: "url", widget: "string", required: false}
@@ -44,7 +86,6 @@ collections:
       - {label: "SEO: Squared Image used in facebook open graph", name: ogSquareImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/og-squared", public_folder: "/uploads/linkcasts/og-squared"}
       - {label: "SEO: Description when image loads", name: featuredImageAlt,  required: false}
 
-
   # - name: "blog"
   #   label: "Posts"
   #   label_singular: "Post"
@@ -52,6 +93,7 @@ collections:
   #   preview_path: "{{title}}"
   #   create: true
   #   fields:
+  #     - {label: 'Auteur', name: author, widget: 'relation', collection: 'authors', value_field: 'username', search_fields: ['name', 'surnam', 'username' ], multiple: false}
   #     - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
   #     - {label: "Menu volgorde", name: "index", widget: "number"}
   #     - {label: "Pagina Kop Grootte", name: "size", widget: "select", options: [ "is-small", "is-medium", "is-large", "is-halfheight", "is-fullheight" ], required: true, default: "is-fullheight"}
@@ -65,22 +107,152 @@ collections:
   #     - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
 
   - name: "artists"
-    label: "Artists"
+    label: LastMessengerS
     label_singular: "Artist"
     folder: "src/content/artists"
     preview_path: "artists/{{title}}"
     create: true
     fields:
-      - {"name": "nav_label", "required": false }
-      - {"name": "image", "label": "Artist Foto", "widget": "image", "required": false, "media_folder": "public/uploads/artists", "public_folder": "/uploads/artists" }
-      - {"name": "imageAlt", "label": "SEO: Description when image loads", "required": false}
-      - {"name": "title", "label": "Album Title" }
-      - {"name": "release_year", "label": "Release Year", "format": "yyyy", "widget": "date", "required": false }
-      - {"name": "tracklist", "label": "Album Tracklist", "widget": "relation", "collection": "media", "value_field": "title", "search_fields": ["title", "artist", "featuring_artist", "producer", "body"], "multiple": true }
-      - {"name": "genres", "label": "Music Genres", "widget": "list", "default": "Afrobeat" }
-      - {"name": "credits", "required": false }
-      - {"name": "body", "label": "Album Info", "widge": "markdown", "required": false }
-      - {"name": "description", "label": "SEO: Description 155 Characters", "required": false }
+      - name: nav_label
+        required: false
+      - {name: 'image', label: 'Profile Picture', widget: 'image', required: false, media_folder: '/static/uploads/artists', public_folder: '/uploads/artists' }
+      - name: active
+        label: 'LastMessenger Status'
+        widget: boolean
+        default: true
+      - name: title
+        label: 'Records and performs under the Artist Name'
+      - name: twitter
+        label: "Twitter Handle"
+        required: false
+      - name: instagram
+        label: "Instagram Handle"
+        required: false
+      - name: tiktok
+        label: "Tiktok Handle"
+        required: false
+      - name: vskit
+        label: "VSKit Handle"
+        required: false
+      - name: facebook
+        label: "Facebook Adress"
+        required: false
+      - name: youtube
+        label: "Youtube Adress Channel"
+        required: false
+      - name: audiomack
+        label: "Audiomack Channel"
+        required: false
+      - name: meaning
+        label: 'His/her Artist Name means'
+      - name: name
+        label: 'Real Name'
+        default: Unknown
+      - name: sex
+        widget: 'select'
+        options: ['male', 'female']
+      - name: 'genres'
+        label: 'Artist makes music in (Genres)'
+        widget: 'list'
+        default: 'Afrobeat'
+      - name: 'languages'
+        label: 'Artist makes music in (Languages)'
+        singular: 'Language'
+        widget: 'list'
+        default: 'English'
+        required: false
+      - name: experience
+        label: 'His/her audience can expect (experience)'
+        required: false
+      - name: 'profession'
+        label: 'Musical Profession'
+        widget: select
+        options: ['performing artist', 'featuring artist', 'music producer', 'writer']
+        multiple: true
+        default: 'performing artist'
+        required: false
+      - name: 'vocal_type'
+        label: 'Vocal Type'
+        singular: 'Musical Skill'
+        widget: 'select'
+        multiple: true
+        options: ['soprano', 'alto', 'tenor', 'bass', treble]
+        required: false
+      - name: 'vocal_skills'
+        label: 'Vocal Skills'
+        widget: 'select'
+        options: ['singing', 'rapping', 'beatboxing', 'spoken word', 'motivational speaker']
+        multiple: true
+        default: 'singing'
+      - name: 'instruments'
+        label: 'Instruments'
+        singular: 'Instrument'
+        widget: 'list'
+        default: 'voice'
+        required: false
+      - name: performance_setup
+        label: 'Performance setup'
+        widget: 'select'
+        options: ['instrumental tracks', 'a band', 'an orchestra', 'a dj']
+        multiple: true
+        default: 'instrumental tracks'
+      - name: vision
+        label: 'His/her vision is to...'
+        required: false
+      - name: mission
+        label: 'His/her mission is to...'
+        required: false
+      - name: reason
+        label: 'Artist makes music...'
+        required: false
+      - name: wishes
+        label: 'and wishes everyone...'
+        required: false
+      - name: motivation
+        label: 'What motivatiets him/her to create his/her music is...'
+        required: false
+      - name: inspiration
+        label: 'and finds inspiriation...'
+        required: false
+      - name: youth_influences
+        label: 'Growing up his/her main musical influences came from...'
+        required: false
+      - name: influential_artists
+        label: 'and popular artists like...'
+        required: false
+      - name: purpose
+        label: 'The purpose of his/her work is to...'
+        required: false
+      - name: solution
+        label: 'and is convinced his/her music affects societal isseus...'
+        required: false
+      - name: success
+        label: 'Artist defines success as...'
+        required: false
+      - name: actions
+        label: 'He/she develops his/her skills by...'
+        required: false
+      - name: body
+        label: history
+        widget: markdown
+        required: false
+      - name: discography
+        label: 'Album Track'
+        widget: 'relation'
+        collection: 'media'
+        value_field: 'title'
+        search_fields: ['title', 'artist', 'featuring_artist', 'producer', 'lyrics' ]
+        multiple: false
+      - name: metadescription
+        label: 'SEO: Description 155 Characters'
+        required: false
+      - {name: twitterImage, label: 'SEO: Image used in twitter', widget: 'image', required: false, media_folder: '/static/uploads/artists/twitter', public_folder: '/uploads/artists/twitter'}
+      - {name: featuredImage, label: 'SEO: Image used in blog/posts', widget: 'image', required: false, media_folder: '/static/uploads/artists/featured', public_folder: '/uploads/artists/featured'}
+      - {name: ogImage, label: 'SEO: Image used in facebook open graph', widget: 'image', required: false, media_folder: '/static/uploads/artists/og', public_folder: '/uploads/artists/og'}
+      - {name: ogSquareImage, label: 'SEO: Squared Image used in facebook open graph', widget: 'image', required: false, media_folder: '/static/uploads/artists/og-squared', public_folder: '/uploads/artists/og-squared'}
+      - name: featuredImageAlt
+        label: 'SEO: Description when image loads'
+        required: false
 
   - name: tracks
     label: Album Tracks
