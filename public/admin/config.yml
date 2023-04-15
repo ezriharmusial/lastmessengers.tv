@@ -88,8 +88,8 @@ collections:
     folder: src/content/tracks
     preview_path: unity-album-2022/{{title}}
     sortable_fields:
-    - order
-    - title
+      - order
+      - title
     create: true
     fields:
       - {"name": "nav_label", "label": "SITE: URL Slug", "required": false }
