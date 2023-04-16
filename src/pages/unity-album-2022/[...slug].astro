@@ -63,8 +63,8 @@ const openGraph:openGraph = {
 const player = { playing: true}
 const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
 ---
-<PlayerLayout title={"☝ Listen to " + track.data?.title + " by " + artist.data?.name + "♫"} description={track.data?.description} image={track.data?.image} imageAlt={track.data?.imageAlt}>
-	<article class:list={['transition-colors duration-1000 fixed w-full h-full top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
+<PlayerLayout title={"☝ Listen to " + track.data?.title + " by " + track.data?.artist + "♫"} description={track.data?.description} image={track.data?.image} imageAlt={track.data?.imageAlt}>
+	<article class:list={['transition-colors duration-1000 top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
 		<header class:list={['transition-colors duration-700 absolute w-full h-full top-0 left-0 transition-opacity duration-700 delay-0', track.data.color, track.data.bgColor, track.data.bgSize, track.data.bgBlend, track.data.bgOpacity, track.data.bgPosition]}>
 		</header>
 		<!--  class:opacity-0={!$player.playing} class:delay-3000={$player.playing} -->
@@ -88,7 +88,7 @@ const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
 						"-right-30 landscape:-right-12 landscape:sm:-right-20 landscape:xl:right-0 portrait:-right-16": track.data.alignImage == 'right',
 						"bottom-50 left-50 translate-x-1/2": track.data.alignImage == 'center'
 					}]}>
-					<image loading="lazy" width={640} aspectRatio={1/1} data-amplitude-song-info="cover_art_url" alt={"Picture of " + artist.data?.title} src={artist.data?.image}/>
+					<image loading="lazy" width={640} aspectRatio={1/1} alt={"Picture of " + artist.data?.title} src={artist.data?.image}/>
 				</div>
 			}
 
@@ -96,7 +96,7 @@ const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
 				<div class="fixed bottom-0 left-0 portait:w-3/4 flex flex-row w-full">
 					featuredArtists.map(featuredArtist => {
 						<div class="portrait:w-3/4 sm:-ml-20 landscape:sm:w-1/4 lg:-ml-50" style="width: calc(100vw / {(featuredArtists.length * 0.5) + 1});" >
-							<image loading="lazy" width={640} aspectRatio={3/4} data-amplitude-song-info="cover_art_url" alt={"Picture of " + featuredartist.data?.title} src={featuredartist.data?.image} />
+							<image loading="lazy" width={640} aspectRatio={3/4} alt={"Picture of " + featuredartist.data?.title} src={featuredartist.data?.image} />
 						</div>
 					})
 				</div>
