@@ -104,7 +104,7 @@
 
             <img data-amplitude-song-info="cover_art_url" class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
 
-            <div class="flex-grow portrait:w-80 flex justify-between items-center gap-4 portrait:p-4">
+            <div class="flex-grow portrait:w-80 flex justify-between overflow-hidden items-center gap-4 portrait:p-4">
                 <div class="flex-grow flex flex-col">
                     <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 text-slate-900 dark:text-white"></span>
                     <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"></span>
@@ -115,6 +115,11 @@
                         <path d="M25 7C25 3.68629 22.2018 1 18.75 1C16.1692 1 13.9537 2.5017 13 4.64456C12.0463 2.5017 9.83082 1 7.25 1C3.79822 1 1 3.68629 1 7C1 14.6072 8.49219 20.1822 11.6365 22.187C12.4766 22.7226 13.5234 22.7226 14.3635 22.187C17.5078 20.1822 25 14.6072 25 7Z" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
                 </button>
+
+                <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full -z-30 translate-y-1 opacity-40">
+                    <img loading="lazy" class="blur-sm object-cover" data-amplitude-song-info="cover_art_url" alt="Background Image Player" />
+                </div>
+
             </div>
             <div>
                 <slot />
@@ -140,14 +145,14 @@
                         <path d="M6 5L6 27" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button class="cursor-pointer w-16 h-16 rounded-full portrait:w-12 portrait:h-12 bg-white border border-play-pause-light-border shadow-xl flex items-center justify-center dark:bg-play-pause-dark-background dark:border-play-pause-dark-border" title="Play/Pause">
+                <button class="cursor-pointer w-16 h-16 rounded-full portrait:w-14 portrait:h-14 bg-white border border-play-pause-light-border shadow-xl flex items-center justify-center dark:bg-play-pause-dark-background dark:border-play-pause-dark-border" title="Play/Pause">
                     <div class="amplitude-play-pause amplitude-paused portrait:max-w-8 portrait:max-h-8">
 
-                    <svg id="play-icon" class="ml-[10px]" width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="play-icon" class="ml-[10px] portrait:w-8 portrait:h-8" width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M29.6901 16.6608L4.00209 0.747111C2.12875 -0.476923 0.599998 0.421814 0.599998 2.75545V33.643C0.599998 35.9728 2.12747 36.8805 4.00209 35.6514L29.6901 19.7402C29.6901 19.7402 30.6043 19.0973 30.6043 18.2012C30.6043 17.3024 29.6901 16.6608 29.6901 16.6608Z" class="fill-slate-500 dark:fill-slate-400"/>
                     </svg>
 
-                    <svg id="pause-icon" width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="pause-icon" class="portrait:w-8 portrait:h-8" width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="6" height="36" rx="3" class="fill-slate-500 dark:fill-slate-400"/>
                         <rect x="18" width="6" height="36" rx="3" class="fill-slate-500 dark:fill-slate-400" />
                     </svg>
