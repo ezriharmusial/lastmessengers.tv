@@ -4,22 +4,24 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 
     import Linkcasts from "@components/linkcasts/Linkcasts.astro"
-    import BaseLayout from "@layouts/BaseLayout.astro"
+    import LinkCastLayout from "@layouts/LinkCastLayout.astro"
 	import LinkcastHeader from '@components/linkcasts/LinkcastHeader.svelte';
 
 	// 1. Generate a new path for every collection linkcast
 	export async function getStaticPaths() {
 		const linkCasts = await getCollection('linkcasts');
 		return linkCasts.map(linkcast => ({
-			params: { slug: linkcast.slug, collection: track.collection }, props: { linkcast },
+			params: { slug: linkcast.slug},
+			props: { linkcast },
 		}));
 	}
 
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
+	console.log("slug",slug, linkcast)
 ---
 
-<BaseLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
+<LinkCastLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
 	<div class="flex landscape:flex-row landscape:h-screen landscapelandscape:overflow-y-scroll landscape portrait:flex-col glass-surface">
 		<header class="bg-black landscape:w-3/5 landscape:md:w-3/4">
 			<LinkcastHeader linkcast={linkcast} client:load />
@@ -64,4 +66,4 @@
 	</div>
 
     <Linkcasts />
-</BaseLayout>
+</LinkCastLayout>

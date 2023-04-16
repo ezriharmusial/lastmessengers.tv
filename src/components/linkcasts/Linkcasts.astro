@@ -36,7 +36,7 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-2 landscape:md:grid-cols-1 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 gap-8 landscape:container landscape:mx-auto">
 
 		{linkcasts.map((linkcast) => (
-		<div class="card card-hover glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug + "#header"}>
+		<div class="card card-hover glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug }>
 			<header>
 				<LinkcastHeader linkcast={linkcast} client:load />
 			</header>
@@ -56,7 +56,7 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 					{linkcast.body}
 				</article>
 				<div class="grid grid-rows-1 gap-4">
-					<a class="btn variant-filled-primary" title={"Read more on " + linkcast.data.title} href={"/newscasts/" + linkcast.slug + "#header"}>
+					<a class="btn variant-filled-primary" title={"Read more on " + linkcast.data.title} href={"/newscasts/" + linkcast.slug }>
 						Read more...
 					</a>
 					{linkcast.data.url &&

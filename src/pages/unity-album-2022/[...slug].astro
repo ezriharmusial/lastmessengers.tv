@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntryBySlug } from 'astro:content';
 
-import BaseLayout from "@layouts/BaseLayout.astro"
+import PlayerLayout from "@layouts/PlayerLayout.astro"
 
 // 1. Generate a new path for every collection track
 export async function getStaticPaths() {
@@ -63,7 +63,7 @@ const openGraph:openGraph = {
 const player = { playing: true}
 const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
 ---
-<BaseLayout title={"☝ Listen to " + track.data?.title + " by " + artist.data?.name + "♫"} description={track.data?.description} image={track.data?.image} imageAlt={track.data?.imageAlt}>
+<PlayerLayout title={"☝ Listen to " + track.data?.title + " by " + artist.data?.name + "♫"} description={track.data?.description} image={track.data?.image} imageAlt={track.data?.imageAlt}>
 	<article class:list={['transition-colors duration-1000 fixed w-full h-full top-0 left-0 p-4 portrait:pt-24', track.data.bgColor]}>
 		<header class:list={['transition-colors duration-700 absolute w-full h-full top-0 left-0 transition-opacity duration-700 delay-0', track.data.color, track.data.bgColor, track.data.bgSize, track.data.bgBlend, track.data.bgOpacity, track.data.bgPosition]}>
 		</header>
@@ -103,7 +103,7 @@ const backgroundImage = "url('/images/animated-bg/" + track.data.bg + ".gif')"
 			}
 		</div>
 	</article>
-</BaseLayout>
+</PlayerLayout>
 
 <style define:vars={{backgroundImage}}>
 	header {

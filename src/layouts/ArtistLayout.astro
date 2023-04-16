@@ -1,6 +1,12 @@
 ---
+import MediaPlayer from "~components/mediaplayer/MediaPlayer.svelte";
 import BaseLayout from "./BaseLayout.astro";
 import Artists from "@components/artists/Artists.astro";
+import { getCollection } from 'astro:content';
+
+const artists = await getCollection('artists')
+const albums = await getCollection('albums')
+const tracks = await getCollection('tracks')
 
 // TypeScript interface of openGraph prop
 interface openGraph {

@@ -1,7 +1,7 @@
 ---
 import { getEntryBySlug } from "astro:content";
 
-import BaseLayout from "@layouts/BaseLayout.astro";
+import PlayerLayout from "@layouts/PlayerLayout.astro";
 import Album from "@components/music/Album.astro";
 import Artists from "@components/artists/Artists.astro";
 
@@ -10,11 +10,11 @@ let { title, image, imageAlt, seoTitle, description } = unityAlbum.data
 
 ---
 
-<BaseLayout title={seoTitle || title} image={image} imageAlt={imageAlt || seoTitle || title} description="Restoring one of the Ancient music values~TRURH, by packing messages as enjoyable songs targeting curious ears of the general public." >
+<PlayerLayout title={seoTitle || title} image={image} imageAlt={imageAlt || seoTitle || title} description="Restoring one of the Ancient music values~TRURH, by packing messages as enjoyable songs targeting curious ears of the general public." >
 <Album />
 <section class="m-8">
   <h2 class="unstyled title marker text-white text-5xl my-8">Album Artists</h2>
   <Artists />
 </section>
 
-</BaseLayout>
+</PlayerLayout>
