@@ -1,10 +1,11 @@
 ---
-title: ArtKids®_Cubana Showcase 2022
-subtitle:  Africa4Africa Unity Album 2022/2023
-category: LastMessengerS Events
+author: EzzyHarmless
 date: 2023-01-05T18:01:43.449Z
+title: ArtKids®_Cubana Showcase 2022
+subtitle: Africa4Africa Unity Album 2022/2023
+category: LastMessengerS Events
 image: /images/manifest/apple-touch-startup-image-2048x1496.png
-imageRatio: aspect-square
+imageRatio: aspect-[4/3]
 url: https://youtu.be/esWgldLXXZI
 ---
 ArtKids®_Cubana Showcase 2022

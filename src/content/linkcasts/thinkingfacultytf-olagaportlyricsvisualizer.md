@@ -3,7 +3,7 @@ author: Bas Bijleveld
 date: 2023-04-15T18:00:25.435Z
 title: Thinking Faculty TF - O'laga Port (Lyrics Visualizer)
 image: https://i.ytimg.com/vi/re6WV0HTT-E/maxresdefault.jpg
-imageRatio: aspect-square
+imageRatio: aspect-[16/9]
 url: https://youtu.be/re6WV0HTT-E
 ---
 O'laga Port is creative Langwa rap (messages) through which I highlighted on Port Harcourt lifestyle with special focus on Gborokiri and Ikwerre lifestyles.

@@ -4,11 +4,11 @@
 
 	export let linkcast
 
-	let type = getLinkcastType(linkcast.data?.url)
+	let type = "image" //getLinkcastType(linkcast.data?.url)
 </script>
 
 	{#if type == "image"}
-	<img src={linkcast.data?.image} class={"bg-black/50 w-full " +
+	<img src={linkcast.data?.image} class={"bg-black/50 w-full object-cover" +
 
 			linkcast.data?.imageRatio == 'aspect-square' ? 'aspect-square'
 			: linkcast.data?.imageRatio == 'aspect-[9/16]' ? 'aspect-[9/16]'
@@ -17,7 +17,7 @@
 			: linkcast.data?.imageRatio == 'aspect-[21/9]' ? 'aspect-[21/9]'
 			: linkcast.data?.imageRatio == 'aspect-[4/3]' ? 'aspect-[4/3]'
 			: linkcast.data?.imageRatio == 'aspect-[3/4]' ? 'aspect-[3/4]'
-			: 'aspect-square'
+			: 'aspect-square h-full w-full'
 		}
 		alt="Post" />
 

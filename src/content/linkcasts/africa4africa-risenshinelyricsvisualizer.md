@@ -4,7 +4,7 @@ date: 2023-04-15T14:45:04.802Z
 title: Africa4Africa - Rise 'N' Shine (Lyrics Visualizer)
 category: Launches & New Releases
 image: https://i.ytimg.com/vi/2sn2v3qzEXM/maxresdefault.jpg
-imageRatio: aspect-square
+imageRatio: aspect-[16/9]
 url: https://youtu.be/2sn2v3qzEXM
 ---
 LastMessengerS Unity song titled Africa4Africa - Rise 'N' Shine is a wake-up call for Africans to resurrect from their age-long backwardness and dependency on foreigners. The singers urged Africans to pay adequate attention to the deceivers who are out to fool them again. Africa4Africa - Rise 'N' Shine is a song through which Africans are being awakened and realigned back to their ancient roots by taking care of what belongs to them instead of waiting for the Whites, Arabs and Asians to mismanage Africa's mineral and natural resources to the direct detriment of African families. We know that this song has the potential to change African lives for good-forever. Congratulations to the LastMessengerS
