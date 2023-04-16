@@ -110,6 +110,8 @@ import '@styles/app.postcss';
 
 		[class*=CardHeading]{
 			color: black;
+			font-size: 1.5rem !important;
+			line-height: 1.8rem !important;
 		}
 
 		[class*=CardImage]{
@@ -123,10 +125,25 @@ import '@styles/app.postcss';
 			bottom:0;
 		}
 
+		[class*=EditorContainer]{
+			background: transparent !important;
+		}
+
+		[class*=FieldLabel-fieldLabel]::after{
+			background: transparent;
+		}
+
+		[class*=NoPreviewContainer-card-splitPane]{
+			background: transparent;
+		}
+
 		/* Forms */
 		[class*=FieldLabel-fieldLabel] {
 			background-color: rgba(240, 240, 255, 1);
+		}
 
+		input[type=text]{
+			border-radius: 0px 5px 5px !important;
 		}
 
 		/* Mobile Friendly Styles */
@@ -182,24 +199,9 @@ import '@styles/app.postcss';
 				padding-right: 4px;
 			}
 
-			input[type=text]{
-				border-radius: 0px 5px 5px !important;
-			}
-
 			[class*=EditorContainer],
 			[class*=ToolbarContainer] {
 				min-width: initial;
-			}
-
-			[class*=EditorContainer]{
-				background: transparent !important;
-			}
-			[class*=FieldLabel-fieldLabel]::after{
-				background: transparent;
-			}
-
-			[class*=NoPreviewContainer-card-splitPane]{
-				background: transparent;
 			}
 
 			[class*=ControlPaneContainer]{
