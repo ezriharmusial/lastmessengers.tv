@@ -1,9 +1,9 @@
 ---
-
+author: Bas Bijleveld
+date: 2023-01-17T17:35:29.455Z
 title: DJ Bas Bijleveld Considers Rise 'n' Shine a Gem!
 subtitle: LastmessengerS track in Gems DJ Mix
 category: Social Media & Promotions
-date: 2023-01-17T17:35:29.455Z
 image: https://thumbnailer.mixcloud.com/unsafe/300x300/extaudio/d/9/4/a/2636-29c1-45cd-9272-3dbd586a190d
 imageRatio: aspect-square
 url: https://www.mixcloud.com/DJBasBijleveld/dj-bas-bijleveld-djs-choice-new-jams-2022-week-45/
