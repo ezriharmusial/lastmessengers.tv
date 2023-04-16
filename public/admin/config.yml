@@ -13,7 +13,7 @@ collections:
     fields:
       - {label: "Pubilcatie Datum", name: "date", widget: "datetime"}
       - {label: sex, name: sex, widget: 'select', options: ['male', 'female']}
-      - {label: "Gebruikersnaam", name: "subtitle", widget: "string"}
+      - {label: "Gebruikersnaam", name: "username", widget: "string"}
       - {label: "Voornaam", name: "name", widget: "string"}
       - {label: "Achternaam", name: "surname", widget: "string"}
       - {label: "Profielfoto", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages", default: /images/manifest/pwa-192x192.png }
@@ -50,8 +50,7 @@ collections:
   - label: "Social News"
     name: "linkcasts"
     folder: src/content/linkcasts
-    path: "{{slug}}/+page"
-    preview_path: "linkcasts/{{title}}"
+    preview_path: "/newscasts/{{title}}"
     sortable_fields: ['date', 'title', 'author', 'url']
     create: true
     fields:
@@ -60,14 +59,14 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Describing Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Post Category", name: "category", widget: "select", multiple: false, options: ["Launches & New Releases", "LastMessengerS Events", "Social Media & Promotions", "News & Announcements", "Sponsering & Advertisement"], required: false}
-      - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/static/uploads/linkcasts/featured", public_folder: "/uploads/linkcasts/featured"}
+      - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/public/uploads/linkcasts/featured", public_folder: "/uploads/linkcasts/featured"}
       - {label: "Featured: Image Ratio", name: imageRatio, widget: "select", multiple: false, options: ["aspect-square", "aspect-[16/9]", "aspect-[9/16]", "aspect-[21/9]", "aspect-[4/3]", "aspect-[3/4]"], default: "aspect-square", required: false}
       - {label: "Linkcast URL", name: "url", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "SEO: Excerpt 155 Characters", name: metadescription,  required: false}
-      - {label: "SEO: Image used in twitter", name: twitterImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/twitter", public_folder: "/uploads/linkcasts/twitter"}
-      - {label: "SEO: Image used in facebook open graph", name: ogImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/og", public_folder: "/uploads/linkcasts/og"}
-      - {label: "SEO: Squared Image used in facebook open graph", name: ogSquareImage,  widget: "image", required: false, media_folder: "/static/uploads/linkcasts/og-squared", public_folder: "/uploads/linkcasts/og-squared"}
+      - {label: "SEO: Image used in twitter", name: twitterImage,  widget: "image", required: false, media_folder: "/public/uploads/linkcasts/twitter", public_folder: "/uploads/linkcasts/twitter"}
+      - {label: "SEO: Image used in facebook open graph", name: ogImage,  widget: "image", required: false, media_folder: "/public/uploads/linkcasts/og", public_folder: "/uploads/linkcasts/og"}
+      - {label: "SEO: Squared Image used in facebook open graph", name: ogSquareImage,  widget: "image", required: false, media_folder: "/public/uploads/linkcasts/og-squared", public_folder: "/uploads/linkcasts/og-squared"}
       - {label: "SEO: Description when image loads", name: featuredImageAlt,  required: false}
 
   # - name: "blog"
@@ -99,7 +98,7 @@ collections:
     fields:
       - name: nav_label
         required: false
-      - {name: 'image', label: 'Profile Picture', widget: 'image', required: false, media_folder: '/static/uploads/artists', public_folder: '/uploads/artists' }
+      - {name: 'image', label: 'Profile Picture', widget: 'image', required: false, media_folder: '/public/uploads/artists', public_folder: '/uploads/artists' }
       - name: active
         label: 'LastMessenger Status'
         widget: boolean
@@ -230,10 +229,10 @@ collections:
       - name: metadescription
         label: 'SEO: Description 155 Characters'
         required: false
-      - {name: twitterImage, label: 'SEO: Image used in twitter', widget: 'image', required: false, media_folder: '/static/uploads/artists/twitter', public_folder: '/uploads/artists/twitter'}
-      - {name: featuredImage, label: 'SEO: Image used in blog/posts', widget: 'image', required: false, media_folder: '/static/uploads/artists/featured', public_folder: '/uploads/artists/featured'}
-      - {name: ogImage, label: 'SEO: Image used in facebook open graph', widget: 'image', required: false, media_folder: '/static/uploads/artists/og', public_folder: '/uploads/artists/og'}
-      - {name: ogSquareImage, label: 'SEO: Squared Image used in facebook open graph', widget: 'image', required: false, media_folder: '/static/uploads/artists/og-squared', public_folder: '/uploads/artists/og-squared'}
+      - {name: twitterImage, label: 'SEO: Image used in twitter', widget: 'image', required: false, media_folder: '/public/uploads/artists/twitter', public_folder: '/uploads/artists/twitter'}
+      - {name: featuredImage, label: 'SEO: Image used in blog/posts', widget: 'image', required: false, media_folder: '/public/uploads/artists/featured', public_folder: '/uploads/artists/featured'}
+      - {name: ogImage, label: 'SEO: Image used in facebook open graph', widget: 'image', required: false, media_folder: '/public/uploads/artists/og', public_folder: '/uploads/artists/og'}
+      - {name: ogSquareImage, label: 'SEO: Squared Image used in facebook open graph', widget: 'image', required: false, media_folder: '/public/uploads/artists/og-squared', public_folder: '/uploads/artists/og-squared'}
       - name: featuredImageAlt
         label: 'SEO: Description when image loads'
         required: false
@@ -330,7 +329,7 @@ collections:
         file: "src/content/settings/seo.yml"
         fields:
           - {label: "Facebook App ID", name: fbappid, widget: string}
-          - {label: "Default Share Image", name: image ,widget: "image", required: false, media_folder: "/static/uploads/seo/", public_folder: "/uploads/seo/"}
+          - {label: "Default Share Image", name: image ,widget: "image", required: false, media_folder: "/public/uploads/seo/", public_folder: "/uploads/seo/"}
 
     # adding a meta object with a path property allows editing the path of entries
     # moving an existing entry will move the entire sub tree of the entry to the new location

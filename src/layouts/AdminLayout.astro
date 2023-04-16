@@ -7,7 +7,7 @@ import '@styles/app.postcss';
 ---
 
 <!DOCTYPE html>
-<html lang="nl" class="light">
+<html lang="nl" class="light admin">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -232,7 +232,7 @@ import '@styles/app.postcss';
 		}
 
 		a[class*=GridCardLink][href="#/collections/settings/entries/seo"]:before{
-			background-image: url("https://www.glitztechnology.com/_next/static/images/seo.2-58442dde0ae8e7df50d693b90c0a740e.png");
+			background-image: url("https://www.glitztechnology.com/_next/public/images/seo.2-58442dde0ae8e7df50d693b90c0a740e.png");
 		}
 
 		a[class*=GridCardLink][href="#/collections/settings/entries/social"]:before{
@@ -264,15 +264,23 @@ import '@styles/app.postcss';
 			line-height: 1.8rem !important;
 		}
 
+		a:hover [class*=CardImage] {
+			transform: scale(1.2);
+			background-position-y: 9%;
+		}
+
 		[class*=CardImage]{
 			position: absolute;
 			background-color: rgba(0, 0, 255, 0.071);
+			background-position-y: 6%;
+			transform: scale(1.1);
 			height: 100% !important;
 			width: 100%;
 			top:0;
 			left:0;
 			right:0;
 			bottom:0;
+			transition: all ease-in-out 1s;
 		}
 
 		[class*=EditorContainer],

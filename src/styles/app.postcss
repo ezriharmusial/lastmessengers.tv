@@ -1,10 +1,14 @@
 /* Write your global styles here, in PostCSS syntax */
-
-/* html, body { @apply h-full overflow-hidden; } */
-
 html,
 body {
   transition: margin 600ms;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+html:not(.admin), html:not(.admin) body{
+  @apply h-full overflow-hidden;
+  font-size: 18px;
 }
 
 .marker {
@@ -21,7 +25,7 @@ body.off-canvas {
 }
 
 /* MarkDown Content */
- .md-content p{
+.md-content p{
   margin-bottom: 1rem;
 }
 .md-content p img{
