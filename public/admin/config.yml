@@ -4,44 +4,6 @@ backend:
 # Local testing
 local_backend: true
 collections:
-  - label: "Settings"
-    name: "settings"
-    files:
-      - label: "Site Info"
-        name: "info"
-        file: "src/content/settings/info.yml"
-        fields:
-          - {label: "Site Title", name: title, widget: string}
-          - {label: "Company Name", name: name, widget: string}
-          - {label: Address, name: address, widget: string}
-          - {label: Telephone, name: telephone, widget: string}
-          - {label: "Bank Account", name: bankaccount, widget: string}
-          - {label: "KVK Nummer", name: kvk, widget: string}
-
-      - label: "Social Links"
-        name: "social"
-        file: "src/content/settings/social.yml"
-        fields:
-        - {label: "Facebook Address", name: facebook, required: false}
-        - {label: "Twitter Handle", name: twitter, required: false}
-        - {label: "Instagram Handle", name: instagram, required: false}
-        - {label: "Youtube Channel Address", name: youtube, required: false}
-        - {label: "Tiktok Handle", name: tiktok, required: false}
-        - {label: "VSKit Handle", name: vskit, required: false}
-        - {label: "Audiomack Channel", name: audiomack, required: false}
-
-      - label: "Site settings"
-        name: "settings"
-        file: "src/content/settings/settings.yml"
-        fields:
-          - {label: "Default Theme", name: theme, widget: 'select', options: ['dark', 'light'], default: 'dark'}
-
-      - label: "SEO Settings"
-        name: "seo"
-        file: "src/content/settings/seo.yml"
-        fields:
-          - {label: "Facebook App ID", name: fbappid, widget: string}
-
   - name: "authors"
     label: "Authors"
     label_singular: "Author"
@@ -85,11 +47,12 @@ collections:
       - {label: "Tags (SEO)", name: "tags", widget: "list", default: ["news"], required: false}
       - {label: "Korte Pagina Samenvatting (SEO)", name: "description", required: false }
 
-  - label: "Linkcasts"
+  - label: "Social News"
     name: "linkcasts"
     folder: src/content/linkcasts
     path: "{{slug}}/+page"
     preview_path: "linkcasts/{{title}}"
+    sortable_fields: ['date', 'title', 'author', 'url']
     create: true
     fields:
       - {label: 'Auteur', name: author, widget: 'relation', collection: 'authors', value_field: 'username', search_fields: ['name', 'surnam', 'username' ], multiple: false}
@@ -328,6 +291,46 @@ collections:
       - {"name": "credits", "required": false }
       - {"name": "body", "label": "Album Info", "widge": "markdown", "required": false }
       - {"name": "description", "label": "SEO: Description 155 Characters", "required": false }
+
+  - label: "Site Settings"
+    name: "settings"
+    files:
+      - label: "Site Info & Branding"
+        name: "info"
+        file: "src/content/settings/info.yml"
+        fields:
+          - {label: "Site Title", name: title, widget: string}
+          - {label: "Company Name", name: name, widget: string}
+          - {label: "Site Description", name: description, widget: string}
+          - {label: "Email Address", name: email, widget: string}
+          - {label: Telephone, name: telephone, widget: string}
+          - {label: "Bank Account", name: bankaccount, widget: string}
+          - {label: "KVK Nummer", name: kvk, widget: string}
+
+      - label: "Site Settings"
+        name: "settings"
+        file: "src/content/settings/settings.yml"
+        fields:
+          - {label: "Default Theme", name: theme, widget: 'select', options: ['dark', 'light'], default: 'dark'}
+
+      - label: "Social Links"
+        name: "social"
+        file: "src/content/settings/social.yml"
+        fields:
+        - {label: "Facebook Address", name: facebook, required: false}
+        - {label: "Twitter Handle", name: twitter, required: false}
+        - {label: "Instagram Handle", name: instagram, required: false}
+        - {label: "Youtube Channel Address", name: youtube, required: false}
+        - {label: "Tiktok Handle", name: tiktok, required: false}
+        - {label: "VSKit Handle", name: vskit, required: false}
+        - {label: "Audiomack Channel", name: audiomack, required: false}
+
+      - label: "SEO Settings"
+        name: "seo"
+        file: "src/content/settings/seo.yml"
+        fields:
+          - {label: "Facebook App ID", name: fbappid, widget: string}
+          - {label: "Default Share Image", name: image ,widget: "image", required: false, media_folder: "/static/uploads/seo/", public_folder: "/uploads/seo/"}
 
     # adding a meta object with a path property allows editing the path of entries
     # moving an existing entry will move the entire sub tree of the entry to the new location
