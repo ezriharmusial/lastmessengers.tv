@@ -12,10 +12,9 @@ export interface Props {
 
 const { title, seoTitle, description, image, imageAlt, fbappid } = Astro.props
 
-
+// Catch Image Url Inconsistencies
 function imageUrl(image:string = "/images/manifest/pwa-512x512.png") {
-	const url = image.startsWith('/') ? Astro.site.replace(/\/$/, "") + image  : image
-	return url
+	return new URL(image, Astro.url)
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
