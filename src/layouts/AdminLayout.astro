@@ -4,6 +4,7 @@ import '@styles/theme.postcss';
 import '@skeletonlabs/skeleton/styles/all.css'
 import '@styles/app.postcss';
 
+import Fonts from '../components/head/Fonts.astro';
 ---
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ import '@styles/app.postcss';
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" content={Astro.generator} />
-
+	<Fonts />
 	<!-- Note the "type" and "rel" attribute values, which are required. -->
 	<link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
