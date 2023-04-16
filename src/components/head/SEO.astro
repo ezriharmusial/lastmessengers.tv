@@ -14,7 +14,7 @@ const { title, seoTitle, description, image, imageAlt, fbappid } = Astro.props
 
 
 function imageUrl(image:string = "/images/manifest/pwa-512x512.png") {
-	const url = image.startsWith('/') ? Astro.site + image  : image
+	const url = image.startsWith('/') ? Astro.site.replace(/\/$/, "") + image  : image
 	return url
 }
 
