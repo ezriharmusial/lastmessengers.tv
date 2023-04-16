@@ -59,7 +59,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Describing Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Post Category", name: "category", widget: "select", multiple: false, options: ["Launches & New Releases", "LastMessengerS Events", "Social Media & Promotions", "News & Announcements", "Sponsering & Advertisement"], required: false}
-      - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/public/uploads/linkcasts/featured", public_folder: "/uploads/linkcasts/featured"}
+      - {label: "Featured: Image used in blogs/linkcasts", name: image ,widget: "image", required: false, media_folder: "/public/uploads/linkcasts", public_folder: "/uploads/linkcasts"}
       - {label: "Featured: Image Ratio", name: imageRatio, widget: "select", multiple: false, options: ["aspect-square", "aspect-[16/9]", "aspect-[9/16]", "aspect-[21/9]", "aspect-[4/3]", "aspect-[3/4]"], default: "aspect-square", required: false}
       - {label: "Linkcast URL", name: "url", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -344,6 +344,13 @@ slug:
   sanitize_replacement: ""
 show_preview_links: false
 publish_mode: editorial_workflow
+
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: artkids-foundation
+#     api_key: 263829663159721
+
 
 site_url: https://lastmessengers.netlify.app
 display_url: https://lastmessengers.tv
