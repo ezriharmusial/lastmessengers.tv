@@ -117,7 +117,7 @@
                 </button>
 
                 <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full -z-30 translate-y-1 opacity-40">
-                    <img loading="lazy" class="blur-sm object-cover" data-amplitude-song-info="cover_art_url" alt="Background Image Player" />
+                    <img loading="lazy" class="blur-sm object-cover" data-amplitude-song-info="cover_art_url" alt="Player Background" />
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 ---
 import { CollectionEntry, getCollection, getEntryBySlug } from 'astro:content';
-import BlogPost from '@layouts/BlogPost.astro';
+import BlogPostLayout from '@layouts/BlogPostLayout.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -17,7 +17,7 @@ const post = await getEntryBySlug('blog', slug)
 const { Content } = await post?.render();
 ---
 
-<BlogPost description={post.data?.description} title={post.data?.title} image={post.data?.image} imageAlt={post.data?.imageAlt} >
+<BlogPostLayout description={post.data?.description} title={post.data?.title} image={post.data?.image} imageAlt={post.data?.imageAlt} >
 	<h1>{post.data.title}</h1>
 	<Content />
-</BlogPost>
+</BlogPostLayout>
