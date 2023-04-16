@@ -24,7 +24,7 @@ release_year: 2022
 genres:
   - Afrobeat
 bgBlend: bg-blend-multiply
-bgSize: bg-contain opacity-60
+bgSize: bg-contain
 quote: Chi'Ukwu gozie Mama [Let the creator bless my mother]
 ---
 (Intro)

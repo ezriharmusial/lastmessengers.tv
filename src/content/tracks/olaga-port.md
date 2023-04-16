@@ -6,7 +6,7 @@ theme: light
 bg: triangle-wave
 bgColor: "!bg-neutral-100"
 bgBlend: bg-blend-darken
-bgPosition: bg-right bg-no-repeat opacity-25
+bgPosition: bg-right bg-no-repeat
 bgSize: bg-contain
 color: text-black
 title: O’laga Port
