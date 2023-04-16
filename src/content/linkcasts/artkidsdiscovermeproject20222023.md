@@ -4,7 +4,7 @@ title: ArtKids® DiscoverMe project 2022/2023
 subtitle: no one is useless as the society erroneously stereotyped them to be
 category: News & Announcements
 date: 2022-12-11T18:27:02.685Z
-image: /uploads/linkcasts/featured/whatsappimage2022-12-11at08.15.12.jpeg
+image: /uploads/linkcasts/whatsappimage2022-12-11at08.15.12.jpeg
 imageRatio: aspect-[3/4]
 ---
 ArtKids® Foundation is an in-Holland-registered and globally operational talent discovery, development, promotion, marketing and empowerment organisation with special focus on highly talented African youths.
