@@ -5,13 +5,22 @@ title: Thinking Faculty TF - O'laga Port (Lyrics Visualizer)
 image: https://i.ytimg.com/vi/re6WV0HTT-E/maxresdefault.jpg
 imageRatio: aspect-square
 url: https://youtu.be/re6WV0HTT-E
+metadescription: O'laga Port is creative Langwa rap (messages) through which I
+  highlighted on Port Harcourt lifestyle with special focus on Gborokiri and
+  Ikwerre lifestyles.  I touched on the beauty of Ikwerre girls and the natural
+  temptations that follow such beautiful girls, most of whom seem to be found in
+  Port Harcourt Ghettos.  O'laga Port is a reminder of what a young man could
+  face when visiting or relocating to Port Harcourt as temptations abound (Too
+  many beautiful black Chikalas in PH).
 ---
 O'laga Port is creative Langwa rap (messages) through which I highlighted on Port Harcourt lifestyle with special focus on Gborokiri and Ikwerre lifestyles.
 
 I touched on the beauty of Ikwerre girls and the natural temptations that follow such beautiful girls, most of whom seem to be found in Port Harcourt Ghettos.
 
 O'laga Port is a reminder of what a young man could face when visiting or relocating to Port Harcourt as temptations abound (Too many beautiful black Chikalas in PH).
+
 lyrics
+
 (Intro)
 One, Two
 
