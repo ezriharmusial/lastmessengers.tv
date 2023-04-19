@@ -19,7 +19,20 @@
 						<div id="radius-shape-1" class="absolute rounded-full shadow-lg"></div>
 						<div id="radius-shape-2" class="absolute shadow-lg"></div>
 						<div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
-							<form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+							<form
+								data-netlify="true"
+								data-netlify-honeypot="true"
+								netlify
+								netlify-honeypot
+								name="contact"
+								method="POST"
+								action="/success"
+							>
+								<p class="hidden">
+								<label>
+									Don’t fill this out if you’re human: <input name="bot-field" />
+								</label>
+								</p>
 								<input type="hidden" name="form-name" value="contact" />
 								<div class="grid md:grid-cols-2 md:gap-6">
 									<div class="mb-6">
