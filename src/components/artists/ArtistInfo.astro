@@ -39,14 +39,14 @@ function sentenceArray(array:[], word:string = 'and'){
 ---
 
 <article class="flex align-items-stretch landscape:w-full portrait:flex-col landscape:flex-row-reverse landscape:text-right">
-    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 " + artist.data?.track.data?.bgColor + " text-left landscape:h-screen landscape:overflow-y-auto"}>
-        <header>
+    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 text-left landscape:h-screen landscape:overflow-y-auto"}>
+        <header class="mr-4 mt-4">
             <Artist artist={artist} />
         </header>
-        <blockquote class="text-4xl text-italic text-bold p-4" cite={Astro.site + "/artists/" + artist?.slug}>
-            <span class="text-4xl">"</span> {artist.data?.track.data?.quote}<span class="text-4xl">"</span>
-        </blockquote>
-        <footer class="light:bg-white/60 dark:bg-black/60 text-2xl text-bold">
+        <footer class="text-2xl text-bold  " + artist.data?.track.data?.bgColor + " " + artist.data?.track.data?.color >
+            <blockquote class="text-4xl text-italic text-bold p-4" cite={Astro.site + "/artists/" + artist?.slug}>
+                <span class="text-4xl">"</span> {artist.data?.track.data?.quote}<span class="text-4xl">"</span>
+            </blockquote>
             <h3 class="p-4">Follow {artist.data?.title} on:</h3>
             <div class="flex flex-col items-start">
                 {artist.data?.twitter &&
@@ -106,6 +106,7 @@ function sentenceArray(array:[], word:string = 'and'){
                     </a>
                 }
             </div>
+            <Share data={artist.data} />
         </footer>
     </div>
 
@@ -228,8 +229,6 @@ function sentenceArray(array:[], word:string = 'and'){
 	  	{artist?.body}
         </div>
         <hr />
-
-        <Share data={artist.data} />
     </div>
 </article>
 

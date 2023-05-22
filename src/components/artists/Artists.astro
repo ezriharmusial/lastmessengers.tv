@@ -12,9 +12,9 @@ function mapTrack(artist) {
 	return artist
 }
 ---
-	<div class="grid landscape:grid-flow-row landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-4 portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 portrait:md:grid-cols-3 gap-8 justify-center mb-8">
+	<div class="grid landscape:grid-flow-row landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-4 portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 portrait:md:grid-cols-3 gap-8 justify-center mb-8 mx-8">
 		{artistAndTrack.map((artist) => (
-		<div style={"background-image: url('/images/animated-bg/" + ( artist.data?.track.data?.bg || "mmiri-anwu-elu")  + ".gif');"} class={"card card-hover relative overflow-hidden bg-slate-900/20 transition-transform duration-700 ease-in-out hover:scale-110 rounded " + artist.data?.track.data?.bgColor + " " + artist.data?.track.data?.bgBlend + " " + artist.data?.track.data?.bgPosition + " " + artist.data?.track.data?.bgSize }>
+		<div style={"background-image: url('/images/animated-bg/" + ( artist.data?.track.data?.bg || "mmiri-anwu-elu")  + ".gif');"} class={"card card-hover relative overflow-hidden bg-slate-900/20 transition-transform duration-200 ease-in-out hover:scale-110 rounded " + artist.data?.track.data?.bgColor + " " + artist.data?.track.data?.bgBlend + " " + artist.data?.track.data?.bgPosition + " " + artist.data?.track.data?.bgSize }>
 			<div class="max-w-xs mt-5 ml-auto right-0">
 			<Image loading="lazy" loading="lazy" width={320} aspectRatio={1/1} src={artist.data.image} alt={"Profile Picture of " + artist.data.title} />
 			</div>
