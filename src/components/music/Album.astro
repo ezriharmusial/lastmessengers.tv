@@ -11,20 +11,20 @@ const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => t
 <div class="background-radial-gradient w-full md:p-28 p-6">
     <div class="flex portrait:flex-col gap-4 items-start justify-around relative">
         <div class="landscape:w-1/2">
-            <image loading="lazy" width={640} aspectRatio={1/1} src={album.data?.image} class="lazy rounded-lg shadow-lg" alt={album.data?.imageAlt} />
+            <Image loading="lazy" width={640} aspectRatio={1/1} src={album.data?.image} class="lazy rounded-lg shadow-lg" alt={album.data?.imageAlt} />
             <div class="flex justify-between flex-col h-min relative">
                 <h2 class="title marker font-bold text-2xl mt-12 mb-4">Track List</h2>
                 {tracklist.map(track =>
                 <div class="card card-hover variant-glass-primary flex justify-between px-2 my-2 flex-row flex-grow items-center">
                     <div class="flex items-center">
                         <div class="mx-2">{track.data?.order < 10 ? '0' + track.data?.order : track.data?.order}</div>
-                        <image loading="lazy" class="object-contain rounded-md mx-5" width={50} aspectRatio={1/1} src={track.data?.image} alt={track.data?.imageAlt} />
+                        <Image loading="lazy" class="object-contain rounded-md mx-5" width={50} aspectRatio={1/1} src={track.data?.image} alt={track.data?.imageAlt} />
                         <div class="flex mx-5 flex-col w-max">
                             <div class="text-lg font-semibold">{track.data?.artist}</div>
                             <div class="text-xs">{track.data?.title}</div>
                         </div>
                     </div>
-                    <div>03:43</div>
+                    <div>00:00</div>
                     <a href={"/" + album?.slug + "/" + track?.slug} alt={"Go to track: " + track.data?.title} class="absolute top-0 left-0 w-full h-full"><span class="sr-only">Play Track: {track.data?.title}</span></a>
                 </div>
                 )}
