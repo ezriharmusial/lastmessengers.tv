@@ -22,12 +22,14 @@
 ---
 
 <LinkCastLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
-	<div class="flex landscape:flex-row landscape:h-screen landscape:overflow-y-scroll portrait:flex-col glass-surface">
-		<header class="bg-black landscape:w-3/5 landscape:md:w-3/4">
-			<LinkcastHeader linkcast={linkcast} client:load />
+	<div class="flex flex-col">
+
+		<!-- landscape:w-3/5.landscape:xl:w-3/4  -->
+		<header class="bg-black">
+			<LinkcastHeader linkcast={linkcast} type={getLinkcastType(linkcast.data?.url)} client:load />
 		</header>
 		<!-- Body -->
-		<div class="flex-col landscape:w-2/4 landscape:md:w-1/4 landscape:max-w-4/5 landscape:overflow-y-auto">
+		<div class="flex-col">
 
 			<main class="p-4 space-y-4 landscape:pt-8">
 				<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>

@@ -106,9 +106,9 @@
 
             <div class="flex-grow portrait:w-80 flex justify-between overflow-hidden items-center gap-4 portrait:p-4">
                 <div class="flex-grow flex flex-col">
-                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 text-slate-900 dark:text-white"></span>
-                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"></span>
-                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"></span>
+                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 line-clamp-1 text-slate-900 dark:text-white"></span>
+                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400"></span>
+                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400"></span>
                 </div>
                 <button class="cursor-pointer w-12 h-12 text-center flex-grow-0" class:saved={saved} id="song-saved" on:click={handleSongSaved}>
                     <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -31,39 +31,32 @@ const { slug } = await Astro.params
 const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 ---
 <div class="bg-gradient-to-br from-slate-700 to-slate-900 min-h-screen md:p-28 p-6 pt-24">
-	<h2 class="my-6 title marker text-3xl">Latest News</h2>
+	<h2 class="unstyled my-6 title marker text-3xl">Latest News</h2>
 
 	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-2 landscape:md:grid-cols-1 landscape:lg:grid-cols-2 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 gap-8 landscape:container landscape:mx-auto">
 
 		{linkcasts.map((linkcast) => (
-		<div class="card card-hover glass-surface sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug }>
+		<a class="card card-hover variant-glass-primary sm:max-w-sm portrait:mb-6 justify-between" href={"/newscasts/" + linkcast.slug }>
 			<header>
 				<LinkcastHeader linkcast={linkcast} client:load />
 			</header>
-			<main class="p-4 space-y-4">
+			<section class="card-header space-y-4">
 				<h5 class="text-primary-500 font-semibold">{linkcast.data.category || 'News & Announcments'}</h5>
 
-				<h3 class="font-black leading-3 text-xl">{linkcast.data.title}</h3>
+				<h3 class="font-black leading-3 text-xl">{linkcast.data.title}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span></h3>
 
 				<h4 class="font-medium text-xl">
 					{linkcast.data.subtitle &&
 						<span>{linkcast.data.subtitle}</span>
 					}
-					<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span>
+
 				</h4>
 
-				<article class="unstyled text-2xl max-h-72 overflow-hidden">
-					{linkcast.body}
-				</article>
-				<div class="grid grid-rows-1 gap-4">
-					<a class="btn variant-filled-primary" title={"Read more on " + linkcast.data.title} href={"/newscasts/" + linkcast.slug }>
-						Read more...
-					</a>
-					{linkcast.data.url &&
-						<a class="btn variant-filled-secondary" href={linkcast.data.url} target="_blank" rel="noreferrer">Visit {getLinkcastType(linkcast.data.url)} link <span class="ml-3 h-4 w-4"><Icon pack="fa" name="external-link" /></span></a>
-					}
+				<div class="unstyled text-2xl overflow-hidden">
+					<span class="line-clamp-3">{linkcast.body}</span>
+					<span>Read more...</span>
 				</div>
-			</main>
+			</section>
 			<hr />
 			<footer class="p-4 flex justify-start items-center space-x-4">
 				<Avatar src={linkcast.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
@@ -72,7 +65,7 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 					<small>On {new Date(linkcast.data.date).toLocaleDateString()}</small>
 				</div>
 			</footer>
-		</div>
+		</a>
 		))}
 
 {(length < linkcasts.length) &&

@@ -52,8 +52,8 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
     <slot name="extendedHead" />
 
     <!-- App Loader Screen -->
-    <div class="app-loader dark:bg-black/50 light:bg-white/50 backdrop-blur-sm w-screen h-screen flex flex-col justify-around items-center fixed top-0 left-0 z-40">
-        <div class="wrapper dark:bg-black/50 light:bg-white/50 w-screen flex flex-row items-center justify-center scale-100 transition-transform duration-500 z-40">
+    <div class="app-loader dark:bg-black/75 light:bg-white/50 backdrop-saturate-50 backdrop-blur-sm w-screen h-screen flex flex-col justify-around items-center fixed top-0 left-0 z-40">
+        <div class="wrapper w-screen flex flex-row items-center justify-center scale-100 transition-transform duration-500 z-40">
             <div class="progress-5 female"></div>
             <figure class="image flex flex-row justify-around items-center">
                 <!-- <img class="loading-logo" src="/images/LMS_web-logo_small_dark.png" alt="LastMessengerS Logo"/> -->
@@ -122,7 +122,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
     body.classList.toggle('loaded')
 </script>
 <!-- Netlify Identiy widget -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
+<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
 </body>
 </html>
 
