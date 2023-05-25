@@ -1,10 +1,10 @@
 ---
-
+author: EzzyHarmless
+date: 2022-11-13T17:09:09.161Z
 title: Join us as Certified ArtKids Fundraiser (CAF)
 category: Sponsering & Advertisement
-date: 2022-11-13T17:09:09.161Z
 image: https://101fundraising.org/wp-content/uploads/2019/05/How-to-use-WhatsApp-for-fundraising-and-crowdfunding.jpg
-imageRatio: aspect-square
+imageRatio: aspect-[16/9]
 url: https://chat.whatsapp.com/Gl69R39G8uIH8E561ts0u3
 ---
 Having released our Charity Single ~ Africa4Africa Rise 'n' Shine on the 11/11/2022, the question is every artists mind is; what next?
