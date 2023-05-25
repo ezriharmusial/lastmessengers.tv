@@ -7,7 +7,8 @@ import PlayerLayout from "@layouts/PlayerLayout.astro"
 export async function getStaticPaths() {
 	const tracks = await getCollection('tracks');
 	return tracks.map( track => ({
-		params: { slug: track.slug, collection: track.collection }, props: { track },
+		params: { slug: track.slug },
+		props: { track },
 	}));
 }
 

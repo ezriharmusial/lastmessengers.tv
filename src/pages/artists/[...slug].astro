@@ -10,7 +10,8 @@ import Artists from "@components/artists/Artists.astro";
 export async function getStaticPaths() {
 	const artists = await getCollection('artists');
 	return artists.map(artist => ({
-		params: { slug: artist.slug }, props: { artist },
+		params: { slug: artist.slug },
+		props: { artist },
 	}));
 }
 
