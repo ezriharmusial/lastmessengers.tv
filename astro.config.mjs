@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { SITE_TITLE, SITE_DESCRIPTION } from './src/consts'
+import { SITE_TITLE, SITE_DESCRIPTION } from './src/consts';
 
 // https://astro.build/config
 import image from "@astrojs/image";
@@ -10,7 +10,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify/functions";
 import svelte from "@astrojs/svelte";
-
 import yaml from '@rollup/plugin-yaml';
 
 // https://astro.build/config
@@ -30,11 +29,13 @@ import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 // import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), sitemap(), svelte(), tailwind(),
+  }), mdx(), sitemap(), svelte(), tailwind()
   // critters(),
   // deadLinks(),
   // webmanifest(
@@ -49,10 +50,10 @@ export default defineConfig({
   //   "display": "standalone",
   // }
   // )
-],
+  ],
+
   output: "server",
   adapter: netlify(),
-
   vite: {
     plugins: [yaml(), VitePluginBrowserSync(), VitePWA({
       registerType: 'autoUpdate',
@@ -79,5 +80,5 @@ export default defineConfig({
         }]
       }
     })]
-  },
+  }
 });
