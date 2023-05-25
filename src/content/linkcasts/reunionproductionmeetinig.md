@@ -5,7 +5,7 @@ title: Reunion Production Meetinig
 subtitle: Shooting Music Clips for our LastMessengerS Stars
 category: News & Announcements
 image: /uploads/linkcasts/sdflyer.jpg
-imageRatio: aspect-square
+imageRatio: aspect-[9/16]
 ---
 Greetings to The LastMessengerS.
 

@@ -11,7 +11,9 @@
 
 <div class="relative">
 
-	<figure class={linkcast.data?.imageRatio == 'aspect-square' ? 'aspect-square'
+	<figure class={"aspect-square dark:bg-black/50 light:bg-white/50 flex items-center justify-center overflow-hidden"}>
+
+<img loading="lazy" src={linkcast.data?.image} class={"bg-purple-400 w-full object-fill " + linkcast.data?.imageRatio == 'aspect-square' ? 'aspect-square'
 	: linkcast.data?.imageRatio == 'aspect-[9/16]' ? 'aspect-[9/16]'
 	: linkcast.data?.imageRatio == 'aspect-[16/9]' ? 'aspect-[16/9]'
 	: linkcast.data?.imageRatio == 'aspect-[9/21]' ? 'aspect-[9/21]'
@@ -19,11 +21,7 @@
 	: linkcast.data?.imageRatio == 'aspect-[4/3]' ? 'aspect-[4/3]'
 	: linkcast.data?.imageRatio == 'aspect-[3/4]' ? 'aspect-[3/4]'
 	: linkcast.data?.imageRatio == 'aspect-square' ? 'aspect-square'
-	: 'aspect-square'
-}
->
-
-<img loading="lazy" src={linkcast.data?.image} class={"bg-black/50 w-full object-cover "} alt="Post" />
+	: 'aspect-square'} alt="Post" />
 
 </figure>
 {#if getLinkcastType(linkcast?.data?.url) == 'youtube' }

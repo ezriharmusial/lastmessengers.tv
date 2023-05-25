@@ -41,9 +41,9 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 				<LinkcastHeader linkcast={linkcast} client:load />
 			</header>
 			<section class="card-header space-y-4">
-				<h5 class="text-primary-500 font-semibold">{linkcast.data.category || 'News & Announcments'}</h5>
+				<h5 class="text-primary-500 font-semibold">{linkcast.data.category || 'News & Announcments'}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span></h5>
 
-				<h3 class="font-black leading-3 text-xl">{linkcast.data.title}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{getLinkcastType(linkcast.data.url)}</span></h3>
+				<h3 class="font-black leading-3 text-xl line-clamp-2">{linkcast.data.title} <br /></h3>
 
 				<h4 class="font-medium text-xl">
 					{linkcast.data.subtitle &&
@@ -52,10 +52,10 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 
 				</h4>
 
-				<div class="unstyled text-2xl overflow-hidden">
-					<span class="line-clamp-3">{linkcast.body}</span>
-					<span>Read more...</span>
-				</div>
+				<p class="unstyled text-2xl overflow-hidden">
+					<span class="line-clamp-3">{linkcast.body}</span> <br />
+					<b>Read more...</b>
+				</p>
 			</section>
 			<hr />
 			<footer class="p-4 flex justify-start items-center space-x-4">
