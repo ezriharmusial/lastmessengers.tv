@@ -18,23 +18,24 @@ import { VitePWA } from 'vite-plugin-pwa';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 
 // https://astro.build/config
-import critters from "astro-critters";
+// import critters from "astro-critters";
 
 // https://astro.build/config
-import deadLinks from "astro-dead-links";
+// import deadLinks from "astro-dead-links";
 
 // https://astro.build/config
-import purgecss from "astro-purgecss";
+// import purgecss from "astro-purgecss";
 
 // https://astro.build/config
-import webmanifest from "astro-webmanifest";
+// import webmanifest from "astro-webmanifest";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), sitemap(), svelte(), tailwind(), critters(),
+  }), mdx(), sitemap(), svelte(), tailwind(),
+  // critters(),
   // deadLinks(),
   // webmanifest(
   // {
