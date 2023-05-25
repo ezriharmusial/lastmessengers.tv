@@ -296,7 +296,7 @@ collections:
     files:
       - label: "Site Info & Branding"
         name: "info"
-        file: "src/content/settings/info.yml"
+        file: "src/content/settings/_info.yml"
         fields:
           - {label: "Site Title", name: title, widget: string}
           - {label: "Company Name", name: name, widget: string}
@@ -308,13 +308,13 @@ collections:
 
       - label: "Site Settings"
         name: "settings"
-        file: "src/content/settings/settings.yml"
+        file: "src/content/settings/_settings.yml"
         fields:
           - {label: "Default Theme", name: theme, widget: 'select', options: ['dark', 'light'], default: 'dark'}
 
       - label: "Social Links"
         name: "social"
-        file: "src/content/settings/social.yml"
+        file: "src/content/settings/_social.yml"
         fields:
         - {label: "Facebook Address", name: facebook, required: false}
         - {label: "Twitter Handle", name: twitter, required: false}
@@ -326,7 +326,7 @@ collections:
 
       - label: "SEO Settings"
         name: "seo"
-        file: "src/content/settings/seo.yml"
+        file: "src/content/settings/_seo.yml"
         fields:
           - {label: "Facebook App ID", name: fbappid, widget: string}
           - {label: "Default Share Image", name: image ,widget: "image", required: false, media_folder: "/public/uploads/seo/", public_folder: "/uploads/seo/"}
