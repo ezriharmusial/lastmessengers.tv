@@ -9,7 +9,9 @@ export async function get(context) {
 		description: SITE_DESCRIPTION,
 		site: context.site,
 		items: linkcasts.map((linkcast) => ({
-			...linkcast.data,
+			title: linkcast.data?.title,
+			pubDate: linkcast.data?.date,
+			description: linkcast.data?.description,
 			link: `/newscasts/${linkcast.slug}/`,
 		})),
 	});
