@@ -18,7 +18,7 @@
 
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
-	console.log("slug",slug, linkcast)
+	// console.log("slug",slug, linkcast)
 ---
 
 <LinkCastLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>

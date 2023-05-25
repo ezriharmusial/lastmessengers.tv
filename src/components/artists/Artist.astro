@@ -11,7 +11,7 @@ if (artist && tracks) {
 ---
 
 <div style={"background-image: url('/images/animated-bg/" + ( artist.data?.track.data?.bg || "mmiri-anwu-elu")  + ".gif');"} class={"card relative overflow-hidden bg-slate-900/20  " + artist.data?.track.data?.bgColor +  " " + artist.data?.color + " " + artist.data?.track.data?.bgBlend + " " + artist.data?.track.data?.bgPosition + " " + artist.data?.track.data?.bgSize }>
-	<Image loading="lazy" width={320} aspectRatio={1/1} class="lazy max-w-xs mt-5 ml-auto right-0" src={artist.data?.image} alt={"Profile Picture of " + artist.data?.title}/>
+	<Image loading="lazy" width={320} aspectRatio={1/1} class="max-w-xs mt-5 ml-auto right-0" src={artist.data?.image} alt={"Profile Picture of " + artist.data?.title}/>
 	<div class="absolute top-0 right-0 bottom-0 left-0 p-5 w-full h-full overflow-hidden bg-fixed bg-black/20 hover:bg-transparent flex flex-col justify-end font-shadow">
 		<h2 class="title marker uppercase drop-shadow-md text-red-500 dark:text-yellow-300 portrait:text-3xl landscape:xs:text-sm landscape:sm:text-md landscape:md:text-lg landscape:lg:text-xl landscape:xl:text-2xl text-shadow">
 			{artist.data?.title}

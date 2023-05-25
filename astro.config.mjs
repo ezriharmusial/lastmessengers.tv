@@ -34,18 +34,21 @@ export default defineConfig({
   site: 'https://lastmessengers.netlify.app',
   integrations: [image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), sitemap(), svelte(), tailwind(), critters(), deadLinks(),webmanifest(
-  {
-    "name": SITE_TITLE,
-    "icon": "/favicon.svg",
-    "short_name": "Example",
-    "description": SITE_DESCRIPTION,
-    "start_url": "/",
-    "theme_color": "#010101",
-    "background_color": "#010101",
-    "display": "standalone",
-  }
-  )],
+  }), mdx(), sitemap(), svelte(), tailwind(), critters(),
+  // deadLinks(),
+  // webmanifest(
+  // {
+  //   "name": SITE_TITLE,
+  //   "icon": "public/favicon.svg",
+  //   "short_name": "Example",
+  //   "description": SITE_DESCRIPTION,
+  //   "start_url": "/",
+  //   "theme_color": "#010101",
+  //   "background_color": "#010101",
+  //   "display": "standalone",
+  // }
+  // )
+],
   // output: "server",
   // adapter: netlify(),
 
