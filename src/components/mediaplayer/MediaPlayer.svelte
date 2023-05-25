@@ -170,9 +170,6 @@
                     </svg>
                 </button>
             </div>
-            <div class="hidden top-14 w-full absolute ml-auto mr-auto left-0 right-0 text-center max-w-lg h-72 rounded-full bg-highlight blur-2xl dark:block">
-
-            </div>
         </div>
         <div class="fixed right-0 bottom-0 landscape:hidden p-4" class:!inline={isMobile()}>
             <button title="Display Track information" class="btn w-12 h-12 variant-glass-primary btn-icon flex flex-col items-center z-20" on:click={() => displayInfo = !displayInfo}>
