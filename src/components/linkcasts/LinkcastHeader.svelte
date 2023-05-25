@@ -4,7 +4,7 @@
 
 	export let linkcast
 
-	export let type = "image" //getLinkcastType(linkcast.data?.url)
+	export let type = getLinkcastType(linkcast.data?.url) || "image"
 </script>
 
 {#if type == "image"}

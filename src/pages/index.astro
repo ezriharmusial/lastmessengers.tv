@@ -7,11 +7,26 @@ import Album from "@components/music/Album.astro";
 ---
 
 <BaseLayout title="LastMessengerS - Artist Management Platform" image="/images/manifest/apple-touch-startup-image-2048x1496.png" description="Truth Based Music Management. Connecting Truthspreading Artists, with lucrative tools and fair management.">
-	<!-- <Album /> -->
+		<section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Stage%20performance');">
+			<div class="bg-black/75 py-32 text-left text-white">
+				<div class="container mx-8 flex items-center">
+					<div class="w-1/2">
+						<BrandFlag />
+						<h1 class="unstyled text-5xl font-medium my-8">Welcome to LastMessengerS.TV</h1>
+						<p class="unstyled text-3xl mb-12"> LastMessengerS are restoring one of the ancient music values~TRUTH, by packaging messages as enjoyable songs targeting the curious ears of the general public. </p>
+					</div>
+					<div class="w-1/2 pl-16">
+						<img src="https://source.unsplash.com/random?african%20popstar" class="h-72 w-3/4 object-cover rounded-xl" alt="Layout Image">
+		  			</div>
+				</div>
+			</div>
+		</section>
 
 	<Linkcasts />
 
-	<div class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-24 px-10 overflow-hidden relative">
+	<Album />
+
+	<section class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-24 px-10 overflow-hidden relative">
 		<div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
 			<Image loading="lazy" aspectRatio={19/3} width={1280} height={202} src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="Cubana ArtKids Title Image" />
 			<div class="md:flex items-center portrait:flex-col -mx-10">
@@ -92,9 +107,9 @@ import Album from "@components/music/Album.astro";
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<header class="relative landscape:flex landscape:flex-row-reverse">
+	<section class="relative landscape:flex landscape:flex-row-reverse">
 		<Image loading="lazy" aspectRatio={1/1} width={1920} height={1920} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
 		<div class="relative landscape:w-1/2 portrait:min-h-full landscape:h-screen flex-col justify-end align-middle text-center mt-20">
 			<Image loading="lazy" width={1920} height={1080} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full landscape:hidden" alt="Backtround" src="/images/webp/background.webp" />
@@ -121,8 +136,8 @@ import Album from "@components/music/Album.astro";
 
 		<div class="landscape:w-1/2 landscape:h-screen landscape:p-10 landscape:mt-32 drop-shadow-md">
 			<div class="content bg-black/20 text-white text-2xl rounded">
-				<div class="aspect-w-16 aspect-h-9 mb-4">
-					<iframe loading="lazy" class="" width="100%" height="100%" loading="lazy" src="https://www.youtube.com/embed/esWgldLXXZI" title="Africa4Africa - Rise 'n' (Shine Official videoclip) YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+				<div class="aspect-[16/9] mb-4">
+					<iframe loading="lazy" class="" width="100%" height="100%" src="https://www.youtube.com/embed/esWgldLXXZI" title="Africa4Africa - Rise 'n' (Shine Official videoclip) YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
 				</div>
 				<h3 class="title marker text-4xl p-4 mt-10">
 					Rise 'n' Shine Video Release!
@@ -135,7 +150,7 @@ import Album from "@components/music/Album.astro";
 				</p>
 			</div>
 		</div>
-	</header>
+	</section>
 
 
 </BaseLayout>

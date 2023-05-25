@@ -19,7 +19,7 @@
 		<h4 class="font-medium">{linkcast.data?.subtitle && <span>{linkcast.data?.subtitle}</span> }</h4>
 		}
 		<article class="unstyled text-2xl">
-			<slot />
+			{linkcast.body}
 			<p>
 			{linkcast.data?.url &&
 			<a class="btn btn-filled-primary" href={linkcast.data?.url} target="_blank" rel="noreferrer">{linkcast.data?.url}</a>
