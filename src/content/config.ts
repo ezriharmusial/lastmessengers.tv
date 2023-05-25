@@ -100,4 +100,4 @@ const artists = defineCollection({
     })
 });
 
-export const collections = {pages, blog, linkcasts, artists, albums };
+export const collections = {pages, linkcasts, artists, albums };
