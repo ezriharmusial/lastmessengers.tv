@@ -8,7 +8,7 @@ import image from "@astrojs/image";
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
-// import netlify from "@astrojs/netlify/functions";
+import netlify from "@astrojs/netlify/functions";
 import svelte from "@astrojs/svelte";
 
 import yaml from '@rollup/plugin-yaml';
@@ -50,8 +50,8 @@ export default defineConfig({
   // }
   // )
 ],
-  // output: "server",
-  // adapter: netlify(),
+  output: "server",
+  adapter: netlify(),
 
   vite: {
     plugins: [yaml(), VitePluginBrowserSync(), VitePWA({
