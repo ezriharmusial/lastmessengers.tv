@@ -114,15 +114,11 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 </AppShell>
 </div>
 
-<!-- Service Worker -->
-<script src="/src/index.ts" is:inline></script>
 <script is:inline>
     // window.alert('Ready to run scripts!')
     var body = document.getElementsByTagName("BODY")[0];
     body.classList.toggle('loaded')
 </script>
-<!-- Netlify Identiy widget -->
-<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"/>
 </body>
 </html>
 
