@@ -114,8 +114,8 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 </AppShell>
 </div>
 
+<!-- Loader -->
 <script is:inline>
-    // window.alert('Ready to run scripts!');
     var body = document.getElementsByTagName("BODY")[0];
     body.classList.toggle('loaded');
 </script>
