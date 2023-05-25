@@ -158,10 +158,10 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 		</div>
 
 	<h2 class="unstyled my-6 title marker text-3xl">Newscasts</h2>
-	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-4 landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-5 landscape:grid-flow-dense portrait:xs:grid-cols-2 portrait:sm:grid-cols-3 gap-8">
+	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-4 landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:sm:grid-cols-2  portrait:md:grid-cols-2 gap-8">
 
 		{linkcasts.map((linkcast) => (
-		<a class="card card-hover variant-glass-primary flex flex-col sm:max-w-md portrait:mb-6 justify-start rounded-xl overflow-hidden" href={"/newscasts/" + linkcast.slug }>
+		<a class="card card-hover variant-glass-primary flex flex-col sm:max-w-lg portrait:mb-6 justify-start rounded-xl overflow-hidden" href={"/newscasts/" + linkcast.slug }>
 			<header>
 				<LinkcastHeader linkcast={linkcast} />
 			</header>
@@ -178,7 +178,7 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 				</h4>
 
 				<p class="unstyled text-2xl overflow-hidden">
-					<span class="line-clamp-3">{linkcast.body}</span> <br />
+					<span class="line-clamp-4">{linkcast.body}</span> <br />
 					<b>Read more...</b>
 				</p>
 			</section>
