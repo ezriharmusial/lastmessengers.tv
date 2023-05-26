@@ -1,5 +1,5 @@
 ---
-    import { Image } from '@astrojs/image/components';
+    // import { Image } from '@astrojs/image/components';
 ---
 
   <!-- Section: Design Block -->
@@ -12,7 +12,7 @@
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
           data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <!-- <image loading="lazy" width={640} aspectRatio={4/3} loading="lazy" decoding="async" class="w-full"  alt="City Scenes - Louvre" src="https://mdbootstrap.com/img/new/standard/city/018.jpg" /> -->
+          <!-- <img loading="lazy" width={640} aspectRatio={4/3} loading="lazy" decoding="async" class="w-full"  alt="City Scenes - Louvre" src="https://mdbootstrap.com/img/new/standard/city/018.jpg" /> -->
           <a href="#!">
             <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
               style="background-color: rgba(251, 251, 251, 0.2)"></div>
@@ -42,7 +42,7 @@
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
           data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <!-- <image loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="City Scenes Louvre" src="https://mdbootstrap.com/img/new/standard/city/032.jpg" /> -->
+          <!-- <img loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="City Scenes Louvre" src="https://mdbootstrap.com/img/new/standard/city/032.jpg" /> -->
           <a href="#!">
             <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
               style="background-color: rgba(251, 251, 251, 0.2)"></div>
@@ -72,7 +72,7 @@
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
           data-mdb-ripple="true" data-mdb-ripple-color="light">
-          <!-- <image loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="City sights Louvre"  src="https://mdbootstrap.com/img/new/standard/city/059.jpg" /> -->
+          <!-- <img loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="City sights Louvre"  src="https://mdbootstrap.com/img/new/standard/city/059.jpg" /> -->
           <a href="#!">
             <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
               style="background-color: rgba(251, 251, 251, 0.2)"></div>

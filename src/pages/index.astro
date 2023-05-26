@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+// import { Image } from '@astrojs/image/components';
 import BrandFlag from '~components/ui/BrandFlag.astro';
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Linkcasts from "@components/linkcasts/Linkcasts.astro"
@@ -28,11 +28,11 @@ import Album from "@components/music/Album.astro";
 
 	<section class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-24 px-10 overflow-hidden relative">
 		<div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
-			<Image loading="lazy" aspectRatio={19/3} width={1280} height={202} src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="Cubana ArtKids Title Image" />
+			<img loading="lazy" aspectRatio={19/3} width={1280} height={202} src="/uploads/posts/cubana-artkids-202.jpg" class="w-full relative z-10" alt="Cubana ArtKids Title Image" />
 			<div class="md:flex items-center portrait:flex-col -mx-10">
 				<div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
 					<div class="relative">
-						<Image loading="lazy" aspectRatio={11/16} width={640} height={930} src="/uploads/posts/cubana-artkids-2022.jpg" class="w-full relative z-10" alt="Cubana ArtKids Poster" />
+						<img loading="lazy" aspectRatio={11/16} width={640} height={930} src="/uploads/posts/cubana-artkids-2022.jpg" class="w-full relative z-10" alt="Cubana ArtKids Poster" />
 					</div>
 				</div>
 				<div class="w-full md:w-1/2 px-10">
@@ -110,9 +110,9 @@ import Album from "@components/music/Album.astro";
 	</section>
 
 	<section class="relative landscape:flex landscape:flex-row-reverse">
-		<Image loading="lazy" aspectRatio={1/1} width={1920} height={1920} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
+		<img loading="lazy" aspectRatio={1/1} width={1920} height={1920} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full portrait:hidden" alt="Backtround" src="/images/webp/background.webp" />
 		<div class="relative landscape:w-1/2 portrait:min-h-full landscape:h-screen flex-col justify-end align-middle text-center mt-20">
-			<Image loading="lazy" width={1920} height={1080} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full landscape:hidden" alt="Backtround" src="/images/webp/background.webp" />
+			<img loading="lazy" width={1920} height={1080} class="water absolute left-0 top-0 w-screen h-screen portrait:h-full landscape:hidden" alt="Backtround" src="/images/webp/background.webp" />
 			<figure class="h-1/4">
 				<p class="text-3xl title p-4 marker">
 					LastMessengerS Present
@@ -128,7 +128,7 @@ import Album from "@components/music/Album.astro";
 			<figure class="h-1/4">
 				<img loading="lazy" class="w-11/12 mx-auto" src="/images/webp/artists.webp" alt="Artists group" />
 			</figure>
-			<!-- <image loading="lazy" class="w-max" alt="Red Soil" src="/images/red-soil.jpg" /> -->
+			<!-- <img loading="lazy" class="w-max" alt="Red Soil" src="/images/red-soil.jpg" /> -->
 			<figure class="h-1/4">
 				<img loading="lazy" class="w-11/12 mx-auto" alt="Official Release 11/11/2022 on Soundcloud, Apple Music, YouTube Musuc, Spotify & Audiomack" src="/images/webp/release.webp" />
 			</figure>

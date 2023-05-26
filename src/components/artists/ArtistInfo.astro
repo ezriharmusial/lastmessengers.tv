@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon'
 // import { player } from "$lib/mediaplayer";
 // import { media } from "$lib/stores/data";
 import Artist from "./Artist.astro";
-import { Image } from '@astrojs/image/components';
+// import { Image } from '@astrojs/image/components';
 import { getCollection } from 'astro:content';
 import Share from '~components/ux/Share.astro';
 
@@ -100,7 +100,7 @@ function sentenceArray(array:[], word:string = 'and'){
                 {artist.data?.audiomack &&
                     <a class="btn has-text- px-3 py-1 m-0 w-11/12" href={"https://audiomack.com/" + artist.data?.audiomack} target="_blank" rel="nofollow noopener noreferrer" title={artist.data?.title + "'s Facebook page"}>
                         <span class="h-4 w-5 mr-4 translate-y-1 flex align-middle">
-                            <image loading="lazy" width={20} height={16} src="/images/custom-icons/mark-orange-large.png" alt="Audiomack Logk" />
+                            <img loading="lazy" width={20} height={16} src="/images/custom-icons/mark-orange-large.png" alt="Audiomack Logk" />
                         </span>
                         Audiomack.com/{artist.data?.audiomack}
                     </a>

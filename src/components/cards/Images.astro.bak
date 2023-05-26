@@ -1,5 +1,5 @@
 ---
-    import { Image } from '@astrojs/image/components';
+    // import { Image } from '@astrojs/image/components';
 ---
 
 
@@ -11,7 +11,7 @@
     <div class="grid lg:grid-cols-3 gap-6">
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg"
         style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="light">
-        <image loading="lazy" width={640} aspectRatio={4/3} loading="lazy" decoding="async" class="w-full"  src="https://mdbootstrap.com/img/new/standard/nature/051.jpg" alt="Bootstrap Nature" />
+        <img loading="lazy" width={640} aspectRatio={4/3} loading="lazy" decoding="async" class="w-full"  src="https://mdbootstrap.com/img/new/standard/nature/051.jpg" alt="Bootstrap Nature" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">
@@ -29,7 +29,7 @@
 
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg" data-mdb-ripple="true"
         data-mdb-ripple-color="light">
-        <image loading="lazy" aspectRatio={4/3} width={640}  loading="lazy" decoding="async"  class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/044.jpg" />
+        <img loading="lazy" aspectRatio={4/3} width={640}  loading="lazy" decoding="async"  class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/044.jpg" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">
@@ -47,7 +47,7 @@
 
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg" data-mdb-ripple="true"
         data-mdb-ripple-color="light">
-        <image loading="lazy" aspectRatio={4/3} width={640} loading="lazy" decoding="async" class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/045.jpg" />
+        <img loading="lazy" aspectRatio={4/3} width={640} loading="lazy" decoding="async" class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/045.jpg" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">
@@ -65,7 +65,7 @@
 
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg" data-mdb-ripple="true"
         data-mdb-ripple-color="light">
-        <image loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/047.jpg" />
+        <img loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/047.jpg" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">
@@ -83,7 +83,7 @@
 
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg" data-mdb-ripple="true"
         data-mdb-ripple-color="light">
-        <image loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/028.jpg" />
+        <img loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/028.jpg" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">
@@ -101,7 +101,7 @@
 
       <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg" data-mdb-ripple="true"
         data-mdb-ripple-color="light">
-        <image loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/049.jpg" />
+        <img loading="lazy" aspectRatio={4/3} loading="lazy" decoding="async" width={640} class="w-full"  alt="Nature Scenes" src="https://mdbootstrap.com/img/new/standard/nature/049.jpg" />
         <a href="#!">
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style="background-color: rgba(0, 0, 0, 0.4)">

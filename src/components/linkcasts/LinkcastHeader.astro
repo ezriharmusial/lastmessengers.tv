@@ -1,6 +1,6 @@
 ---
 	import { getMixcloudID, getYouTubeID, getLinkcastType } from "@lib/embeds";
-	import { Image } from '@astrojs/image/components';
+	// import { Image } from '@astrojs/image/components';
 
 function getRatio(){
 
@@ -17,7 +17,7 @@ function getRatio(){
 
 <div class="relative">
 	<figure class="aspect-[4/3] dark:bg-black/50 light:bg-white/50 flex items-center justify-center overflow-hidden">
-	<Image fit="contain" width={640} aspectRatio={getRatio()} loading="lazy" src={linkcast.data?.image} quality={85} format="webp" class={"bg-black/50 w-full object-cover "} alt="Post" />
+	<img fit="contain" width={640} aspectRatio={getRatio()} loading="lazy" src={linkcast.data?.image} quality={85} format="webp" class={"bg-black/50 w-full object-cover "} alt="Post" />
 	</figure>
 {getLinkcastType(linkcast?.data?.url) == 'youtube' &&
 <div class="image-container absolute top-0 h-full w-full flex justify-center items-center">
