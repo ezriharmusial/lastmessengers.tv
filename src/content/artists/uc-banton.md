@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Uc-Banton-7.png
-active: true
+active: false
 title: Uc Banton
 twitter: BantonUc
 instagram: ucbanton
@@ -17,6 +17,8 @@ genres:
 languages:
   - English
   - Pidgin-English
+experience: a performance in a variety of music genres that brings the audience
+  joy and inspiration
 profession:
   - performing artist
   - music producer
@@ -39,8 +41,6 @@ mission: let Africans and the self-proclaimed elitists know that we all are
   them better than every other people
 reason: to express and overcome his agony
 wishes: success in life
-experience: a performance in a variety of music genres that brings the audience
-  joy and inspiration
 motivation: the challenging situations coming across in this human experience
 inspiration: street life
 youth_influences: reggae
@@ -48,9 +48,8 @@ influential_artists: Luke Dube
 purpose: excel
 solution: through his messages of positivity
 success: the accomplishment of achieving the aim to spread the messages in his songs
-discography: Unite
-
 actions: listening to well-known artists and working in the studio every single day
+discography: Unite
 ---
 
 # History
