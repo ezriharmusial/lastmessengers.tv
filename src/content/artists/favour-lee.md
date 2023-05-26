@@ -1,11 +1,12 @@
 ---
-
 image: /uploads/artists/Favour-Lee-4.png
+active: false
 title: Favour Lee
 twitter: FavourL82893718
 instagram: Favourlee122
 meaning: act of kindness
 name: De-king Favour Akachukwu
+sex: male
 genres:
   - Afrobeat
 languages:
@@ -38,8 +39,6 @@ purpose: love one another
 solution: because it inspires the society and it teaches more about life
 success: being a role model in lifestyle, music and character and really
   changing the lives of individuals in a good way
-active: true
-sex: male
 actions: working with experiences producers and other artists
 discography: Sere
 ---
