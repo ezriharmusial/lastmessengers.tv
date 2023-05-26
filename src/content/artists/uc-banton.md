@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Uc-Banton-7.png
-active: true
+active: false
 title: Uc Banton
 twitter: BantonUc
 instagram: ucbanton

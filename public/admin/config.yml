@@ -100,7 +100,7 @@ collections:
         required: false
       - {name: 'image', label: 'Profile Picture', widget: 'image', required: false, media_folder: '/public/uploads/artists', public_folder: '/uploads/artists' }
       - name: active
-        label: 'LastMessenger Status'
+        label: 'Under Contract'
         widget: boolean
         default: true
       - name: title

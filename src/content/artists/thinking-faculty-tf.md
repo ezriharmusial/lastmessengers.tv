@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Thinking-Faculty-TF-4.png
-active: true
+active: false
 title: Thinking Faculty TF
 meaning: Brainy Boy
 sex: male

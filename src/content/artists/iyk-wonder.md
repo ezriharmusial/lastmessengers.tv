@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Iyk-Wonder-4.png
-active: true
+active: false
 title: Iyk Wonder
 twitter: iyk_wonder
 instagram: iykwonder/

@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Ugo-Chinyere-4.png
-active: true
+active: false
 title: Ugochinyere
 twitter: Ugochinonye
 instagram: ugochi_nyere
