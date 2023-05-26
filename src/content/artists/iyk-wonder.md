@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Iyk-Wonder-4.png
-active: true
+active: false
 title: Iyk Wonder
 twitter: iyk_wonder
 instagram: iykwonder/
@@ -36,26 +36,25 @@ performance_setup:
   - a band
 reason: it is his life and makes him feel fulfilled and brings a message of Hope & Life
 wishes: longevity in life and prosperity
-influential_artists: Michael Jackson & Lucky Dube
-success: by accomplishing what he has dreamt since the beginning of his career
-  which is impacting hope, faith, happiness and positivity to people who never
-  believed it to be possible to gain such
 motivation: is the happenings of the day across the globe being a musical
   prophet by calling
 inspiration: many ugly stories and pain he has experiences and witnessed in the
   streets of Nigeria and Ghana and in listening to good talkers with high level
   of personal experiences and thought provoking movies
 youth_influences: live performances in a variety of genres
+influential_artists: Michael Jackson & Lucky Dube
 purpose: positively impact society, survive by it and pass the good message to
   the next generation
 solution: by delivering the good message through his work without compromise and
   targets to positively contribute to the daily events in the society
+success: by accomplishing what he has dreamt since the beginning of his career
+  which is impacting hope, faith, happiness and positivity to people who never
+  believed it to be possible to gain such
 actions: watching other people's art, reading, daily practice of every
   inspiration, being informed about challenges beyond and around his environment
   and by constantly following the daily trends in the industry and the
   environment
 discography: Thank You
-
 ---
 
 # History
