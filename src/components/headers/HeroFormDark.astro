@@ -27,9 +27,8 @@ import { Icon } from 'astro-icon';
 						<div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
 							<form
 								data-netlify="true"
-								data-netlify-honeypot="true"
-								netlify
-								netlify-honeypot
+								data-netlify-recaptcha="true"
+								netlify-honeypot="bot-field"
 								name="contact"
 								method="POST"
 							>
@@ -41,25 +40,26 @@ import { Icon } from 'astro-icon';
 								<input type="hidden" name="form-name" value="contact" />
 								<div class="grid md:grid-cols-2 md:gap-6">
 									<div class="mb-6">
-										<input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white dark:text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="First name"/>
+										<input type="text" name="first-name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white dark:text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="First name"/>
 									</div>
 									<div class="mb-6">
-										<input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white dark:text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Last name"/>
+										<input type="text" name="last-name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white dark:text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Last name"/>
 									</div>
 								</div>
-								<input type="email" class="form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 dark:text-white bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Email address"/>
+								<input type="email" name="email" class="form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 dark:text-white bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Email address"/>
 								<textarea class="form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white dark:text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Message"/>
+								<div data-netlify-recaptcha="true"></div>
 								<div class="form-check flex justify-center mb-6">
-									<input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white dark:text-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
+									<input name="newsletter" class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white dark:text-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
 									<label class="form-check-label inline-block text-gray-800" for="flexCheckChecked">
 										Subscribe to our newsletter
 									</label>
 								</div>
 								<button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light" class="btn variant-filled inline-block px-6 py-2.5 mb-6 w-full leading-tight uppercase rounded shadow-md hover:text-white hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Send Message</button>
 								<div class="text-center hidden">
-									<p class="mb-6">or sign up with:</p>
+									<p class="mb-6">or contact us here:</p>
 								</div>
-								<div class="flex justify-center hidden">
+								<div class="flex justify-center items-center gap-8">
 									<a id="facebook" href="https://www.facebook.com/LastMessengerS" target="_blank" rel="nofollow noopener noreferrer" type="button" class="text-blue-600 hover:text-blue-700 focus:text-blue-700 action:text-blue-800 transition duration-200 ease-in-out">
 										<Icon pack="fa" name="facebook-official" />
 									</a>
