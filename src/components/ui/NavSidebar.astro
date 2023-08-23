@@ -32,3 +32,44 @@ const searchData = await response.json();
 <label for="menuToggler" class={"navbar-burger fixed btn w-12 h-12 left-6 bottom-4 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
     <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
 </label>
+
+<style is:global>
+    /* We don't need checkbox to be displayed in order for it to work */
+    .menuToggler {
+        display: none;
+    }
+
+    /*  Displays menu when menuToggler is checked only on mobile/tablet */
+    @media screen and (max-width: 1023px) {
+        .menuToggler:checked ~ .navbar-menu {
+            display: flex !important;
+        }
+
+        .menuToggler:checked ~ .navbar-menu .lightswitch{
+            margin-bottom: 5rem;
+        }
+
+        /* We don't want menu to be displayed on mobile by default */
+        .navbar-menu {
+            display: none !important;
+        }
+
+    }
+
+    .navbar-burger {
+        position: fixed;
+        top: unset !important;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .navbar-burger {
+            display: none !important;
+        }
+    }
+
+    [astro-icon] {
+        min-width: 1rem;
+    }
+
+
+</style>
