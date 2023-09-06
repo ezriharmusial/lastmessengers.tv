@@ -32,6 +32,7 @@ export interface Props {
     description: string;
     image?: string;
     imageAlt?: string;
+    currentTrack?: any;
 }
 
 // Conditional info
@@ -40,7 +41,7 @@ const { isMobile } = useUserAgent(uaString);
 
 const { theme } = siteSettings
 const { fbappid } = seoSettings
-const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || Astro.props)
+const { title, seoTitle, description, image, imageAlt, currentTrack } = (Astro.props?.data || Astro.props)
 //console.log('BaseLayout:', title)
 ---
 
@@ -84,7 +85,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
             <!-- Site Footer -->
             <svelte:fragment slot="footer">
-                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks}} client:load/>
+                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks, start_song: currentTrack }} client:load/>
             </svelte:fragment>
         </AppShell>
     </div>

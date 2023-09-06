@@ -11,8 +11,10 @@
     export let data
     export let displayInfo = !isMobile()
 
+    const songs = []
 
     onMount(() => {
+        console.log('data.start_song', data.start_song)
         console.log('data.tracks', data.tracks)
         if(data){
 
@@ -23,7 +25,7 @@
             })
             albums.set( data.albums )
             artists.set( data.artists)
-            media.set({ media: tracks , selected: undefined})
+            media.set({ media: tracks , selected: data.start_song})
 
             if (!$player.track) {
                 // TODO: Is this neccesary?
@@ -41,13 +43,15 @@
         if( theme == 'dark' ){
             document.documentElement.classList.add('dark')
         }
-        const songs = []
-        data.tracks.forEach(track =>
+
+        data.tracks.sort((a,b)=>{ return a.data.order - b.data.order}).forEach(track =>
         songs.push({
             "name": track.data.title,
             "artist": track.data.artist,
             "album": track.data.release_album[0],
             "url": track.data.media_file,
+            "lyrics": track.body,
+            "slug": "/unity-album-2022/" + track.slug,
             "cover_art_url": track.data.image,
         })
         )
@@ -73,11 +77,11 @@
                     slider.style.backgroundSize = percentage + '% 100%';
                 }
             },
-            "songs": songs
+            "songs": songs,
+            "start_song": data.start_song?.data.order - 1 || 0
         }
 
         Amplitude.init(amplitudeConfig);
-
     })
 
     // Handle Save Song
@@ -102,19 +106,19 @@
                 </button>
             </div>
 
-            <img data-amplitude-song-info="cover_art_url" class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
+            <img data-amplitude-song-info="cover_art_url" src={data.start_song?.data.image || songs[0]?.cover_art_url} class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
 
             <div class="flex-grow portrait:w-80 flex justify-between overflow-hidden items-center gap-4 portrait:p-4">
                 <div class="flex-grow flex flex-col">
-                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 line-clamp-1 text-slate-900 dark:text-white"></span>
-                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400"></span>
-                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400"></span>
+                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 line-clamp-1 text-slate-900 dark:text-white">{data?.start_song?.data.title || songs[0]?.name}</span>
+                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.artist || songs[0]?.artist}</span>
+                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.release_album[0] || songs[0]?.album}</span>
                 </div>
-                <button class="cursor-pointer w-12 h-12 text-center flex-grow-0" class:saved={saved} id="song-saved" on:click={handleSongSaved}>
+                <!-- <button class="cursor-pointer w-12 h-12 text-center flex-grow-0" class:saved={saved} id="song-saved" on:click={handleSongSaved}>
                     <svg width="26" height="24" viewBox="0 0 26 24" fill="none">
                         <path d="M25 7C25 3.68629 22.2018 1 18.75 1C16.1692 1 13.9537 2.5017 13 4.64456C12.0463 2.5017 9.83082 1 7.25 1C3.79822 1 1 3.68629 1 7C1 14.6072 8.49219 20.1822 11.6365 22.187C12.4766 22.7226 13.5234 22.7226 14.3635 22.187C17.5078 20.1822 25 14.6072 25 7Z" stroke="#94A3B8" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
-                </button>
+                </button> -->
 
                 <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full -z-30 translate-y-1 opacity-40">
                     <img loading="lazy" class="blur-sm object-cover" data-amplitude-song-info="cover_art_url" alt="Player Background" />
