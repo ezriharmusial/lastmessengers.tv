@@ -1,12 +1,9 @@
 ---
-import PageNavList from '~components/ux/PageNavList.astro';
-import Search from '@components/ux/Search.svelte';
-import { LightSwitch } from '@skeletonlabs/skeleton'
-import { Icon } from 'astro-icon';
-
-const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
+import PageNavList from "~components/ux/PageNavList.astro";
+import Search from "@components/ux/Search.svelte";
+import { LightSwitch } from "@skeletonlabs/skeleton";
+const response = await fetch(Astro.url.origin + "/api/v1/pages.json");
 const searchData = await response.json();
-
 ---
 
 <!-- for toggling functionality. Should be at the same level as navbar-menu -->
@@ -19,19 +16,16 @@ const searchData = await response.json();
         <Search data={searchData} client:load />
 
         <!-- Lightswitch -->
-        <div class="btn lightswitch variant-soft-surface w-full rounded-none flex flex-col">
+        <div
+            class="btn lightswitch variant-soft-surface w-full rounded-none flex flex-col"
+        >
             <div class="w-10 h-10">
                 <LightSwitch client:load />
             </div>
-            <span>
-                Mode
-            </span>
+            <span> Mode</span>
         </div>
     </div>
 </div>
-<label for="menuToggler" class={"navbar-burger fixed btn w-12 h-12 left-6 bottom-4 variant-glass-primary btn-icon flex flex-col items-center z-20"} data-target="navbarMenuHeroC">
-    <Icon pack="ph" name="list-bold" class="w-10 h-10 p-1"/>
-</label>
 
 <style is:global>
     /* We don't need checkbox to be displayed in order for it to work */
@@ -45,7 +39,7 @@ const searchData = await response.json();
             display: flex !important;
         }
 
-        .menuToggler:checked ~ .navbar-menu .lightswitch{
+        .menuToggler:checked ~ .navbar-menu .lightswitch {
             margin-bottom: 5rem;
         }
 
@@ -53,12 +47,6 @@ const searchData = await response.json();
         .navbar-menu {
             display: none !important;
         }
-
-    }
-
-    .navbar-burger {
-        position: fixed;
-        top: unset !important;
     }
 
     @media screen and (min-width: 1024px) {
@@ -70,6 +58,4 @@ const searchData = await response.json();
     [astro-icon] {
         min-width: 1rem;
     }
-
-
 </style>

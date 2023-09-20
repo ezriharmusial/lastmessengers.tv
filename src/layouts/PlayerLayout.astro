@@ -7,6 +7,7 @@ import '@styles/app.postcss';
 import { AppShell, AppBar  } from '@skeletonlabs/skeleton'
 import MediaPlayer from '@components/mediaplayer/MediaPlayer.svelte'
 import { useUserAgent } from "astro-useragent";
+import { Icon } from "astro-icon";
 
 import Fonts from '../components/head/Fonts.astro';
 import SEO from '../components/head/SEO.astro';
@@ -70,6 +71,9 @@ const { title, seoTitle, description, image, imageAlt, currentTrack } = (Astro.p
                     </svelte:fragment>
                     <PageTitle title={title}/>
                     <svelte:fragment slot="trail">
+                        <label for="menuToggler" class={"navbar-burger btn w-10 h-10 variant-glass-primary btn-icon mx-auto"} data-target="navbarMenuHeroC">
+                            <Icon pack="ph" name="list-bold" />
+                        </label>
                         <!-- Reserverd for User Avatar -->
                     </svelte:fragment>
                 </AppBar>
