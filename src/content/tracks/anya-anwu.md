@@ -20,7 +20,7 @@ release_album:
   - Unity Album 2022
 order: 10
 image: /uploads/albumcovers/skillful-kennis-sk-anya-anwu.jpg
-title: Anya-Anwu
+title: Anya'Anwu
 release_year: 2022
 genres:
   - Hip Hop
