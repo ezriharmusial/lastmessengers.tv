@@ -18,6 +18,8 @@
 
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
+	const linkCasts = await getCollection('linkcasts');
+
 	// console.log("slug",slug, linkcast)
 ---
 
@@ -67,5 +69,5 @@
 		</div>
 	</div>
 
-    <Linkcasts />
+    <Linkcasts start="" />
 </LinkCastLayout>

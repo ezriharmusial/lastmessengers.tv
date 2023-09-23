@@ -65,6 +65,9 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
                     </svelte:fragment>
                     <PageTitle title={title}/>
                     <svelte:fragment slot="trail">
+                        <label for="menuToggler" class={"navbar-burger btn w-10 h-10 variant-glass-primary btn-icon mx-auto"} data-target="navbarMenuHeroC">
+                            <Icon pack="ph" name="list-bold" />
+                        </label>
                     </svelte:fragment>
                 </AppBar>
             </svelte:fragment>

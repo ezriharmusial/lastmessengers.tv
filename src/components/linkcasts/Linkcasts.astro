@@ -195,7 +195,7 @@ if (featured) {
 					</article>
 					<div class="grid grid-rows-1 gap-4">
 						<!-- {featuredLinkcast.data?.url && <a class="btn btn-filled-primary" href={featuredLinkcast.data?.url} target="_blank" rel="noreferrer">{featuredLinkcast.data?.url}</a> } -->
-						<a href="/linkcasts/{featuredLinkcast.slug}#header" class="btn btn-filled-secondary">Read more...</a>
+						<a href={"/newscasts/" + featuredLinkcast.slug + "#header"} class="btn btn-filled-secondary">Read more...</a>
 					</div>
 				</main>
 				<hr />
