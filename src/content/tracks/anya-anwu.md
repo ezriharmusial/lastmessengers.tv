@@ -1,10 +1,5 @@
 ---
-description: I made this song called Anyanwu, cause the music really expresses how I
-  feel inside, and also who I am. The song made us to know that it aint a must
-  that you gonna come out from a wealthy family.   Anywhere you come from, what
-  matters is who you are. I believe with my song, people will pick up courage
-  and motivations to do something without fear or favors. Asking help from
-  family or elsewhere, just believe you can do it yourself only.
+description: I made this song called Anyanwu, cause the music really expresses how I feel inside, and also who I am. The song made us to know that it aint a must that you gonna come out from a wealthy family. Anywhere you come from, what matters is who you are. I believe with my song, people will pick up courage and motivations to do something without fear or favors. Asking help from family or elsewhere, just believe you can do it yourself only.
 aditional_credits: |-
   Chuzzykeys (Producer)
   Totty Dior (Vocals)
@@ -31,6 +26,7 @@ bgBlend: bg-blend-lighten
 bgSize: bg-contain
 quote: A'bum nwa Anyanwu [I am the son of the Sun]
 ---
+
 (Intro)
 Uh, Ask a cancer patient about the value of life
 Before you cut your throat with a knife
