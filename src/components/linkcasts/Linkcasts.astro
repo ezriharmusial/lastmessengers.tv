@@ -11,8 +11,7 @@ async function getLinkcasts() {
 	return await getCollection('linkcasts')
 }
 
-export let length = -1
-export let start = 0
+const { featured = true, length = -1, start = 0 } = Astro.props
 
 let linkcasts = await getLinkcasts()
 
@@ -27,12 +26,20 @@ linkcasts = linkcasts.sort((a, b) => {
 	return 0
 })
 
-const { slug } = await Astro.params
-const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
+let featuredLinkcast = {}
+let displayedLinkcasts = {}
+
+if (featured) {
+	featuredLinkcast = linkcasts.slice(0,1)[0]
+	displayedLinkcasts = linkcasts.slice(1, length)
+}
+
+// const { slug } = await Astro.params
+// const linkcast = await getEntryBySlug('linkcasts', slug)
 ---
 <section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Video%20Production');">
 	<div class="bg-black/50 md:p-28 p-6 pt-24 text-left text-white">
-		<div class="container mx-8 flex items-center gap-8">
+		<div class="container mx-auto flex items-center gap-8">
 			<div class="w-3/5">
 				<h2 class="unstyled my-6 title marker text-3xl">Latest News</h2>
 				<h3 class="unstyled text-5xl font-medium my-8">Starting our LastMessengers Videoclip Recordings</h3>
@@ -165,10 +172,48 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 
 <div class="bg-gradient-to-br from-slate-700 to-slate-900 min-h-screen md:p-28 p-6 pt-24">
 
-	<h2 class="unstyled my-6 title marker text-3xl">Previous Newscasts</h2>
+	<div class="container mx-auto">
+		<h2 class="unstyled my-6 title marker text-3xl">Previous Newscasts</h2>
+
+	{featured &&
+		<div class="card landscape:flex landscape:flex-row glass-surface landscape:mb-6">
+			<header class="bg-black max-h-screen overflow-hidden overflow-y-auto">
+				<LinkcastHeader linkcast={featuredLinkcast}/>
+			</header>
+			<!-- Body -->
+			<div class="flex flex-col">
+
+				<main class="p-4 space-y-4">
+					<h5 class="text-primary-500 font-semibold">{featuredLinkcast.data?.category || 'News & Announcments'}</h5>
+
+					<h3 class="font-black text-xl">{featuredLinkcast.data?.title}</h3>
+
+					<h4 class="font-medium">{featuredLinkcast.data?.subtitle || ""}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{featuredLinkcast.data?.type}</span></h4>
+
+					<article class="unstyled text-2xl ">
+						{featuredLinkcast.body}
+					</article>
+					<div class="grid grid-rows-1 gap-4">
+						<!-- {featuredLinkcast.data?.url && <a class="btn btn-filled-primary" href={featuredLinkcast.data?.url} target="_blank" rel="noreferrer">{featuredLinkcast.data?.url}</a> } -->
+						<a href="/linkcasts/{featuredLinkcast.slug}#header" class="btn btn-filled-secondary">Read more...</a>
+					</div>
+				</main>
+				<hr />
+				<!-- Footer -->
+				<footer class="p-4 flex justify-start items-center space-x-4">
+					<Avatar src={featuredLinkcast.data?.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
+					<div class="flex-auto flex justify-between items-center">
+						<h6 class="font-bold">By {featuredLinkcast.data?.author || 'LMS Parrot'}</h6>
+						<small>On {new Date(featuredLinkcast.data?.date).toLocaleDateString()}</small>
+					</div>
+				</footer>
+			</div>
+		</div>
+	}
+
 	<div class="landscape:grid portrait:sm:grid landscape:grid-cols-4 landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-3 landscape:grid-flow-dense portrait:sm:grid-cols-2  portrait:md:grid-cols-2 gap-8">
 
-		{linkcasts.map((linkcast) => (
+		{displayedLinkcasts.map((linkcast) => (
 			<a class="card card-hover variant-glass-primary flex flex-col sm:max-w-lg portrait:mb-6 justify-start rounded-xl overflow-hidden" href={"/newscasts/" + linkcast.slug }>
 				<header>
 					<LinkcastHeader linkcast={linkcast} />
@@ -193,7 +238,7 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 				<footer class="mt-auto">
 					<hr />
 					<div  class="p-4 flex justify-start items-center space-x-4">
-						<Avatar src={linkcast.data.authorImage || '/images/red-black-purple-gold-with-sun.svg'} />
+						<Avatar src={linkcast.data.image || '/images/red-black-purple-gold-with-sun.svg'} />
 						<div class="flex-auto flex justify-between items-center">
 							<h6 class="font-bold">By {linkcast.data.author || 'LMS Parrot'}</h6>
 							<small>On {new Date(linkcast.data.date).toLocaleDateString()}</small>
@@ -203,8 +248,9 @@ const linkcast = await getEntryBySlug('linkcasts', slug) || linkcasts[0]
 			</a>
 			))}
 
-			{(length < linkcasts.length) &&
+			{(length != -1 && length < linkcasts.length) &&
 				<a href="/newscasts" class="btn btn-filled-primary w-full">View all NewsCasts...</a>
 			}
 		</div>
 	</div>
+</div>

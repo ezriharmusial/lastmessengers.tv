@@ -106,13 +106,13 @@
                 </button>
             </div>
 
-            <img data-amplitude-song-info="cover_art_url" src={data.start_song?.data.image || songs[0]?.data.cover_art_url} class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
+            <img data-amplitude-song-info="cover_art_url" src={data.start_song?.data.image || songs[0]?.data.cover_art_url || "/image/"} class="landscape:w-20 landscape:h-20 portrait:w-80 flex-grow-0 rounded-md mr-6 border border-bg-player-light-background dark:border-cover-dark-border" alt="Track Cover"/>
 
             <div class="flex-grow portrait:w-80 flex justify-between overflow-hidden items-center gap-4 portrait:p-4">
                 <div class="flex-grow flex flex-col">
-                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 line-clamp-1 text-slate-900 dark:text-white">{data?.start_song?.data.title || songs[0]?.name}</span>
-                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.artist || songs[0]?.artist}</span>
-                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.release_album[0] || songs[0]?.album}</span>
+                    <span data-amplitude-song-info="name" class="font-sans text-lg font-medium leading-7 line-clamp-1 text-slate-900 dark:text-white">{data?.start_song?.data.title || songs[0]?.name || "loading..."}</span>
+                    <span data-amplitude-song-info="artist" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.artist || songs[0]?.artist || ""}</span>
+                    <span data-amplitude-song-info="album" class="font-sans text-base font-medium leading-6 line-clamp-1 text-gray-500 dark:text-gray-400">{data?.start_song?.data.release_album[0] || songs[0]?.album || ""}</span>
                 </div>
                 <!-- <button class="cursor-pointer w-12 h-12 text-center flex-grow-0" class:saved={saved} id="song-saved" on:click={handleSongSaved}>
                     <svg width="26" height="24" viewBox="0 0 26 24" fill="none">
