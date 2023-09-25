@@ -37,9 +37,9 @@ const { title, seoTitle, description, image, imageAlt, currentTrack } = (Astro.p
 //console.log('BaseLayout:', title)
 ---
 <BaseLayout title={title} description={description} image={image}>
-        <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20" transition:persistent>
+        <AppShell slotSidebarLeft="dark:bg-surface-100-800-token light:bg-surface-800-100-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
             <svelte:fragment slot="header">
-                <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
+            <AppBar background="dark:bg-surface-100-800-token light:bg-surface-800-100-token z-30" >
 
                     <svelte:fragment slot="lead">
                         <BrandFlag />
