@@ -1,9 +1,4 @@
 ---
-// import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
-import '@styles/theme.postcss';
-import '@skeletonlabs/skeleton/styles/all.css'
-import '@styles/app.postcss';
-
 import { AppShell, AppBar  } from '@skeletonlabs/skeleton'
 import MediaPlayer from '@components/mediaplayer/MediaPlayer.svelte'
 import { useUserAgent } from "astro-useragent";
@@ -18,14 +13,11 @@ import { getCollection } from 'astro:content';
 import BrandFlag from '~components/ui/BrandFlag.astro';
 import PageTitle from '~components/ui/PageTitle.astro';
 import NavSidebar from '~components/ui/NavSidebar.astro';
+import BaseLayout from './BaseLayout.astro';
 
 const artists = await getCollection('artists')
 const albums = await getCollection('albums')
 const tracks = await getCollection('tracks')
-
-// console.log('data.albums:', albums)
-// console.log('data.artists:', artists)
-// console.log('data.tracks:', tracks)
 
 export interface Props {
     title: string;
@@ -41,28 +33,11 @@ const uaString = Astro.request.headers.get("user-agent");
 const { isMobile } = useUserAgent(uaString);
 
 const { theme } = siteSettings
-const { fbappid } = seoSettings
 const { title, seoTitle, description, image, imageAlt, currentTrack } = (Astro.props?.data || Astro.props)
 //console.log('BaseLayout:', title)
 ---
-
-<!DOCTYPE html>
-<html class={theme} lang="en">
-<head>
-    <!-- Site Meta & SEO -->
-    <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} fbappid={fbappid} />
-    <!-- Fonts -->
-    <Fonts />
-    <script src=" https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js " is:inline></script>
-</head>
-<body data-theme="gold-nouveau" class="light:bg-white light:text-black dark:text-white dark:bg-black loaded ">
-    <slot name="extendedHead" />
-
-    <!-- Page Transition -->
-    <!-- <PageTransition speed={500} color={"orange"} zIndex={99} /> -->
-    <div style="display: contents" class="h-full overflow-hidden">
-
-        <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
+<BaseLayout title={title} description={description} image={image}>
+        <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20" transition:persistent>
             <svelte:fragment slot="header">
                 <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
 
@@ -89,48 +64,8 @@ const { title, seoTitle, description, image, imageAlt, currentTrack } = (Astro.p
 
             <!-- Site Footer -->
             <svelte:fragment slot="footer">
-                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks, start_song: currentTrack }} client:load/>
+                <MediaPlayer data={{artists: artists, albums: albums, tracks: tracks, start_song: currentTrack }} transition:persist client:load/>
             </svelte:fragment>
         </AppShell>
     </div>
-</body>
-</html>
-
-<style is:global>
-    /* We don't need checkbox to be displayed in order for it to work */
-    .menuToggler {
-        display: none;
-    }
-
-    /*  Displays menu when menuToggler is checked only on mobile/tablet */
-    @media screen and (max-width: 1023px) {
-        .menuToggler:checked ~ .navbar-menu {
-            display: flex !important;
-        }
-
-        .menuToggler:checked ~ .navbar-menu .lightswitch{
-            margin-bottom: 5rem;
-        }
-
-        /* We don't want menu to be displayed on mobile by default */
-        .navbar-menu {
-            display: none;
-        }
-
-    }
-
-    .navbar-burger {
-        position: fixed;
-        top: unset !important;
-    }
-
-    @media screen and (min-width: 1024px) {
-        .navbar-burger {
-            display: none !important;
-        }
-    }
-
-    [astro-icon] {
-        min-width: 1rem;
-    }
-</style>
+</BaseLayout>

@@ -2,12 +2,14 @@
 import HeroFormDark from '~components/headers/HeroFormDark.astro';
 import Contacts from '~components/contact/Contacts.astro';
 import Share from '~components/ux/Share.astro';
+import PageLayout from './PageLayout.astro';
 
 let { title, subtitle, description, callToAction, image } = Astro.props?.data || Astro.props.frontmatter
 
 // console.log(Astro.props)
 ---
 
+<PageLayout title={title || "LastMessengerS Artist page"} description={callToAction || description || "Discover all LastMessengerS and their Truth Unveiling Music"}>
 <HeroFormDark>
 	<h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight" style="color: hsl(218, 81%, 95%);">{title} <br /><span style="color: hsl(218, 81%, 75%);">{subtitle}</span></h1>
 	<p class="opacity-70" style="color: hsl(218, 81%, 85%)">
@@ -24,3 +26,5 @@ let { title, subtitle, description, callToAction, image } = Astro.props?.data ||
 			<Share />
 		</section>
 	</div>
+
+</PageLayout>

@@ -1,6 +1,6 @@
 ---
 	import { getCollection } from 'astro:content';
-	import { Image } from "@astrojs/image/components";
+	import { Image } from "astro:assets";
 
 	const tracks = await getCollection('tracks');
     const artists = await getCollection('artists');
@@ -60,7 +60,7 @@
 				</p>
 				<figure class="relative w-11 lg:w-12 xl:w-14 mr-2 lg:mr-4">
 					<div class="object-cover w-11 lg:w-12 xl:w-14 bg-gradient-to-br from-slate-900 to-black">
-						<img loading="lazy" width={640} aspectRatio={1/1} alt={"Track Cover of " + track.data.artist + ' - ' + track.data.title } src={track.data.image} />
+						<img loading="lazy" width={640} alt={"Track Cover of " + track.data.artist + ' - ' + track.data.title } src={track.data.image} />
 					</div>
 				</figure>
 				<div class="flex-grow">

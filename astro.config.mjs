@@ -2,9 +2,6 @@ import { defineConfig } from 'astro/config';
 import { SITE_TITLE, SITE_DESCRIPTION } from './src/consts';
 
 // https://astro.build/config
-import image from "@astrojs/image";
-
-// https://astro.build/config
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
@@ -33,9 +30,7 @@ import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lastmessengers.netlify.app',
-  integrations: [image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), sitemap(), svelte(), tailwind()
+  integrations: [mdx(), sitemap(), svelte(), tailwind()
   // critters(),
   // deadLinks(),
   // webmanifest(

@@ -1,17 +1,8 @@
 ---
-// import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
-import '@styles/theme.postcss';
-import '@skeletonlabs/skeleton/styles/all.css'
-import '@styles/app.postcss';
-
 import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton'
-import MediaPlayer from '@components/mediaplayer/MediaPlayer.svelte'
 import { useUserAgent } from "astro-useragent";
 
-import Fonts from '../components/head/Fonts.astro';
 import Footer from '../components/Footer.astro';
-import SEO from '../components/head/SEO.astro';
-import seoSettings from '../content/settings/_seo.yml';
 import siteSettings from '../content/settings/_settings.yml';
 
 import PageNavList from '~components/ux/PageNavList.astro';
@@ -21,6 +12,7 @@ import BrandFlag from '~components/ui/BrandFlag.astro';
 import SocialNav from '~components/ui/SocialNav.astro';
 import PageTitle from '~components/ui/PageTitle.astro';
 import NavSidebar from '~components/ui/NavSidebar.astro';
+import BaseLayout from './BaseLayout.astro';
 
 const response = await fetch(Astro.url.origin + '/api/v1/pages.json');
 const searchData = await response.json();
@@ -37,25 +29,11 @@ export interface Props {
 const uaString = Astro.request.headers.get("user-agent");
 
 const { theme } = siteSettings
-const { fbappid } = seoSettings
 const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || Astro.props)
 ---
 
-<!DOCTYPE html>
-<html class={theme} lang="en">
-<head>
-    <!-- Site Meta & SEO -->
-    <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} fbappid={fbappid} />
-    <!-- Fonts -->
-    <Fonts />
-</head>
-<body data-theme="gold-nouveau" class="light:bg-white light:text-black dark:text-white dark:bg-black loaded ">
-    <slot name="extendedHead" />
 
-    <!-- Page Transition -->
-    <!-- <PageTransition speed={500} color={"orange"} zIndex={99} /> -->
-    <div style="display: contents" class="h-full overflow-hidden">
-
+<BaseLayout title={seoTitle || title} description={description || imageAlt} image={image}>
         <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
             <svelte:fragment slot="header">
                 <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
@@ -98,6 +76,4 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
                 <SocialNav />
             </svelte:fragment> -->
         </AppShell>
-    </div>
-</body>
-</html>
+</BaseLayout>

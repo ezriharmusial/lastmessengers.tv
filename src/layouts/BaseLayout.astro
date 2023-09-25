@@ -6,8 +6,9 @@ import '@styles/app.postcss';
 
 import { AppShell, AppBar } from '@skeletonlabs/skeleton'
 import { useUserAgent } from "astro-useragent";
-// import { Image } from '@astrojs/image/components';
+// import { Image } from 'astro:assets';
 import { Icon } from "astro-icon";
+import { ViewTransitions } from 'astro:transitions';
 
 import AppLoader from '~components/ui/AppLoader.astro';
 import Fonts from '../components/head/Fonts.astro';
@@ -47,62 +48,21 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
     <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} fbappid={fbappid} />
     <!-- Fonts -->
     <Fonts />
+    <ViewTransitions />
 </head>
 <body data-theme="gold-nouveau" class="init light:bg-white light:text-black dark:text-white dark:bg-black">
     <!-- Extended Head -->
     <slot name="extendedHead" />
 
     <!-- App Loader Screen -->
-    <AppLoader />
+    <!-- <AppLoader /> -->
 
     <div style="display: contents" class="h-full overflow-hidden">
 
-        <AppShell slotSidebarLeft="bg-surface-100-800-token opacity-95 h-full portrait:pb-24 portrait:fixed portrait:left-0 portrait:top-20 portrait:bottom-0 z-20">
-            <svelte:fragment slot="header">
-            <AppBar background="bg-surface-100-800-token dark:bg-surface-800-100-token z-30">
-                <svelte:fragment slot="lead">
-                    <BrandFlag />
-                </svelte:fragment>
-                <PageTitle title={title}/>
-                <svelte:fragment slot="trail">
-                    <label for="menuToggler" class={"navbar-burger btn w-10 h-10 variant-glass-primary btn-icon mx-auto"} data-target="navbarMenuHeroC">
-                        <Icon pack="ph" name="list-bold" />
-                    </label>
-                    <!-- User Avatar Placeholder -->
-                </svelte:fragment>
-            </AppBar>
-        </svelte:fragment>
+    <!-- Default Slot -->
+    <slot />
 
-        <!-- Sidebar -->
-        <svelte:fragment slot="sidebarLeft">
-        <NavSidebar />
-        </svelte:fragment>
-
-        <!-- Default Slot -->
-        <slot />
-
-        <!-- Page Footer -->
-        <svelte:fragment slot="pageFooter">
-            <footer class="m-8">
-                <slot name="pageList">
-                    <h3 class="font-bold">Website Pages</h3>
-                    <div class="card card-hover p-4 space-y-4 w-1/3">
-                        <PageNavList direction="horizontal" />
-                    </div>
-                </slot>
-                <Footer />
-            </footer>
-        </svelte:fragment>
-
-        <!-- Site Footer -->
-        <!-- <svelte:fragment slot="footer">
-        <SocialNav />
-        </svelte:fragment> -->
-        </AppShell>
     </div>
-
-    <!-- Player -->
-    <script src=" https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js" is:inline></script>
     <!-- Loader -->
     <script is:inline>
         var body = document.getElementsByTagName("BODY")[0];
