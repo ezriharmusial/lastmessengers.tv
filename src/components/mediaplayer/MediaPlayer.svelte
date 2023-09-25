@@ -14,8 +14,8 @@
     const songs = []
 
     onMount(() => {
-        console.log('data.start_song', data.start_song)
-        console.log('data.tracks', data.tracks)
+        // console.log('data.start_song', data.start_song)
+        // console.log('data.tracks', data.tracks)
         if(data){
 
             let tracks:Media[] = []
@@ -55,7 +55,7 @@
             "cover_art_url": track.data.image,
         })
         )
-        console.log('songs:', songs)
+        // console.log('songs:', songs)
         let amplitudeConfig ={
             "bindings": {
                 37: 'prev',
