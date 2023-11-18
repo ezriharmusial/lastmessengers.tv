@@ -19,7 +19,7 @@
 	const { slug } = Astro.params;
 	const linkcast = await getEntryBySlug('linkcasts', slug);
 	const linkCasts = await getCollection('linkcasts');
-
+	const { Content } = await linkcast.render();
 	// console.log("slug",slug, linkcast)
 ---
 
@@ -48,7 +48,7 @@
 				</h4>
 
 				<article class="unstyled text-2xl ">
-					{linkcast?.body}
+					<Content />
 				</article>
 				<div class="grid grid-rows-1 gap-4">
 					{linkcast.data?.url &&

@@ -33,7 +33,8 @@ if (featured) {
 	featuredLinkcast = linkcasts.slice(0,1)[0]
 	displayedLinkcasts = linkcasts.slice(1, length)
 }
-
+const { Content } = await featuredLinkcast.render()
+// console.log(featuredLinkcast)
 // const { slug } = await Astro.params
 // const linkcast = await getEntryBySlug('linkcasts', slug)
 ---
@@ -177,11 +178,11 @@ if (featured) {
 
 	{featured &&
 		<div class="card landscape:flex landscape:flex-row glass-surface landscape:mb-6">
-			<header class="bg-black max-h-screen overflow-hidden overflow-y-auto">
+			<header class="bg-black max-h-screen overflow-hidden overflow-y-auto flex flex-col justify-center ">
 				<LinkcastHeader linkcast={featuredLinkcast}/>
 			</header>
 			<!-- Body -->
-			<div class="flex flex-col">
+			<div class="flex flex-col landscape:w-2/3">
 
 				<main class="p-4 space-y-4">
 					<h5 class="text-primary-500 font-semibold">{featuredLinkcast.data?.category || 'News & Announcments'}</h5>
@@ -190,8 +191,11 @@ if (featured) {
 
 					<h4 class="font-medium">{featuredLinkcast.data?.subtitle || ""}<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">{featuredLinkcast.data?.type}</span></h4>
 
-					<article class="unstyled text-2xl ">
-						{featuredLinkcast.body}
+					<article class="unstyled text-2xl prose dark:prose-invert
+						prose-h1:font-bold prose-h1:text-xl
+						prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
+						prose-headings:underline max-h-72 overflow-hidden">
+						<Content />
 					</article>
 					<div class="grid grid-rows-1 gap-4">
 						<!-- {featuredLinkcast.data?.url && <a class="btn btn-filled-primary" href={featuredLinkcast.data?.url} target="_blank" rel="noreferrer">{featuredLinkcast.data?.url}</a> } -->
