@@ -24,39 +24,34 @@
 ---
 
 <LinkCastLayout description={linkcast.data?.description} title={linkcast.data?.title} image={linkcast.data?.image} imageAlt={linkcast.data?.imageAlt}>
-	<div class="flex flex-col">
-
-		<!-- landscape:w-3/5.landscape:xl:w-3/4  -->
-		<header class="bg-black">
+	<div class="card landscape:grid landscape:xs:grid-cols-2 landscape:sm:grid-cols-3 landscape:md:grid-cols-4 landscape:xl:grid-cols-4 landscape:gap-0">
+		<header id="header" class="landscape:xs:col-span-1 landscape:sm:col-span-2 landscape:md:col-span-3 landscape:xl:col-span-3 landscape:max-h-screen landscape:overflow-hidden landscape:overflow-y-auto landscape:object-contain bg-black landscape:flex landscape:flex-col landscape:justify-center">
 			<LinkcastHeader linkcast={linkcast} type={getLinkcastType(linkcast.data?.url)} client:load />
 		</header>
 		<!-- Body -->
-		<div class="flex-col">
+		<main class="p-4 space-y-4 landscape:col-span-1 landscape:max-h-screen landscape:overflow-y-auto">
+			<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>
 
-			<main class="p-4 space-y-4 landscape:pt-8">
-				<h5 class="text-primary-500 font-semibold">{linkcast.data?.category || 'News & Announcments'}</h5>
+			<h3 class="font-black text-xl">{linkcast.data?.title}</h3>
 
-				<h3 class="font-black text-xl">{linkcast.data?.title}</h3>
+			<h4 class="font-medium">
+				{linkcast.data?.subtitle &&
+					<span>{linkcast.data?.subtitle}</span>
+				}
+				<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">
+					{getLinkcastType(linkcast.data?.url)}
+				</span>
+			</h4>
 
-				<h4 class="font-medium">
-					{linkcast.data?.subtitle &&
-						<span>{linkcast.data?.subtitle}</span>
-					}
-					<span class="marker text-xs badge badge-filled-surface light:text-black/75 dark:text-white/75">
-						{getLinkcastType(linkcast.data?.url)}
-					</span>
-				</h4>
-
-				<article class="unstyled text-2xl ">
-					<Content />
-				</article>
-				<div class="grid grid-rows-1 gap-4">
-					{linkcast.data?.url &&
-						<a class="btn btn-filled-primary" href={linkcast.data?.url} target="_blank" rel="noreferrer">{linkcast.data?.url}</a>
-					}
-					<div class="btn btn-filled-secondary">Read more...</div>
-				</div>
-			</main>
+			<article class="unstyled text-2xl ">
+				<Content />
+			</article>
+			<div class="grid grid-rows-1 gap-4">
+				{linkcast.data?.url &&
+					<a class="btn btn-filled-primary" href={linkcast.data?.url} target="_blank" rel="noreferrer">{linkcast.data?.url}</a>
+				}
+				<div class="btn btn-filled-secondary">Read more...</div>
+			</div>
 			<hr />
 			<!-- Footer -->
 			<footer class="p-4 flex justify-start items-center space-x-4">
@@ -66,8 +61,8 @@
 					<small>On {new Date(linkcast.data?.date).toLocaleDateString()}</small>
 				</div>
 			</footer>
-		</div>
+		</main>
 	</div>
 
-    <Linkcasts start="" />
+    <Linkcasts start="1" />
 </LinkCastLayout>
