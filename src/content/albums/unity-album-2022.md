@@ -6,14 +6,10 @@ tracklist:
   - Rise ‘N’ Shine
   - O’laga Port
   - Captured My Heart
-  - Thank You
   - We Have To Fight
   - Ego
   - Cradle
-  - Forever
-  - Sere
   - Anya'Anwu
-  - Unite
   - LoveTonic
 genres:
   - Afrobeat

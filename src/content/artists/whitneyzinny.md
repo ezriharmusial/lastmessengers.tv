@@ -1,6 +1,6 @@
 ---
 image: /uploads/artists/Whitney-Zinny-5.png
-active: false
+active: true
 title: WhitneyZinny
 name: Orji Lois Ezinne
 twitter: BIAFRAEzinne
