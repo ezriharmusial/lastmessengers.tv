@@ -40,10 +40,10 @@ const { Content } = await featuredLinkcast.render()
 ---
 <section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Video%20Production');">
 	<div class="bg-black/50 md:p-28 p-6 pt-24 text-left text-white">
-		<div class="container mx-auto flex items-center gap-8">
-			<div class="w-3/5">
-				<h2 class="unstyled my-6 title marker text-3xl">Latest News</h2>
-				<h3 class="unstyled text-5xl font-medium my-8">Starting our LastMessengers Videoclip Recordings</h3>
+		<h2 class="unstyled my-6 title marker text-3xl">Latest News</h2>
+		<h3 class="unstyled text-5xl font-medium my-8">Starting our LastMessengers Videoclip Recordings</h3>
+		<div class="container mx-auto flex portrait:flex-col items-center gap-8">
+			<div class="landscape:w-3/5">
 				<p class="unstyled text-2xl mb-12">
 					A reunion-kind-of-production-meeting that is scheduled to hold on the 26th of May 2023; at Gina Hotel; No. 52 Uwalaka Street (behind ShopRite) in Umuahia. <br />
 
@@ -77,7 +77,7 @@ const { Content } = await featuredLinkcast.render()
 
 				</p>
 			</div>
-			<div class="w-2/5">
+			<div class="landscape:w-2/5 portrait:-order-1">
 				<div class="grid grid-cols-2 gap-4 mt-8">
 
 					<div style="background-image: url('/images/animated-bg/respect-your-mother.gif');" class="card card-hover relative overflow-hidden bg-slate-900/20 transition-transform duration-200 ease-in-out hover:scale-110 rounded-xl !bg-sky-800 bg-blend-multiply bg-center bg-repeat bg-contain">

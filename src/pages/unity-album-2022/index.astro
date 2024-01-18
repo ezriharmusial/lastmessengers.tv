@@ -15,22 +15,21 @@ let { title, image, imageAlt, seoTitle, description } = unityAlbum.data
 
 <section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Stage%20performance');">
   <div class="bg-black/75 md:p-28 p-6 pt-24 text-left text-white">
-    <div class="container mx-8 flex items-center">
-      <div class="w-2/3">
+    <div class="container mx-8 flex portrait:flex-col items-center gap-8">
+      <div class="landscape:w-2/3">
         <BrandFlag />
         <h1 class="unstyled text-5xl font-medium my-8">LastMessengerS Album Releases</h1>
         <p class="unstyled text-3xl mb-12">We proudly share with you our produced Albums. </p>
       </div>
-      <div class="w-1/3 pl-16">
-        <img src="https://source.unsplash.com/random?african%20popstar" class="h-72 w-3/4 object-cover rounded-xl" alt="Layout Image">
+      <div class="landscape:w-1/3 portrait:w-full">
+        <img src="https://source.unsplash.com/random?popstar" class="h-72 w-3/4 object-cover rounded-xl" alt="Layout Image">
         </div>
     </div>
   </div>
 </section>
 
 <Album />
-<section class="m-8">
-  <h2 class="unstyled title marker text-white text-5xl my-8">Album Artists</h2>
+<section>
   <Artists />
 </section>
 

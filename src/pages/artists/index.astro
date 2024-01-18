@@ -5,23 +5,21 @@ import Artists from "@components/artists/Artists.astro";
 ---
 
 <PageLayout title="LastMessengerS Artist page" description="Discover all LastMessengerS and their Truth Unveiling Music">
-		<section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Stage%20performance');">
-			<div class="bg-black/75 md:p-28 p-6 pt-24 text-left text-white">
-				<div class="container mx-8 flex items-center">
-					<div class="w-1/3 pl-16">
-						<img src="https://source.unsplash.com/random?african%20popstar" class="h-72 w-3/4 object-cover rounded-xl" alt="Layout Image">
-		  			</div>
-					<div class="w-2/3">
-						<BrandFlag />
-						<h1 class="unstyled text-5xl font-medium my-8">Meet our Artists</h1>
-						<p class="unstyled text-3xl mb-12">Welcome dear Listener! Allow us to Introduce our highly Valued Stars.</p>
-					</div>
-
+	<section class="bg-cover bg-center w-full" style="background-image: url('https://source.unsplash.com/random?Stage%20performance');">
+		<div class="bg-black/75 md:p-28 p-6 pt-24 text-left text-white">
+			<div class="container mx-8 flex portrait:flex-col gap-8 items-center">
+				<div class="landscape:w-1/3 portrait:w-full portrait:order-1">
+					<img src="https://source.unsplash.com/random?african%20popstar" class="h-72 w-3/4 object-cover rounded-xl" alt="Layout Image">
 				</div>
-			</div>
-		</section>
+				<div class="landscape:w-2/3">
+					<BrandFlag />
+					<h1 class="unstyled text-5xl font-medium my-8">Meet our Artists</h1>
+					<p class="unstyled text-3xl mb-12">Welcome dear Listener! Allow us to Introduce our highly Valued Stars.</p>
+				</div>
 
-	<h1 class="bg-black text-white text-5xl p-4 m-auto">LastMessengerS Artists</h1>
+			</div>
+		</div>
+	</section>
 
 	<Artists />
 
@@ -34,14 +32,14 @@ import Artists from "@components/artists/Artists.astro";
 						<h1 class="text-5xl font-bold mt-0 mb-6">Want to Join</h1>
 						<h3 class="text-3xl font-bold mb-8">LastMessengerS Managed Artist Platform...</h3>
 						<a href="/contact-us" type="button"
-						class="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-						data-mdb-ripple="true" data-mdb-ripple-color="light">
-						Reach out
-					</a>
+							class="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+							data-mdb-ripple="true" data-mdb-ripple-color="light">
+							Reach out
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- Background image -->
-</section>
+		<!-- Background image -->
+	</section>
 </PageLayout>

@@ -55,7 +55,7 @@ alt="Post" />
 	<!-- </a> -->
 	{:else if type == 'youtube'}
 	{#await YoutubeGenerator.embed(linkcast.data?.url)}
-	<img loading="lazy" src={linkcast.data?.image} class="bg-black/50" alt="Join our Whatsapp Group" />
+	<img loading="lazy" src={linkcast.data?.image} class="bg-black/50 object-fill w-full" alt="Join our Whatsapp Group" />
 
 	{:then youtubeUrl}
 	<iframe width="100%" height="100%" class="aspect-video w-full object-cover" src="https://www.youtube-nocookie.com/embed/{getYouTubeID(youtubeUrl)}?controls=0&autoplay=1" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -12,7 +12,9 @@ function mapTrack(artist) {
 	return artist
 }
 ---
-	<div class="grid landscape:grid-flow-row landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-4 portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 portrait:md:grid-cols-3 gap-8 justify-center mb-8 mx-8">
+
+  	<h2 class="unstyled title marker text-white text-5xl m-8">LastMessengerS</h2>
+	<div class="grid landscape:grid-flow-row landscape:md:grid-cols-2 landscape:lg:grid-cols-3 landscape:xl:grid-cols-4 portrait:xs:grid-cols-1 portrait:sm:grid-cols-2 portrait:md:grid-cols-3 gap-8 justify-center my-8 landscape:mx-8">
 		{artistAndTrack.map((artist) => (
 		<span>
 			{ artist.data.active &&

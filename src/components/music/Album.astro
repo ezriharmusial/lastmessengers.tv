@@ -7,6 +7,7 @@ const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => t
 ---
 
 <div class="background-radial-gradient w-full md:p-28 p-6">
+    <h2 class="unstyled font-bold text-5xl leading-[80%] tracking-tight py-8" style="color: hsl(218, 81%, 95%);">Africa4Africa <br /><span style="color: hsl(218, 81%, 75%);">Unity Album 2022</span></h2>
     <div class="container mx-auto flex portrait:flex-col gap-4 items-start justify-around relative">
         <div class="landscape:w-1/2">
             <img loading="lazy" width={640} aspectRatio={1/1} src={album.data?.image} class="rounded-lg shadow-lg" alt={album.data?.imageAlt} />
@@ -29,9 +30,8 @@ const tracklist = album.data?.tracklist.map(albumTrack => tracks.find(track => t
             </div>
 
         </div>
-        <div class="landscape:w-1/2 portrait:items-start">
+        <div class="landscape:w-1/2 portrait:items-start portrait:-order-1">
             <div class="text-2xl">
-                <h1 class="unstyled font-bold text-5xl leading-[80%] tracking-tight" style="color: hsl(218, 81%, 95%);">Africa4Africa <br /><span style="color: hsl(218, 81%, 75%);">Unity Album 2022</span></h1>
                 <p class="unstyled font-light">
                     {album.data.genres.map(genre =>
                     <span class="chip text-lg variant-glass-primary mr-2">{genre}</span>
