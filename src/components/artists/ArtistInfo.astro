@@ -5,7 +5,6 @@ import { Icon } from 'astro-icon'
 import Artist from "./Artist.astro";
 // import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import Share from '~components/ux/Share.astro';
 
 // Match track to artist
 const artist = await Astro.props?.artist
@@ -20,14 +19,17 @@ let player = {track: ""}
 
 ---
 
-    <div class={"landscape:w-72 shrink-0 portrait:h-1/2 text-left landscape:h-screen landscape:overflow-y-auto"}>
-        <header class="mr-4 mt-4">
+    <div class={"portrait:h-1/2 text-left"}>
+        <header>
             <Artist artist={artist} />
         </header>
         <footer class="text-2xl text-bold  " + artist.data?.track.data?.bgColor + " " + artist.data?.track.data?.color >
+            {artist.data?.track.data?.quote &&
             <blockquote class="text-4xl text-italic text-bold p-4" cite={Astro.site + "/artists/" + artist?.slug}>
                 <span class="text-4xl">"</span> {artist.data?.track.data?.quote}<span class="text-4xl">"</span>
             </blockquote>
+            }
+
             <h3 class="p-4">Follow {artist.data?.title} on:</h3>
             <div class="flex flex-col items-start">
                 {artist.data?.twitter &&
@@ -87,7 +89,6 @@ let player = {track: ""}
                     </a>
                 }
             </div>
-            <Share data={artist.data} />
         </footer>
     </div>
 <style>
