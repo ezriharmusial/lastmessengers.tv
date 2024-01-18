@@ -27,7 +27,7 @@ import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lastmessengers.netlify.app',
+  site: 'https://lastmessengers.tv',
   integrations: [sitemap(), svelte(), tailwind()
   // critters(),
   // deadLinks(),
