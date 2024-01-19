@@ -1,5 +1,7 @@
 ---
 import { SITE_DESCRIPTION, SITE_TITLE } from '~consts';
+import seoSettings from '@content/settings/_seo.yml';
+const { fbappid } = seoSettings
 
 export interface Props {
 	title: string;
@@ -10,7 +12,7 @@ export interface Props {
 	fbappid?: string;
 }
 
-const { title, seoTitle, description, image, imageAlt, fbappid } = Astro.props
+const { title, seoTitle, description, image, imageAlt } = Astro.props
 
 // Catch Image Url Inconsistencies
 function imageUrl(image:string = "/images/manifest/pwa-512x512.png") {

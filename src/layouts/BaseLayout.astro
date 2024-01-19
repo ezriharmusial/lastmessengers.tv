@@ -4,23 +4,14 @@ import '@styles/theme.postcss';
 import '@skeletonlabs/skeleton/styles/all.css'
 import '@styles/app.postcss';
 
-import { AppShell, AppBar } from '@skeletonlabs/skeleton'
 import { useUserAgent } from "astro-useragent";
 // import { Image } from 'astro:assets';
-import { Icon } from "astro-icon";
 import { ViewTransitions } from 'astro:transitions';
 
 import Fonts from '../components/head/Fonts.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/head/SEO.astro';
-import seoSettings from '../content/settings/_seo.yml';
 import siteSettings from '../content/settings/_settings.yml';
-import PageNavList from '~components/ux/PageNavList.astro';
-
-import BrandFlag from '~components/ui/BrandFlag.astro';
-import SocialNav from '~components/ui/SocialNav.astro';
-import PageTitle from '~components/ui/PageTitle.astro';
-import NavSidebar from '~components/ui/NavSidebar.astro';
 
 export interface Props {
     title: string;
@@ -35,7 +26,6 @@ const uaString = Astro.request.headers.get("user-agent");
 const { isMobile } = useUserAgent(uaString);
 
 const { theme } = siteSettings
-const { fbappid } = seoSettings
 const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || Astro.props)
 ---
 
@@ -44,7 +34,7 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 <head>
     <link rel="preload" as="image" href="/images/red-black-purple-gold-with-sun.svg">
     <!-- Site Meta & SEO -->
-    <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} fbappid={fbappid} />
+    <SEO description={description} title={title} image={image} imageAlt={imageAlt} seoTitle={seoTitle} />
     <!-- Fonts -->
     <Fonts />
     <ViewTransitions />

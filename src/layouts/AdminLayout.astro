@@ -4,7 +4,9 @@ import '@styles/theme.postcss';
 import '@skeletonlabs/skeleton/styles/all.css'
 import '@styles/app.postcss';
 
+
 import Fonts from '../components/head/Fonts.astro';
+import SEO from '~components/head/SEO.astro';
 ---
 
 <!DOCTYPE html>
@@ -13,6 +15,8 @@ import Fonts from '../components/head/Fonts.astro';
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" content={Astro.generator} />
+    <!-- Site Meta & SEO -->
+    <SEO description="Edit the website content here" title="LMS CMS" image="/images/manifest/pwa-512x512.png" imageAlt="LMS Music website" />
 	<Fonts />
 	<!-- Note the "type" and "rel" attribute values, which are required. -->
 	<link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
