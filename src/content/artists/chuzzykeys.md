@@ -4,7 +4,7 @@ voices:
   - tenor
 image: /uploads/artists/chuzzy-keys-3.png
 active: true
-title: Chuzzykeys
+title: ChuzzyKeys
 facebook: Chuzzykeysbeatz
 youtube: UCpeapGeIftQVo6TYEUNUi6g
 meaning: keyboard music instrument recognition
