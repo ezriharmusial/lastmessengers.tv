@@ -1,15 +1,12 @@
 ---
-
 voices:
   - alto
   - tenor
-image: /uploads/artists/Chuzzy-Keys-3.png
+image: /uploads/artists/chuzzy-keys-3.png
 active: true
 title: Chuzzykeys
-tiktok: chuzzykeysbeatz
 facebook: Chuzzykeysbeatz
 youtube: UCpeapGeIftQVo6TYEUNUi6g
-audiomac: chuzzykeys
 meaning: keyboard music instrument recognition
 sex: male
 languages:
@@ -30,10 +27,11 @@ instruments:
   - Accoustic Guitar
   - Saxophone
   - Xylophone
+performance_setup:
+  - a band
 mission: help other upcoming good artists grow
 reason: to make people happy and have a very big fanbase, develop himself and others
 success: being very rich and famous
-actions: practicing and listening to music every day
 discography: Cradle
 society: music is a thing of the soul that can change one's mood, especially
   when depressed
@@ -44,8 +42,6 @@ vocal_skills:
 vision: be a very rich and famous artist
 inspiration: in anywhere at all
 youth_influences: gospel music
-performance_setup:
-  - a band
 proffession: music producer
 instagram: chuzzykeys_beatz
 genres:
@@ -53,8 +49,11 @@ genres:
   - Hip Hop
   - Afro-Pop
 wishes: to be consistent with whatever one does
-solution: by seeing more creativity in one-self
 motivation: moods and emotions
+solution: by seeing more creativity in one-self
+audiomac: chuzzykeys
+tiktok: chuzzykeysbeatz
+actions: practicing and listening to music every day
 influences: came from gospel music and popular artists and today listens mostly
   to Afrobeat, Hip Hop, R&B and Highlife
 purpose: to develop himself and others
