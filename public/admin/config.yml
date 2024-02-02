@@ -97,14 +97,82 @@ collections:
     create: true
     fields:
       - name: nav_label
+        label: 'Navigation name'
         required: false
       - {name: 'image', label: 'Profile Picture', widget: 'image', required: false, media_folder: '/public/uploads/artists', public_folder: '/uploads/artists' }
       - name: active
-        label: 'Under Contract'
+        label: 'Under Active Contract'
         widget: boolean
         default: true
       - name: title
         label: 'Records and performs under the Artist Name'
+      - name: meaning
+        label: 'His/her Artist Name means'
+        required: false
+      - name: name
+        label: 'Real Name'
+        default: Unknown
+      - name: sex
+        label: 'Sex of the Artist. Plural if its a group.'
+        widget: 'select'
+        options: ['male', 'female', 'plural']
+      - name: 'languages'
+        label: 'Artist makes music in (Languages)'
+        singular: 'Language'
+        widget: 'list'
+        default: 'English'
+        required: false
+      - name: 'genres'
+        label: 'Artist makes music in (Genres)'
+        widget: 'list'
+        default: 'Afrobeat'
+        required: false
+      - name: discography
+        label: 'Tracks'
+        widget: 'relation'
+        collection: 'tracks'
+        value_field: 'title'
+        search_fields: ['title', 'artist', 'featuring_artist', 'producer', 'lyrics' ]
+        required: false
+        multiple: false
+      - name: 'profession'
+        label: 'Musical Profession'
+        widget: select
+        options: ['performing artist', 'featuring artist', 'music producer', 'writer']
+        multiple: true
+        default: 'performing artist'
+        required: false
+      - name: 'vocal_type'
+        label: 'Vocal Type'
+        singular: 'Musical Skill'
+        widget: 'select'
+        multiple: true
+        options: ['soprano', 'alto', 'tenor', 'bass', treble]
+        required: false
+      - name: 'vocal_skills'
+        label: 'Vocal Skills'
+        widget: 'select'
+        options: ['singing', 'rapping', 'beatboxing', 'spoken word', 'motivational speaker']
+        multiple: true
+        required: false
+        default: 'singing'
+      - name: 'instruments'
+        label: 'Instruments'
+        singular: 'Instrument'
+        widget: 'list'
+        default: 'voice'
+        required: false
+      - name: performance_setup
+        label: 'Performance setup'
+        widget: 'select'
+        options: ['instrumental tracks', 'a band', 'an orchestra', 'a dj']
+        multiple: true
+        default: 'instrumental tracks'
+        required: false
+      - name: body
+        label: history
+        widget: markdown
+        required: false
       - name: twitter
         label: "Twitter Handle"
         required: false
@@ -126,59 +194,9 @@ collections:
       - name: audiomack
         label: "Audiomack Channel"
         required: false
-      - name: meaning
-        label: 'His/her Artist Name means'
-      - name: name
-        label: 'Real Name'
-        default: Unknown
-      - name: sex
-        widget: 'select'
-        options: ['male', 'female']
-      - name: 'genres'
-        label: 'Artist makes music in (Genres)'
-        widget: 'list'
-        default: 'Afrobeat'
-      - name: 'languages'
-        label: 'Artist makes music in (Languages)'
-        singular: 'Language'
-        widget: 'list'
-        default: 'English'
-        required: false
       - name: experience
         label: 'His/her audience can expect (experience)'
         required: false
-      - name: 'profession'
-        label: 'Musical Profession'
-        widget: select
-        options: ['performing artist', 'featuring artist', 'music producer', 'writer']
-        multiple: true
-        default: 'performing artist'
-        required: false
-      - name: 'vocal_type'
-        label: 'Vocal Type'
-        singular: 'Musical Skill'
-        widget: 'select'
-        multiple: true
-        options: ['soprano', 'alto', 'tenor', 'bass', treble]
-        required: false
-      - name: 'vocal_skills'
-        label: 'Vocal Skills'
-        widget: 'select'
-        options: ['singing', 'rapping', 'beatboxing', 'spoken word', 'motivational speaker']
-        multiple: true
-        default: 'singing'
-      - name: 'instruments'
-        label: 'Instruments'
-        singular: 'Instrument'
-        widget: 'list'
-        default: 'voice'
-        required: false
-      - name: performance_setup
-        label: 'Performance setup'
-        widget: 'select'
-        options: ['instrumental tracks', 'a band', 'an orchestra', 'a dj']
-        multiple: true
-        default: 'instrumental tracks'
       - name: vision
         label: 'His/her vision is to...'
         required: false
@@ -215,17 +233,6 @@ collections:
       - name: actions
         label: 'He/she develops his/her skills by...'
         required: false
-      - name: body
-        label: history
-        widget: markdown
-        required: false
-      - name: discography
-        label: 'Album Track'
-        widget: 'relation'
-        collection: 'media'
-        value_field: 'title'
-        search_fields: ['title', 'artist', 'featuring_artist', 'producer', 'lyrics' ]
-        multiple: false
       - name: metadescription
         label: 'SEO: Description 155 Characters'
         required: false
