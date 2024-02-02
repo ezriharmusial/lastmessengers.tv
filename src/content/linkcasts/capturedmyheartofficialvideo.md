@@ -1,8 +1,9 @@
 ---
-title: CAPTURED MY HEART💖 (Official Video)
+author: EzzyHarmless
+date: 2023-10-14T19:51:43.680Z
+title: WhitneyZinny - Captured My Heart💖 (Official Video)
 subtitle: Official Video Release
 category: Launches & New Releases
-date: 2023-10-14T19:51:43.680Z
 image: https://i.ytimg.com/vi/gSZi9tRwPjg/maxresdefault.jpg
 imageRatio: aspect-[16/9]
 url: https://www.youtube.com/watch?v=gSZi9tRwPjg
