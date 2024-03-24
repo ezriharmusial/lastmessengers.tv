@@ -19,11 +19,11 @@ import SEO from '~components/head/SEO.astro';
     <SEO description="Edit the website content here" title="LMS CMS" image="/images/manifest/pwa-512x512.png" imageAlt="LMS Music website" />
 	<Fonts />
 	<!-- Note the "type" and "rel" attribute values, which are required. -->
-	<link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+	<link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 <body data-theme="crimson" class="dark:text-white light:text-black bg-blue-100">
-	<div style="display: contents">
+	<div style="display:contents;">
 
 		<!-- Include the script that builds the page and powers Netlify CMS -->
 		<script is:inline src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>

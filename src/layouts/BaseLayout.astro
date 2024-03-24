@@ -23,14 +23,14 @@ export interface Props {
 
 // Conditional info
 const uaString = Astro.request.headers.get("user-agent");
-const { isMobile } = useUserAgent(uaString);
+const { source, isMobile } = useUserAgent(uaString);
 
 const { theme } = siteSettings
 const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || Astro.props)
 ---
 
 <!DOCTYPE html>
-<html class={theme} lang="en">
+<html class={theme + " " + (isMobile ? "mobile" : "desktop")} lang="en">
 <head>
     <link rel="preload" as="image" href="/images/red-black-purple-gold-with-sun.svg">
     <!-- Site Meta & SEO -->
@@ -48,10 +48,15 @@ const { title, seoTitle, description, image, imageAlt } = (Astro.props?.data || 
 
     <div style="display: contents" class="h-full overflow-hidden">
 
+        <p>Source: {source}</p>
+        {isMobile ? <p>I'm on mobile</p> : <p>I'm on desktop</p>}
+
+
     <!-- Default Slot -->
     <slot />
 
     </div>
+
     <!-- Loader -->
     <script is:inline>
         var body = document.getElementsByTagName("BODY")[0];

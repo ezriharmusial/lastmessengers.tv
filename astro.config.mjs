@@ -45,7 +45,7 @@ export default defineConfig({
   // )
   ],
 
-  // output: "server",
+  output: "server",
   vite: {
     plugins: [yaml(), VitePluginBrowserSync(), VitePWA({
       registerType: 'autoUpdate',

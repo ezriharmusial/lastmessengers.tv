@@ -28,7 +28,7 @@ const { Content } = await page?.render() || false;
 //console.log('Page entry', slug, page)
 
 ---
-<BaseLayout description={page.data?.description} title={page.data?.title} image={page.data?.image} imageAlt={page.data?.imageAlt}>
+<BaseLayout description={page?.data?.description} title={page.data?.title} image={page.data?.image} imageAlt={page.data?.imageAlt}>
 
 	<div slot="sidebarLeftNavList">
 		{sitePages && sitePages.map((page) => (
