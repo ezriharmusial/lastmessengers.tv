@@ -1,33 +1,23 @@
 ---
-image: /uploads/artists/Whitney-Zinny-5.png
-active: true
+active: false
 title: WhitneyZinny
-name: Orji Lois Ezinne
 twitter: BIAFRAEzinne
 instagram: whitneyzinny
 facebook: orji.ezinneeliane
 youtube: UCQGrelinbZfFJm0vwUP6JkA
-audiomac: whitneyzinny
-meaning: white island and reveres the late artist Whitney Houston, whose
-  incredible voice and articulative songs has inspired her and so many others in
-  the Music Industry. She choose this name to honor her inspiration and because
-  she believes she is an incredible singer. Zinny is the short form of her
-  native name Ezinne which means Good Mother
+name: Orji Lois Ezinne
 sex: female
 genres:
   - Hip Hop
   - R&B
   - Afrobeat
-languages:
-  - English
-  - Igbo
-profession:
-  - performing artist
-  - writer
 vocal_type:
   - soprano
   - tenor
   - alto
+vocal_skills:
+  - singing
+  - rapping
 instruments:
   - Keyboard
 performance_setup:
@@ -43,16 +33,25 @@ inspiration: keyboard tunes, when she is feeling down, happenings around her and
 youth_influences: choir where she practiced and trained herself owing to her
   love for music which has been everything to her
 influential_artists: Whitney Houston, Tasha Cobbs, Lauren Daigle, Celine Dion
+solution: the kind of music we listen to can either make or break us
 success: one whose music is able to reach a wide range of audience and most
   importantly being able to impact lives positively, she believes that music
   without a message is liken to an empty vessel
-purpose: impact people's lives positively through her art
-solution: the kind of music we listen to can either make or break us
 discography: Captured My Heart
-
-vocal_skills:
-  - singing
-  - rapping
+audiomac: whitneyzinny
+image: /uploads/artists/Whitney-Zinny-5.png
+meaning: white island and reveres the late artist Whitney Houston, whose
+  incredible voice and articulative songs has inspired her and so many others in
+  the Music Industry. She choose this name to honor her inspiration and because
+  she believes she is an incredible singer. Zinny is the short form of her
+  native name Ezinne which means Good Mother
+languages:
+  - English
+  - Igbo
+profession:
+  - performing artist
+  - writer
+purpose: impact people's lives positively through her art
 actions: listening to other people's art work and practicing them
 ---
 
